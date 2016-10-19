@@ -25,13 +25,13 @@
   overflow: hidden;
 }
 
-.colorBtn{
+.colorBtn, .sceneBtn{
   margin: 0;
   display: inline-block;
   vertical-align: text-bottom;
 }
 
-.colorBtnBox, .colorBtnBox2{
+.colorBtnBox, .colorBtnBox2, .sceneBtnBox{
   position: relative;
   text-align: right;
 }
@@ -45,7 +45,7 @@
   right: -5px;
 }
 
-.colorIco{
+.colorIco, .sceneIco {
   transform: translateX(5px);
 }
 
@@ -71,6 +71,11 @@
 
 .sceneIco{
   color: #222
+}
+
+.sceneBtnBox {
+  top: 36px;
+  vertical-align: bottom;
 }
 
 i.material-icons.md-32{

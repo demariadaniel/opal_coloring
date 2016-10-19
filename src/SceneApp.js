@@ -30,10 +30,10 @@ class SceneApp extends Component {
         return(
             <div className="App">
             <div className="App-header">
-                {this.state.scenes.map((scene, i)=>{
+                {this.state.scenes.map((scene, j)=>{
                     return (
-                    <FlatButton onClick={e=>this.onSceneClick(e, scene, brightColors[i+3].color)} 
-                        style={{color: brightColors[i+3].color, display: 'block', margin: '0 auto'}}>
+                    <FlatButton onClick={e=>this.onSceneClick(e, scene, brightColors[j+3].color)} 
+                        style={{color: brightColors[j+3].color, display: 'block', margin: '0 auto'}}>
                         {scene.name}
                     </FlatButton>
                     )
@@ -45,7 +45,7 @@ class SceneApp extends Component {
                 </FlatButton>
             </div>
             <div className="scenePreview" style={{color: this.state.myColor}}>
-                <i className="material-icons md-250 colorIco">
+                <i className="material-icons md-250">
                     {this.state.myScene.icon}
                 </i>
             </div>

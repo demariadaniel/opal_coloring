@@ -79,7 +79,7 @@ class App extends Component {
               {this.state.colors.map((color, i)=>{
                 if(i>4 && i!==9){
                   return(
-                    <RaisedButton key={i} onClick={e=>this.onColorClick(e, 'COLOR', i)} className="raised">
+                    <RaisedButton key={i} onClick={e=>this.onColorClick(e, i)} className="raised">
                         <p className="colorBtn">Color {i+1}</p>
                           <i className="material-icons md-32 colorIco" style={this.state.colors[i]}>opacity</i>
                     </RaisedButton>
@@ -87,7 +87,7 @@ class App extends Component {
                   } else {return null}
                 })
               }
-              <RaisedButton key={9} onClick={e=>this.onColorClick(e, 'COLOR', 9)} className="raised">
+              <RaisedButton key={9} onClick={e=>this.onColorClick(e, 9)} className="raised">
                           <p className="colorBtn">BG</p>
                             <i className="material-icons md-32 colorIco" style={this.state.colors[9]}>opacity</i>
               </RaisedButton>
@@ -103,18 +103,16 @@ class App extends Component {
               {(this.state.scene.name === 'Ghost') ? <GhostBox colors={this.state.colors}/> : null}
             </div>
 
-            <div className="sceneBtnBox">
-              <RaisedButton onClick={e=>this.onSceneClick(e)} className="raised">
-                <p className="chooseSceneBtn">Scene: {this.state.scene.name}</p>
-                <i className="material-icons md-32 sceneIco">{this.state.scene.icon}</i>
-              </RaisedButton>
-            </div>  
-
             <Drawer open={this.state.open} className="drawerStylez">
                 {(this.state.drawerIs === 'COLOR') ? <ColorApp applyColor={(color)=>this.applyColor(color)}/> : null}
                 {(this.state.drawerIs === 'SCENE') ? <SceneApp applyScene={(scene)=>this.applyScene(scene)}/> : null}
             </Drawer>
-
+            <div className="sceneBtnBox">
+              <RaisedButton onClick={e=>this.onSceneClick(e)} className="raised">
+                <p className="sceneBtn">Scene: {this.state.scene.name}</p>
+                <i className="material-icons md-32 sceneIco">{this.state.scene.icon}</i>
+              </RaisedButton>
+            </div>  
         </div>
       </MuiThemeProvider>
     )
