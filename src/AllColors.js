@@ -13,7 +13,7 @@ import {red500, red900, redA200,
     yellow500, yellowA700, yellowA200, 
     amber500, amber900, amberA200, 
     orange500, orange900, orangeA100, 
-    deepOrange500, deepOrange900, deepOrangeA200, 
+    deepOrange500, brown900, deepOrangeA200, 
     grey800, grey400
                     } from 'material-ui/styles/colors';
 
@@ -68,13 +68,13 @@ import {red500, red900, redA200,
   const yellowDk = {color: yellowA700, name: 'Yellow'};
   const amberDk = {color: amber900, name: 'Amber'};
   const orangeDk = {color: orange900, name: 'Orange'};
-  const deepOrangeDk = {color: deepOrange900, name: 'Deep Orange'};
+  const brownDk = {color: brown900, name: 'Dark Brown'};
   const darkGrey = {color: grey800, name: 'Dark Grey'};
 
 const stdColors = [purple, deepPurple, indigo, blue, lightBlue, cyan, teal, green, lightGreen, lime, yellow, amber, orange, deepOrange, red, pink, grey];
 
 const brightColors = [purpleBr, deepPurpleBr, indigoBr, blueBr, lightBlueBr, cyanBr, tealBr, greenBr, lightGreenBr, limeBr, yellowBr, amberBr, orangeBr, deepOrangeBr, redBr, pinkBr, white];
 
-const darkColors = [purpleDk, deepPurpleDk, indigoDk, blueDk, lightBlueDk, cyanDk, tealDk, greenDk, lightGreenDk, limeDk, yellowDk, amberDk, orangeDk, deepOrangeDk, redDk, pinkDk, darkGrey];
+const darkColors = [purpleDk, deepPurpleDk, indigoDk, blueDk, lightBlueDk, cyanDk, tealDk, greenDk, lightGreenDk, limeDk, yellowDk, amberDk, orangeDk, brownDk, redDk, pinkDk, darkGrey];
 
 export {stdColors, brightColors, darkColors, white, grey, darkGrey}

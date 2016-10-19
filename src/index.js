@@ -1,8 +1,16 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import ColorApp from './ColorApp';
-import {white, darkGrey} from './AllColors';
-import RainbowBox from './RainbowBox';
+import {white} from './AllColors';
+
+import FairyBox from './scenes/FairyBox';
+import FarmBox from './scenes/FarmBox';
+import GhostBox from './scenes/GhostBox';
+import MermaidBox from './scenes/MermaidBox';
+import RainbowBox from './scenes/RainbowBox';
+import SkyCastleBox from './scenes/SkyCastleBox';
+import TreasureBox from './scenes/TreasureBox';
+
 import Drawer from 'material-ui/Drawer';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -14,7 +22,8 @@ class App extends Component {
     open: false,
     index: 1,
     drawerIs: 'COLOR',
-    colors: [white, white, white, white, white, white, white, white, white, white]
+    colors: [white, white, white, white, white, white, white, white, white, white],
+    scene: 'mermaid'
   }
   onColorClick(e, button, num){
       this.setState({
@@ -28,6 +37,12 @@ class App extends Component {
     newColors.splice(this.state.index, 1, color);
     this.setState({
       colors: newColors,
+      open: false
+    });
+  }
+  applyScene(scene){
+    this.setState({
+      scene: scene,
       open: false
     });
   }
@@ -67,11 +82,18 @@ class App extends Component {
             </div>
 
             <div className="BG" style={{backgroundColor: this.state.colors[9].color}}>
-                <RainbowBox colors={this.state.colors}/>
+              {(this.state.scene === 'rainbow') ? <RainbowBox colors={this.state.colors}/> : null}
+              {(this.state.scene === 'mermaid') ? <MermaidBox colors={this.state.colors}/> : null}
+              {(this.state.scene === 'sky_castle') ? <SkyCastleBox colors={this.state.colors}/> : null}
+              {(this.state.scene === 'farm') ? <FarmBox colors={this.state.colors}/> : null}
+              {(this.state.scene === 'fairy') ? <FairyBox colors={this.state.colors}/> : null}
+              {(this.state.scene === 'treasure') ? <TreasureBox colors={this.state.colors}/> : null}
+              {(this.state.scene === 'ghost') ? <GhostBox colors={this.state.colors}/> : null}
             </div>
 
             <Drawer open={this.state.open} className="drawerStylez">
                 {(this.state.drawerIs === 'COLOR') ? <ColorApp applyColor={(color)=>this.applyColor(color)}/> : null}
+                {(this.state.drawerIs === 'SCENE') ? <SceneApp applyScene={(scene)=>this.applyScene(scene)}/> : null}
             </Drawer>
 
         </div>
