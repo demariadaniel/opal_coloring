@@ -69,6 +69,10 @@
   overflow: contain;
 }
 
+.sceneIco{
+  color: #222
+}
+
 i.material-icons.md-32{
   font-size: 32px;
   transition: all ease 0.25s;

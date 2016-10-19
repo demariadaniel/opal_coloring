@@ -1,8 +1,10 @@
+// React
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+// Drawer Components
 import ColorApp from './ColorApp';
-import {white} from './AllColors';
-
+import SceneApp from './SceneApp';
+// Scenes
 import FairyBox from './scenes/FairyBox';
 import FarmBox from './scenes/FarmBox';
 import GhostBox from './scenes/GhostBox';
@@ -10,10 +12,12 @@ import MermaidBox from './scenes/MermaidBox';
 import RainbowBox from './scenes/RainbowBox';
 import SkyCastleBox from './scenes/SkyCastleBox';
 import TreasureBox from './scenes/TreasureBox';
-
+// Material Components
 import Drawer from 'material-ui/Drawer';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+// Styles & Colors
+import {white} from './AllColors';
 import './index.css';
 import './App.css';
 
@@ -23,12 +27,20 @@ class App extends Component {
     index: 1,
     drawerIs: 'COLOR',
     colors: [white, white, white, white, white, white, white, white, white, white],
-    scene: 'mermaid'
+    scene: {name:'Sky Castle', icon: "wb_cloudy"}
   }
-  onColorClick(e, button, num){
+  onColorClick(e, num){
       this.setState({
         open: !this.state.open,
-        index: num
+        index: num,
+        drawerIs: 'COLOR'
+      });
+      console.log(this)
+  }
+  onSceneClick(e){
+      this.setState({
+        open: !this.state.open,
+        drawerIs: 'SCENE'
       });
       console.log(this)
   }
@@ -54,7 +66,7 @@ class App extends Component {
               {this.state.colors.map((color, i)=>{
                 if(i<5){
                   return(
-                    <RaisedButton key={i} onClick={e=>this.onColorClick(e, 'COLOR', i)} className="raised">
+                    <RaisedButton key={i} onClick={e=>this.onColorClick(e, i)} className="raised">
                         <p className="colorBtn">Color {i+1}</p>
                           <i className="material-icons md-32 colorIco" style={this.state.colors[i]}>opacity</i>
                     </RaisedButton>
@@ -82,14 +94,21 @@ class App extends Component {
             </div>
 
             <div className="BG" style={{backgroundColor: this.state.colors[9].color}}>
-              {(this.state.scene === 'rainbow') ? <RainbowBox colors={this.state.colors}/> : null}
-              {(this.state.scene === 'mermaid') ? <MermaidBox colors={this.state.colors}/> : null}
-              {(this.state.scene === 'sky_castle') ? <SkyCastleBox colors={this.state.colors}/> : null}
-              {(this.state.scene === 'farm') ? <FarmBox colors={this.state.colors}/> : null}
-              {(this.state.scene === 'fairy') ? <FairyBox colors={this.state.colors}/> : null}
-              {(this.state.scene === 'treasure') ? <TreasureBox colors={this.state.colors}/> : null}
-              {(this.state.scene === 'ghost') ? <GhostBox colors={this.state.colors}/> : null}
+              {(this.state.scene.name === 'Rainbow') ? <RainbowBox colors={this.state.colors}/> : null}
+              {(this.state.scene.name === 'Mermaid') ? <MermaidBox colors={this.state.colors}/> : null}
+              {(this.state.scene.name === 'Sky Castle') ? <SkyCastleBox colors={this.state.colors}/> : null}
+              {(this.state.scene.name === 'Farm') ? <FarmBox colors={this.state.colors}/> : null}
+              {(this.state.scene.name === 'Fairy') ? <FairyBox colors={this.state.colors}/> : null}
+              {(this.state.scene.name === 'Treasure') ? <TreasureBox colors={this.state.colors}/> : null}
+              {(this.state.scene.name === 'Ghost') ? <GhostBox colors={this.state.colors}/> : null}
             </div>
+
+            <div className="sceneBtnBox">
+              <RaisedButton onClick={e=>this.onSceneClick(e)} className="raised">
+                <p className="chooseSceneBtn">Scene: {this.state.scene.name}</p>
+                <i className="material-icons md-32 sceneIco">{this.state.scene.icon}</i>
+              </RaisedButton>
+            </div>  
 
             <Drawer open={this.state.open} className="drawerStylez">
                 {(this.state.drawerIs === 'COLOR') ? <ColorApp applyColor={(color)=>this.applyColor(color)}/> : null}
