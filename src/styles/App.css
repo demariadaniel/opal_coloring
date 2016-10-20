@@ -18,7 +18,8 @@
 }
 
 .BG {
-  width: 90%;
+  width: 1296px;
+  height: 500px;
   margin: 0 auto;
   position: relative;
   top: 36px;
@@ -63,6 +64,16 @@
 
 .drawerStylez {
   padding: 5px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.layer {
+  position: absolute;
+  top: 0px;
+  left: 0px;
 }
 
 .raised {

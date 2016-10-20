@@ -32,7 +32,9 @@ class SceneApp extends Component {
             <div className="App-header">
                 {this.state.scenes.map((scene, j)=>{
                     return (
-                    <FlatButton onClick={e=>this.onSceneClick(e, scene, brightColors[j+3].color)} 
+                    <FlatButton 
+                        key={j}
+                        onClick={e=>this.onSceneClick(e, scene, brightColors[j+3].color)} 
                         style={{color: brightColors[j+3].color, display: 'block', margin: '0 auto'}}>
                         {scene.name}
                     </FlatButton>
