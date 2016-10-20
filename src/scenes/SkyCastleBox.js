@@ -128,6 +128,26 @@ class LayerThree extends Component {
                     >
                     brightness_low
                 </i>
+                <i className="material-icons md-250"
+                    style={{'transform':'rotateZ(160deg)', 'font-size':'55px', 'top':'-139px'}}
+                    >
+                    hdr_strong
+                </i>
+                <i className="material-icons md-250"
+                    style={{'transform':'rotateZ(200deg)', 'font-size':'55px', 'left': '-52px', 'top':'-25px'}}
+                    >
+                    hdr_strong
+                </i>
+                <i className="material-icons md-250"
+                    style={{'transform':'rotateZ(245deg)', 'font-size':'55px', 'left': '-187px', 'top':'55px'}}
+                    >
+                    hdr_strong
+                </i>
+                <i className="material-icons md-250"
+                    style={{'transform':'rotateZ(285deg)', 'font-size':'55px', 'left': '-360px', 'top':'58px'}}
+                    >
+                    hdr_strong
+                </i>
             </div>
             )
     }
