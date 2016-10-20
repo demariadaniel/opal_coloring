@@ -7,12 +7,12 @@ class SceneApp extends Component {
         myScene: {name:'Sky Castle', icon: "wb_cloudy"},
         scenes: [
             {name:'Fairy', icon: "local_florist"},
-            {name:'Farm', icon: "mms"},
+            {name:'Farm', icon: "wb_sunny"},
             {name:'Ghost', icon: "all_inclusive"},
             {name:'Mermaid', icon: "filter_tilt_shift"},
             {name:'Rainbow', icon: "leak_add"},
-            {name:'Sky Castle', icon: "wb_cloudy"},
-            {name:'Treasure', icon: "texture"}
+            {name:'Sky Castle', icon: "cloud_circle"},
+            {name:'Treasure', icon: "star_half"}
         ],
         myColor: grey
     }

@@ -23,6 +23,11 @@
   position: relative;
   top: 36px;
   overflow: hidden;
+  box-shadow: 4px 4px 10px #ccc;
+}
+
+.BGcontainer {
+  background-color: rgb(254, 254, 254);
 }
 
 .colorBtn, .sceneBtn{

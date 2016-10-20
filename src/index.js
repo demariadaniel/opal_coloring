@@ -18,8 +18,8 @@ import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 // Styles & Colors
 import {white} from './AllColors';
-import './index.css';
-import './App.css';
+import './styles/index.css';
+import './styles/App.css';
 
 class App extends Component {
   state = {
@@ -27,7 +27,7 @@ class App extends Component {
     index: 1,
     drawerIs: 'COLOR',
     colors: [white, white, white, white, white, white, white, white, white, white],
-    scene: {name:'Sky Castle', icon: "wb_cloudy"}
+    scene: {name:'Sky Castle', icon: "cloud_circle"}
   }
   onColorClick(e, num){
       this.setState({

@@ -11,7 +11,7 @@ class TreasureBox extends Component {
                             key={i} 
                             style={this.props.colors[i===9 ? 0 : i]} 
                             className="material-icons md-250">
-                            texture
+                            star_half
                         </i>
                         )
                     })
