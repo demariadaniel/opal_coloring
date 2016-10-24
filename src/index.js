@@ -29,13 +29,30 @@ class App extends Component {
     colors: [white, white, white, white, white, white, white, white, white, white],
     scene: {name:'Sky Castle', icon: "cloud_circle"}
   }
+  onCancel(){
+    this.setState({
+      open: false
+    })
+  }
   onColorClick(e, num){
+    if (this.state.open){
+        this.setState({
+          open: !this.state.open  
+        });
+        setTimeout(()=>{
+          this.setState({
+            open: !this.state.open,
+            index: num,
+            drawerIs: 'COLOR'
+        });
+      }, 200)
+      } else {
       this.setState({
         open: !this.state.open,
         index: num,
         drawerIs: 'COLOR'
       });
-      console.log(this)
+    }
   }
   onSceneClick(e){
       this.setState({
@@ -103,9 +120,19 @@ class App extends Component {
               {(this.state.scene.name === 'Ghost') ? <GhostBox colors={this.state.colors}/> : null}
             </div>
 
-            <Drawer open={this.state.open} className="drawerStylez">
-                {(this.state.drawerIs === 'COLOR') ? <ColorApp applyColor={(color)=>this.applyColor(color)}/> : null}
-                {(this.state.drawerIs === 'SCENE') ? <SceneApp applyScene={(scene)=>this.applyScene(scene)}/> : null}
+            <Drawer open={this.state.open} className="drawerStylez" openSecondary={true}>
+                {(this.state.drawerIs === 'COLOR') ? 
+                  <ColorApp 
+                    applyColor={(color)=>this.applyColor(color)}
+                    onCancel={()=>this.onCancel()}
+                    /> 
+                  : null}
+                {(this.state.drawerIs === 'SCENE') ? 
+                  <SceneApp 
+                    applyScene={(scene)=>this.applyScene(scene)}
+                    onCancel={()=>this.onCancel()}
+                    /> 
+                  : null}
             </Drawer>
             <div className="sceneBtnBox">
               <RaisedButton onClick={e=>this.onSceneClick(e)} className="raised">

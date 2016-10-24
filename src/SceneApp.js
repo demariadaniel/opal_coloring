@@ -45,6 +45,9 @@ class SceneApp extends Component {
                 <FlatButton style={white} onClick={()=>this.applyScene()}>
                     Apply
                 </FlatButton>
+                <FlatButton style={white} onClick={()=>this.props.onCancel()}>
+                    Cancel
+                </FlatButton>
             </div>
             <div className="scenePreview" style={{color: this.state.myColor}}>
                 <i className="material-icons md-250">

@@ -123,28 +123,29 @@ class LayerThree extends Component {
     render(){
         return(
             <div style={this.props.colors[2]} className="layer">
+                {/* Sun & Rays */}
                 <i className="material-icons md-250"
                     style={{'top':'15px', 'left':'15px'}}
                     >
                     brightness_low
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(160deg)', 'font-size':'55px', 'top':'-139px'}}
+                    style={{'transform':'rotateZ(160deg)', 'fontSize':'55px', 'top':'-139px'}}
                     >
                     hdr_strong
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(200deg)', 'font-size':'55px', 'left': '-52px', 'top':'-25px'}}
+                    style={{'transform':'rotateZ(200deg)', 'fontSize':'55px', 'left': '-52px', 'top':'-25px'}}
                     >
                     hdr_strong
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(245deg)', 'font-size':'55px', 'left': '-187px', 'top':'55px'}}
+                    style={{'transform':'rotateZ(245deg)', 'fontSize':'55px', 'left': '-187px', 'top':'55px'}}
                     >
                     hdr_strong
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(285deg)', 'font-size':'55px', 'left': '-360px', 'top':'58px'}}
+                    style={{'transform':'rotateZ(285deg)', 'fontSize':'55px', 'left': '-360px', 'top':'58px'}}
                     >
                     hdr_strong
                 </i>
@@ -157,7 +158,7 @@ class LayerFour extends Component {
         return(
             <div style={this.props.colors[3]} className="layer hidden">
                 <i className="material-icons md-250"
-                    style={{"font-size":"360px"}}
+                    style={{"fontSize":"360px"}}
                     >
                     rss_feed
                 </i>
