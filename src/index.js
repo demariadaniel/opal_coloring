@@ -38,20 +38,20 @@ class App extends Component {
     if (this.state.open){
         this.setState({
           open: !this.state.open  
-        });
+        })
         setTimeout(()=>{
           this.setState({
             open: !this.state.open,
             index: num,
             drawerIs: 'COLOR'
-        });
+        })
       }, 200)
       } else {
       this.setState({
         open: !this.state.open,
         index: num,
         drawerIs: 'COLOR'
-      });
+      })
     }
   }
   onSceneClick(e){
