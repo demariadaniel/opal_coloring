@@ -260,7 +260,31 @@ class LayerFive extends Component {
                     }} >
                     mic_none
                 </i>
+                {/* Aang */}
+              {/*  <i className="material-icons md-250"
+                    style={{"left": "53.25rem", "top": "2.5rem", "fontSize": "4rem", "position":"absolute",
+                        "transform":"rotateZ(180deg)"
+                    }} >
+                    panorama_fish_eye
+                </i>
                 <i className="material-icons md-250"
+                    style={{"left": "53.8rem", "top": "2.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    arrow_downward
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "60.75rem", "top": "2.5rem", "fontSize": "4rem", "position":"absolute",
+                        "transform":"rotateZ(180deg)"
+                    }} >
+                    panorama_fish_eye
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "61.3rem", "top": "2.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    arrow_downward
+                </i> */}
+                {/* Extra Lights */}
+              {/*  <i className="material-icons md-250"
                     style={{"left": "53.25rem", "top": "2.5rem", "fontSize": "4rem", "position":"absolute",
                         "transform":"rotateZ(180deg)"
                     }} >
@@ -281,7 +305,20 @@ class LayerFive extends Component {
                     style={{"left": "60.75rem", "top": "2.8rem", "fontSize": "4rem", "position":"absolute",
                     }} >
                     mic_none
+                </i> */}
+                 {/* Arrows */}
+               {/* <i className="material-icons md-250"
+                    style={{"left": "52.7rem", "top": "5rem", "fontSize": "5rem", "position":"absolute",
+                    "transform":"rotateZ(180deg) rotateY(180deg)"
+                    }} >
+                    call_split
                 </i>
+                <i className="material-icons md-250"
+                    style={{"left": "60.3rem", "top": "5rem", "fontSize": "5rem", "position":"absolute",
+                    "transform":"rotateZ(180deg)"
+                    }} >
+                    call_split
+                </i> */}
             </div>
             )
     }
