@@ -96,12 +96,12 @@
 }
 
 i.material-icons.md-32{
-  font-size: 32px;
+  font-size: 2rem; /* 32px */
   transition: all ease 0.25s;
 }
 
 i.material-icons.md-250{
-  font-size: 250px;
+  font-size: 15.625rem; /* 250px */
   position: relative;
   /* Use when making designs */
   /*position: absolute;

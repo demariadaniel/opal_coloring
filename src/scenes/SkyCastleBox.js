@@ -1,6 +1,12 @@
 import React, { Component } from 'react';
 //import SkyCastle from './scenes/sky_castle';
 
+ {/* REM Measurements: 
+     7.8125rem = 125px
+     3.4375rem = 55px
+     22.5rem   = 360px
+                        */}
+
 class SkyCastleBox extends Component {
     state = {
         colors: this.props.colors
@@ -29,7 +35,7 @@ class LayerOne extends Component {
             <div style={this.props.colors[0]} className="layer">
                 {/* Top Left Cloud */}
                 <i className="material-icons md-250"
-                    style={{'left': '309px', 'fontSize': '125px'}}
+                    style={{'left': '309px', 'fontSize': '7.8125rem'}}
                     >
                     cloud
                 </i>
@@ -43,7 +49,7 @@ class LayerOne extends Component {
                 </i>
                 {/* Bottom Right Cloud */}
                 <i className="material-icons md-250"
-                    style={{'left': '100px', 'top':'250px', 'fontSize': '125px'}}
+                    style={{'left': '100px', 'top':'250px', 'fontSize': '7.8125rem'}}
                     >
                     cloud
                 </i>
@@ -69,49 +75,49 @@ class LayerTwo extends Component {
             {/* Castle Cloud Base */}
                 {/* Left */}
                 <i className="material-icons md-250"
-                    style={{'fontSize': '125px', 'left':'150px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'150px', 'top':'280px'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '125px', 'left':'130px', 'top':'300px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'130px', 'top':'300px'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '125px', 'left':'110px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'110px', 'top':'280px'}}
                     >
                     cloud
                 </i>
                 {/* 3/4 Right */}
                 <i className="material-icons md-250"
-                    style={{'fontSize': '125px', 'left':'150px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'150px', 'top':'280px'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '125px', 'left':'130px', 'top':'300px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'130px', 'top':'300px'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '125px', 'left':'110px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'110px', 'top':'280px'}}
                     >
                     cloud
                 </i>
                 {/* Far Right */}
                 <i className="material-icons md-250"
-                    style={{'fontSize': '125px', 'left':'260px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'260px', 'top':'280px'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '125px', 'left':'230px', 'top':'300px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'230px', 'top':'300px'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '125px', 'left':'210px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'210px', 'top':'280px'}}
                     >
                     cloud
                 </i>
@@ -130,22 +136,22 @@ class LayerThree extends Component {
                     brightness_low
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(160deg)', 'fontSize':'55px', 'top':'-139px'}}
+                    style={{'transform':'rotateZ(160deg)', 'fontSize':'3.4375rem', 'top':'-139px'}}
                     >
                     hdr_strong
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(200deg)', 'fontSize':'55px', 'left': '-52px', 'top':'-25px'}}
+                    style={{'transform':'rotateZ(200deg)', 'fontSize':'3.4375rem', 'left': '-52px', 'top':'-25px'}}
                     >
                     hdr_strong
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(245deg)', 'fontSize':'55px', 'left': '-187px', 'top':'55px'}}
+                    style={{'transform':'rotateZ(245deg)', 'fontSize':'3.4375rem', 'left': '-187px', 'top':'55px'}}
                     >
                     hdr_strong
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(285deg)', 'fontSize':'55px', 'left': '-360px', 'top':'58px'}}
+                    style={{'transform':'rotateZ(285deg)', 'fontSize':'3.4375rem', 'left': '-360px', 'top':'58px'}}
                     >
                     hdr_strong
                 </i>
@@ -158,7 +164,7 @@ class LayerFour extends Component {
         return(
             <div style={this.props.colors[3]} className="layer hidden">
                 <i className="material-icons md-250"
-                    style={{"fontSize":"360px"}}
+                    style={{"fontSize":"22.5rem"}}
                     >
                     rss_feed
                 </i>
