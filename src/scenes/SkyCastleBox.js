@@ -219,9 +219,68 @@ class LayerFour extends Component {
 class LayerFive extends Component {
     render(){
         return(
-            <div style={this.props.colors[4]} className="layer hidden">
-                <i className="material-icons md-250">
-                    cloud_circle
+            <div style={this.props.colors[4]} className="layer">
+                {/* Roof */}
+                <i className="material-icons md-250"
+                    style={{"left": "56.65rem", "top": "-0.25rem", "fontSize": "5rem", "position":"absolute"}}
+                    >
+                    account_balance
+                </i>
+                {/* Flag */}
+                <i className="material-icons md-250"
+                    style={{"left": "48rem", "top": "3rem", "fontSize": "4rem", "position":"absolute"}}
+                    >
+                    assistant_photo
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "68rem", "top": "3rem", "fontSize": "4rem", "position":"absolute"}}
+                    >
+                    assistant_photo
+                </i>
+                {/* Lights */}
+                <i className="material-icons md-250"
+                    style={{"left": "53.25rem", "top": "12.5rem", "fontSize": "4rem", "position":"absolute",
+                        "transform":"rotateZ(180deg)"
+                    }} >
+                    mic_none
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "60.75rem", "top": "12.5rem", "fontSize": "4rem", "position":"absolute",
+                        "transform":"rotateZ(180deg)"
+                    }} >
+                    mic_none
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "53.25rem", "top": "12.8rem", "fontSize": "4rem", "position":"absolute"
+                    }} >
+                    mic_none
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "60.75rem", "top": "12.8rem", "fontSize": "4rem", "position":"absolute"
+                    }} >
+                    mic_none
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "53.25rem", "top": "2.5rem", "fontSize": "4rem", "position":"absolute",
+                        "transform":"rotateZ(180deg)"
+                    }} >
+                    mic_none
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "60.75rem", "top": "2.5rem", "fontSize": "4rem", "position":"absolute",
+                        "transform":"rotateZ(180deg)"
+                    }} >
+                    mic_none
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "53.25rem", "top": "2.8rem", "fontSize": "4rem", "position":"absolute"
+                    }} >
+                    mic_none
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "60.75rem", "top": "2.8rem", "fontSize": "4rem", "position":"absolute",
+                    }} >
+                    mic_none
                 </i>
             </div>
             )
@@ -277,6 +336,17 @@ class LayerSix extends Component {
                     }}
                     >
                     view_headline
+                </i>
+                {/* Throne */}
+                <i className="material-icons md-250"
+                    style={{"left": "56rem", "top": "5rem", "fontSize": "3rem", "position":"absolute"}}
+                    >
+                    event_seat
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "59rem", "top": "5rem", "fontSize": "3rem", "position":"absolute"}}
+                    >
+                    event_seat
                 </i>
             </div>
             )
