@@ -35,12 +35,12 @@ class LayerOne extends Component {
             <div style={this.props.colors[0]} className="layer">
                 {/* Top Left Cloud */}
                 <i className="material-icons md-250"
-                    style={{'left': '309px', 'fontSize': '7.8125rem'}}
+                    style={{'left': '19.3125rem', 'fontSize': '7.8125rem'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'left': '309px', 'top': '23px'}}
+                    style={{'left': '19.3125rem', 'top': '1.5rem'}}
                     >
                     cloud
                 </i>
@@ -49,17 +49,17 @@ class LayerOne extends Component {
                 </i>
                 {/* Bottom Right Cloud */}
                 <i className="material-icons md-250"
-                    style={{'left': '100px', 'top':'250px', 'fontSize': '7.8125rem'}}
+                    style={{'left': '6.25rem', 'top':'15.625rem', 'fontSize': '7.8125rem'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'left': '209px', 'top':'250px'}}
+                    style={{'left': '13.0625rem', 'top':'15.625rem'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'left': '-160px', 'top':'250px'}}
+                    style={{'left': '-10rem', 'top':'15.625rem'}}
                     >
                     cloud
                 </i>
@@ -75,49 +75,49 @@ class LayerTwo extends Component {
             {/* Castle Cloud Base */}
                 {/* Left */}
                 <i className="material-icons md-250"
-                    style={{'fontSize': '7.8125rem', 'left':'150px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'9.375rem', 'top':'17.5rem'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '7.8125rem', 'left':'130px', 'top':'300px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'8.125rem', 'top':'18.75rem'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '7.8125rem', 'left':'110px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'6.875rem', 'top':'17.5rem'}}
                     >
                     cloud
                 </i>
                 {/* 3/4 Right */}
                 <i className="material-icons md-250"
-                    style={{'fontSize': '7.8125rem', 'left':'150px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'9.375rem', 'top':'17.5rem'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '7.8125rem', 'left':'130px', 'top':'300px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'8.125rem', 'top':'18.75rem'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '7.8125rem', 'left':'110px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'6.875rem', 'top':'17.5rem'}}
                     >
                     cloud
                 </i>
                 {/* Far Right */}
                 <i className="material-icons md-250"
-                    style={{'fontSize': '7.8125rem', 'left':'260px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'16.25rem', 'top':'17.5rem'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '7.8125rem', 'left':'230px', 'top':'300px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'14.375rem', 'top':'18.75rem'}}
                     >
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '7.8125rem', 'left':'210px', 'top':'280px'}}
+                    style={{'fontSize': '7.8125rem', 'left':'13.125rem', 'top':'17.5rem'}}
                     >
                     cloud
                 </i>
@@ -131,27 +131,27 @@ class LayerThree extends Component {
             <div style={this.props.colors[2]} className="layer">
                 {/* Sun & Rays */}
                 <i className="material-icons md-250"
-                    style={{'top':'15px', 'left':'15px'}}
+                    style={{'top':'1rem', 'left':'1rem'}}
                     >
                     brightness_low
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(160deg)', 'fontSize':'3.4375rem', 'top':'-139px'}}
+                    style={{'transform':'rotateZ(160deg)', 'fontSize':'3.4375rem', 'top':'-8.6875rem'}}
                     >
                     hdr_strong
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(200deg)', 'fontSize':'3.4375rem', 'left': '-52px', 'top':'-25px'}}
+                    style={{'transform':'rotateZ(200deg)', 'fontSize':'3.4375rem', 'left': '-3.25rem', 'top':'-2rem'}}
                     >
                     hdr_strong
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(245deg)', 'fontSize':'3.4375rem', 'left': '-187px', 'top':'55px'}}
+                    style={{'transform':'rotateZ(245deg)', 'fontSize':'3.4375rem', 'left': '-11.6875rem', 'top':'55px'}}
                     >
                     hdr_strong
                 </i>
                 <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(285deg)', 'fontSize':'3.4375rem', 'left': '-360px', 'top':'58px'}}
+                    style={{'transform':'rotateZ(285deg)', 'fontSize':'3.4375rem', 'left': '-22.5rem', 'top':'3.625rem'}}
                     >
                     hdr_strong
                 </i>

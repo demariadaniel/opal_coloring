@@ -9,11 +9,11 @@ Inspired By:
     Luke Pearson - Hidden Iceland Interactive
     http://mumblingidiot.deviantart.com/art/Hidden-Iceland-Interactive-125372001    
 
-    Andrea Beaty - Iggy Peck, Architect
-    https://www.andreabeaty.com/iggy-peck-architect.html
-
     Alex Anderson - Fishing Shack Flag
     https://dribbble.com/shots/3035570-Fishing-Shack-Flag
 
     Steve Wolf - Levi's Commuter Magazine
     https://dribbble.com/shots/3040804-Levi-s-Commuter-magazine
+
+    Andrea Beaty - Iggy Peck, Architect
+    https://www.andreabeaty.com/iggy-peck-architect.html

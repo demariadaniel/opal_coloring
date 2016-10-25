@@ -7,7 +7,7 @@
 .App-header {
   background-color: #222;
   height: 60%;
-  padding: 20px;
+  padding: 1.25rem;
   color: white;
 }
 
@@ -23,9 +23,9 @@
   height: 71vh; /* 500px */
   margin: 0 auto;
   position: relative;
-  top: 36px;
+  top: 2.25rem;
   overflow: hidden;
-  box-shadow: 4px 4px 10px #ccc;
+  box-shadow: 0.25rem 0.25rem 0.625rem #ccc;
 }
 
 .BGcontainer {
@@ -49,11 +49,11 @@
 
 .colorBtnBox2{
   z-index:2;
-  right: -5px;
+  right: -0.3125rem;
 }
 
 .colorIco, .sceneIco {
-  transform: translateX(5px);
+  transform: translateX(0.3125rem);
 }
 
 .colorPreview {
@@ -64,7 +64,7 @@
 }
 
 .drawerStylez {
-  padding: 5px;
+  padding: 0.3125rem;
 }
 
 .hidden {
@@ -73,12 +73,12 @@
 
 .layer {
   position: absolute;
-  top: 0px;
-  left: 0px;
+  top: 0rem;
+  left: 0rem;
 }
 
 .raised {
-  margin: 0 5px;
+  margin: 0 0.3125rem;
 }
 
 .shades{
@@ -91,7 +91,7 @@
 }
 
 .sceneBtnBox {
-  top: 36px;
+  top: 2.25rem;
   vertical-align: bottom;
 }
 
