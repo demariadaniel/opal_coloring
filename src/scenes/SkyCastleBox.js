@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-//import SkyCastle from './scenes/sky_castle';
 
  {/* REM Measurements: 
      7.8125rem = 125px
@@ -32,7 +31,7 @@ class SkyCastleBox extends Component {
 class LayerOne extends Component {
     render(){
         return(
-            <div style={this.props.colors[0]} className="layer">
+            <div style={{"color":this.props.colors[0].color, "zIndex":"2"}} className="layer">
                 {/* Top Left Cloud */}
                 <i className="material-icons md-250"
                     style={{'left': '19.3125rem', 'fontSize': '7.8125rem'}}
@@ -71,7 +70,7 @@ class LayerOne extends Component {
 class LayerTwo extends Component {
     render(){
         return(
-            <div style={this.props.colors[1]} className="layer">
+            <div style={{"color":this.props.colors[1].color, "zIndex":"3"}} className="layer">
             {/* Castle Cloud Base */}
                 {/* Left */}
                 <i className="material-icons md-250"
@@ -162,11 +161,56 @@ class LayerThree extends Component {
 class LayerFour extends Component {
     render(){
         return(
-            <div style={this.props.colors[3]} className="layer hidden">
+            <div style={{"color":this.props.colors[3].color, "zIndex":"1"}} className="layer">
+                {/* Tower Details */}
                 <i className="material-icons md-250"
-                    style={{"fontSize":"22.5rem"}}
+                    style={{"fontSize":"8rem", "left":"36.75rem", "top":"3.6rem"}}
                     >
-                    rss_feed
+                    power_input
+                </i>
+                <i className="material-icons md-250"
+                    style={{"fontSize":"8rem", "left":"65.75rem", "top":"3.6rem"}}
+                    >
+                    power_input
+                </i>
+                {/* Top of Walls */}
+                <i className="material-icons md-250"
+                    style={{"fontSize":"5rem", "left":"27rem", "top":"1.85rem"}}
+                    >
+                   keyboard_capslock
+                </i>
+                <i className="material-icons md-250"
+                    style={{"fontSize":"5rem", "left":"25.5rem", "top":"1.85rem"}}
+                    >
+                   keyboard_capslock
+                </i>
+                <i className="material-icons md-250"
+                    style={{"fontSize":"5rem", "left":"24rem", "top":"1.85rem"}}
+                    >
+                   keyboard_capslock
+                </i>
+                <i className="material-icons md-250"
+                    style={{"fontSize":"5rem", "left":"32rem", "top":"1.85rem"}}
+                    >
+                   keyboard_capslock
+                </i>
+                <i className="material-icons md-250"
+                    style={{"fontSize":"5rem", "left":"30.5rem", "top":"1.85rem"}}
+                    >
+                   keyboard_capslock
+                </i>
+                <i className="material-icons md-250"
+                    style={{"fontSize":"5rem", "left":"29rem", "top":"1.85rem"}}
+                    >
+                   keyboard_capslock
+                </i>
+                {/* Stairs */}
+                <i className="material-icons md-250"
+                    style={{"left": "56.5rem", "top": "6.75rem", "fontSize": "5rem", "position":"absolute",
+                        "transform":"rotateZ(180deg)"
+                    }}
+                    >
+                    dehaze
                 </i>
             </div>
             )
@@ -186,9 +230,53 @@ class LayerFive extends Component {
 class LayerSix extends Component {
     render(){
         return(
-            <div style={this.props.colors[5]} className="layer hidden">
-                <i className="material-icons md-250">
-                    cloud_circle
+            <div style={{"color":this.props.colors[5].color, "zIndex":"1"}} className="layer">
+                {/* Left Tower */}
+                <i className="material-icons md-250"
+                    style={{"transform":"rotateZ(180deg)", "left": "36rem", "fontSize": "9rem"}}
+                    >
+                    line_style
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "27rem", "top": "8rem", "fontSize": "9rem"}}
+                    >
+                    dashboard
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "18rem", "top": "14rem", "fontSize": "9rem"}}
+                    >
+                    dashboard
+                </i>
+                {/* Right Tower */}
+                <i className="material-icons md-250"
+                    style={{"transform":"rotateZ(180deg)", "left": "46rem", "fontSize": "9rem"}}
+                    >
+                    line_style
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "37rem", "top": "8rem", "fontSize": "9rem"}}
+                    >
+                    dashboard
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "28rem", "top": "14rem", "fontSize": "9rem"}}
+                    >
+                    dashboard
+                </i>
+                {/* Doorway */}
+                <i className="material-icons md-250"
+                    style={{"left": "54rem", "top": "10rem", "fontSize": "10rem", "position":"absolute",
+                    "transform":"rotateZ(180deg)"
+                    }}
+                    >
+                    format_underline
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "56rem", "top": "16rem", "fontSize": "6rem", "position":"absolute",
+                    "transform":"rotateZ(180deg)"
+                    }}
+                    >
+                    view_headline
                 </i>
             </div>
             )

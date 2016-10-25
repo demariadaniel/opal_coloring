@@ -104,8 +104,8 @@ i.material-icons.md-250{
   font-size: 15.625rem; /* 250px */
   position: relative;
   /* Use when making designs */
-  /*position: absolute;
+  /*position: absolute;*/
   top: 0px;
-  left: 0px;*/
+  left: 0px;
   transition: all ease 0.25s;
 }
