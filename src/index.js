@@ -85,7 +85,7 @@ class App extends Component {
                   return(
                     <RaisedButton key={i} onClick={e=>this.onColorClick(e, i)} className="raised">
                         <p className="colorBtn">Color {i+1}</p>
-                          <i className="material-icons md-32 colorIco" style={this.state.colors[i]}>opacity</i>
+                        <i className="material-icons md-32 colorIco" style={this.state.colors[i]}>opacity</i>
                     </RaisedButton>
                   )
                   } else {return null}
@@ -98,15 +98,15 @@ class App extends Component {
                   return(
                     <RaisedButton key={i} onClick={e=>this.onColorClick(e, i)} className="raised">
                         <p className="colorBtn">Color {i+1}</p>
-                          <i className="material-icons md-32 colorIco" style={this.state.colors[i]}>opacity</i>
+                        <i className="material-icons md-32 colorIco" style={this.state.colors[i]}>opacity</i>
                     </RaisedButton>
                   )
                   } else {return null}
                 })
               }
               <RaisedButton key={9} onClick={e=>this.onColorClick(e, 9)} className="raised">
-                          <p className="colorBtn">BG</p>
-                            <i className="material-icons md-32 colorIco" style={this.state.colors[9]}>opacity</i>
+                  <p className="colorBtn">BG</p>
+                  <i className="material-icons md-32 colorIco" style={this.state.colors[9]}>opacity</i>
               </RaisedButton>
             </div>
 

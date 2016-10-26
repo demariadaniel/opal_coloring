@@ -248,7 +248,7 @@ class LayerFive extends Component {
                     assistant_photo
                 </i>
                 {/* Lights */}
-                <i className="material-icons md-250"
+              {/*}  <i className="material-icons md-250"
                     style={{"left": "53.25rem", "top": "11.5rem", "fontSize": "4rem", "position":"absolute",
                         "transform":"rotateZ(180deg)"
                     }} >
@@ -291,8 +291,8 @@ class LayerFive extends Component {
                     style={{"left": "60.75rem", "top": "4.8rem", "fontSize": "4rem", "position":"absolute",
                     }} >
                     mic_none
-                </i>
-                 {/* Arrows */}
+                </i> */}
+                 {/* Center Arrows */}
                 <i className="material-icons md-250"
                     style={{"left": "52.75rem", "top": "7.5rem", "fontSize": "5rem", "position":"absolute",
                     "transform":"rotateZ(90deg)"
@@ -304,6 +304,59 @@ class LayerFive extends Component {
                     "transform":"rotateZ(90deg)"
                     }} >
                     trending_flat
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "52.75rem", "top": "15.5rem", "fontSize": "5rem", "position":"absolute",
+                    "transform":"rotateZ(90deg)"
+                    }} >
+                    trending_flat
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "60.25rem", "top": "15.5rem", "fontSize": "5rem", "position":"absolute",
+                    "transform":"rotateZ(90deg)"
+                    }} >
+                    trending_flat
+                </i>
+                {/* Airbending Symbols */}
+                <i className="material-icons md-250"
+                    style={{"left": "54.25rem", "top": "12.75rem", "fontSize": "2rem", "position":"absolute"
+                    }} >
+                    arrow_downward
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "53.75rem", "top": "12.75rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    panorama_fish_eye
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "48rem", "top": "8.5rem", "fontSize": "2rem", "position":"absolute"
+                    }} >
+                    arrow_downward
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "47.5rem", "top": "8.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    panorama_fish_eye
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "68rem", "top": "8.5rem", "fontSize": "2rem", "position":"absolute"
+                    }} >
+                    arrow_downward
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "67.5rem", "top": "8.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    panorama_fish_eye
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "61.75rem", "top": "12.75rem", "fontSize": "2rem", "position":"absolute"
+                    }} >
+                    arrow_downward
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "61.25rem", "top": "12.75rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    panorama_fish_eye
                 </i>
             </div>
             )
@@ -370,6 +423,47 @@ class LayerSix extends Component {
                     style={{"left": "59rem", "top": "5rem", "fontSize": "3rem", "position":"absolute"}}
                     >
                     event_seat
+                </i>
+                {/* Inner Walls */}
+                <i className="material-icons md-250"
+                    style={{"left": "44rem", "top": "8.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    border_clear
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "44.5rem", "top": "8.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    border_clear
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "51rem", "top": "8.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    border_clear
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "50.5rem", "top": "8.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    border_clear
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "71rem", "top": "8.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    border_clear
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "70.5rem", "top": "8.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    border_clear
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "64rem", "top": "8.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    border_clear
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "64.5rem", "top": "8.5rem", "fontSize": "3rem", "position":"absolute"
+                    }} >
+                    border_clear
                 </i>
             </div>
             )
