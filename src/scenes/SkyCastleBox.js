@@ -208,9 +208,19 @@ class LayerFour extends Component {
                 <i className="material-icons md-250"
                     style={{"left": "56.5rem", "top": "6.75rem", "fontSize": "5rem", "position":"absolute",
                         "transform":"rotateZ(180deg)"
-                    }}
-                    >
+                    }}>
                     dehaze
+                </i>
+                {/* Walls */}
+                <i className="material-icons md-250"
+                    style={{"left": "43rem", "top": "10rem", "fontSize": "12rem", "position":"absolute"
+                    }}>
+                    border_inner
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "63rem", "top": "10rem", "fontSize": "12rem", "position":"absolute"
+                    }}>
+                    border_inner
                 </i>
             </div>
             )
@@ -239,13 +249,13 @@ class LayerFive extends Component {
                 </i>
                 {/* Lights */}
                 <i className="material-icons md-250"
-                    style={{"left": "53.25rem", "top": "12.5rem", "fontSize": "4rem", "position":"absolute",
+                    style={{"left": "53.25rem", "top": "11.5rem", "fontSize": "4rem", "position":"absolute",
                         "transform":"rotateZ(180deg)"
                     }} >
                     mic_none
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "60.75rem", "top": "12.5rem", "fontSize": "4rem", "position":"absolute",
+                    style={{"left": "60.75rem", "top": "11.5rem", "fontSize": "4rem", "position":"absolute",
                         "transform":"rotateZ(180deg)"
                     }} >
                     mic_none
@@ -260,65 +270,41 @@ class LayerFive extends Component {
                     }} >
                     mic_none
                 </i>
-                {/* Aang */}
-              {/*  <i className="material-icons md-250"
-                    style={{"left": "53.25rem", "top": "2.5rem", "fontSize": "4rem", "position":"absolute",
-                        "transform":"rotateZ(180deg)"
-                    }} >
-                    panorama_fish_eye
-                </i>
                 <i className="material-icons md-250"
-                    style={{"left": "53.8rem", "top": "2.5rem", "fontSize": "3rem", "position":"absolute"
-                    }} >
-                    arrow_downward
-                </i>
-                <i className="material-icons md-250"
-                    style={{"left": "60.75rem", "top": "2.5rem", "fontSize": "4rem", "position":"absolute",
-                        "transform":"rotateZ(180deg)"
-                    }} >
-                    panorama_fish_eye
-                </i>
-                <i className="material-icons md-250"
-                    style={{"left": "61.3rem", "top": "2.5rem", "fontSize": "3rem", "position":"absolute"
-                    }} >
-                    arrow_downward
-                </i> */}
-                {/* Extra Lights */}
-              {/*  <i className="material-icons md-250"
-                    style={{"left": "53.25rem", "top": "2.5rem", "fontSize": "4rem", "position":"absolute",
+                    style={{"left": "53.25rem", "top": "3.5rem", "fontSize": "4rem", "position":"absolute",
                         "transform":"rotateZ(180deg)"
                     }} >
                     mic_none
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "60.75rem", "top": "2.5rem", "fontSize": "4rem", "position":"absolute",
+                    style={{"left": "60.75rem", "top": "3.5rem", "fontSize": "4rem", "position":"absolute",
                         "transform":"rotateZ(180deg)"
                     }} >
                     mic_none
                 </i>
-                <i className="material-icons md-250"
-                    style={{"left": "53.25rem", "top": "2.8rem", "fontSize": "4rem", "position":"absolute"
+               <i className="material-icons md-250"
+                    style={{"left": "53.25rem", "top": "4.8rem", "fontSize": "4rem", "position":"absolute"
                     }} >
                     mic_none
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "60.75rem", "top": "2.8rem", "fontSize": "4rem", "position":"absolute",
+                    style={{"left": "60.75rem", "top": "4.8rem", "fontSize": "4rem", "position":"absolute",
                     }} >
                     mic_none
-                </i> */}
+                </i>
                  {/* Arrows */}
-               {/* <i className="material-icons md-250"
-                    style={{"left": "52.7rem", "top": "5rem", "fontSize": "5rem", "position":"absolute",
-                    "transform":"rotateZ(180deg) rotateY(180deg)"
+                <i className="material-icons md-250"
+                    style={{"left": "52.75rem", "top": "7.5rem", "fontSize": "5rem", "position":"absolute",
+                    "transform":"rotateZ(90deg)"
                     }} >
-                    call_split
+                    trending_flat
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "60.3rem", "top": "5rem", "fontSize": "5rem", "position":"absolute",
-                    "transform":"rotateZ(180deg)"
+                    style={{"left": "60.25rem", "top": "7.5rem", "fontSize": "5rem", "position":"absolute",
+                    "transform":"rotateZ(90deg)"
                     }} >
-                    call_split
-                </i> */}
+                    trending_flat
+                </i>
             </div>
             )
     }
