@@ -30,7 +30,7 @@ class CoinsApp extends Component {
         return(
             <div className="App">
             <div className="App-header">
-                {this.state.scenes.map((scene, j)=>{
+               {/* {this.state.scenes.map((scene, j)=>{
                     return (
                     <FlatButton 
                         key={j}
@@ -40,11 +40,11 @@ class CoinsApp extends Component {
                     </FlatButton>
                     )
                 })      
-                }
-                
-                <FlatButton style={white} onClick={()=>this.applyScene()}>
+                } 
+                 <FlatButton style={white} onClick={()=>this.applyScene()}>
                     Apply
-                </FlatButton>
+                </FlatButton> */}
+                <p className="rainbow">Feature coming soon!</p>
                 <FlatButton style={white} onClick={()=>this.props.onCancel()}>
                     Cancel
                 </FlatButton>
