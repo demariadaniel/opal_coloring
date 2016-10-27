@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import {brightColors, white, grey}  from './AllColors.js'
 
-class SceneApp extends Component {
+class FileApp extends Component {
     state = {
         myScene: {name:'Sky Castle', icon: "wb_cloudy"},
         scenes: [
@@ -59,4 +59,4 @@ class SceneApp extends Component {
     }
 }
 
-export default SceneApp;
+export default FileApp;

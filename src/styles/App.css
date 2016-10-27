@@ -11,6 +11,15 @@
   color: white;
 }
 
+.btmBtnBox {
+  position: absolute;
+  top: 90%;
+  left: 25%;
+  vertical-align: bottom;
+  width: 50%;
+  z-index: 8;
+}
+
 .BGcontainer {
   width: 100%;
   height: 100%;
@@ -32,13 +41,24 @@
   background-color: rgb(254, 254, 254);
 }
 
-.colorBtn, .sceneBtn{
+.btmBtnBoxLeft, .fileBtnBox{
+  position: relative;
+  text-align: left;
+}
+
+.btmBtnBoxLeft, .btmBtnBoxRight {
+  display: inline-block;
+  width: 45%;
+  height: 100%;
+}
+
+.colorBtn, .sceneBtn, .checkBtn, .challengeBtn {
   margin: 0;
   display: inline-block;
   vertical-align: text-bottom;
 }
 
-.colorBtnBox, .colorBtnBox2, .sceneBtnBox{
+.colorBtnBox, .colorBtnBox2, .btmBtnBoxRight{
   position: relative;
   text-align: right;
 }
@@ -88,11 +108,6 @@
 
 .sceneIco{
   color: #222
-}
-
-.sceneBtnBox {
-  top: 2.25rem;
-  vertical-align: bottom;
 }
 
 i.material-icons.md-32{

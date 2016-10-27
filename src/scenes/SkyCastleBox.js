@@ -8,7 +8,8 @@ import React, { Component } from 'react';
 
 class SkyCastleBox extends Component {
     state = {
-        colors: this.props.colors
+        colors: this.props.colors,
+        test: false
     }
     render(){
         console.log(this.state.colors)
@@ -119,6 +120,26 @@ class LayerTwo extends Component {
                     style={{'fontSize': '7.8125rem', 'left':'13.125rem', 'top':'17.5rem'}}
                     >
                     cloud
+                </i>
+                {/* Crack in Wall */}
+                <i className="material-icons md-250"
+                    style={{"left": "75rem", "top": "12rem", "fontSize": "6rem", "position":"absolute"}} 
+                    onClick={e=>{console.log('click works')}} 
+                    >
+                    show_chart
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "75rem", "top": "12rem", "fontSize": "5rem", "position":"absolute",
+                    "transform": "rotateZ(63deg)"}}
+                    onClick={e=>{console.log('click works')}} 
+                    >
+                    show_chart
+                </i>
+                {/* Hidden Panel */}
+                <i className="material-icons md-250"
+                    style={{"left": "77.5rem", "top": "8.1rem", "fontSize": "4rem", "position":"absolute"}}
+                    >
+                    folder
                 </i>
             </div>
             )
@@ -483,10 +504,8 @@ class LayerSeven extends Component {
 class LayerEight extends Component {
     render(){
         return(
-            <div style={this.props.colors[7]} className="layer hidden">
-                <i className="material-icons md-250">
-                    cloud_circle
-                </i>
+            <div style={{"color": this.props.colors[7].color, "zIndex":"2"}} className="layer">
+
             </div>
             )
     }
