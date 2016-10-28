@@ -30,19 +30,7 @@ class ChecksApp extends Component {
         return(
             <div className="App">
             <div className="App-header">
-               {/* {this.state.scenes.map((scene, j)=>{
-                    return (
-                    <FlatButton 
-                        key={j}
-                        onClick={e=>this.onSceneClick(e, scene, brightColors[j+3].color)} 
-                        style={{color: brightColors[j+3].color, display: 'block', margin: '0 auto'}}>
-                        {scene.isUnlocked ? scene.name : "?????"}
-                    </FlatButton>
-                    )
-                })      
-                }
-                
-                <FlatButton style={white} onClick={()=>this.applyScene()}>
+               {/*<FlatButton style={white} onClick={()=>this.applyScene()}>
                     Apply
                 </FlatButton>*/}
                 <p className="rainbow">Feature coming soon!</p>
@@ -52,7 +40,7 @@ class ChecksApp extends Component {
             </div>
             <div className="scenePreview" style={{color: this.state.myColor}}>
                 <i className="material-icons md-250">
-                    {this.state.myScene.icon}
+                    check
                 </i>
             </div>
           </div>
