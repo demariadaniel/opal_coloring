@@ -122,7 +122,7 @@ class LayerTwo extends Component {
                     cloud
                 </i>
                 {/* Crack in Wall */}
-                <i className="material-icons md-250"
+           {/*     <i className="material-icons md-250"
                     style={{"left": "75rem", "top": "12rem", "fontSize": "6rem", "position":"absolute"}} 
                     onClick={e=>{console.log('click works')}} 
                     >
@@ -134,13 +134,13 @@ class LayerTwo extends Component {
                     onClick={e=>{console.log('click works')}} 
                     >
                     show_chart
-                </i>
+                </i> */}
                 {/* Hidden Panel */}
-                <i className="material-icons md-250"
+               {/* <i className="material-icons md-250"
                     style={{"left": "77.5rem", "top": "8.1rem", "fontSize": "4rem", "position":"absolute"}}
                     >
                     folder
-                </i>
+                </i> */}
             </div>
             )
     }

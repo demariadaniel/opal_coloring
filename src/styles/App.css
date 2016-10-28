@@ -102,33 +102,24 @@
 }
 
 .rainbow{
-    transition: all ease 0.25s;
+    transition: all ease-out .7s;
     animation-name: rainbow;
-    animation-duration: 3s;
+    animation-duration: 7s;
     animation-iteration-count: infinite;
 }
 
 @keyframes rainbow {
   0% {color: black}
-  5% {color: indigo}
-  10% {color: darkviolet}
-  15% {color: purple}
+  10% {color: purple}
   20% {color: blue}
-  25% {color: lightblue}
-  30% {color: cyan}
-  35% {color: teal}
-  40% {color: green}
-  45% {color: lightgreen}
+  30% {color: limegreen}
+  40% {color: aquamarine}
   50% {color: lime}
-  55% {color: yellow}
-  60% {color: gold}
-  65% {color: orange}
+  60% {color: yellow}
   70% {color: darkorange}
-  75% {color: pink}
   80% {color: red }
-  85% {color: crimson }
-  90% {color: firebrick }
-  95% {color: darkred}
+  90% {color: darkred}
+  100% {color: #222}
 }
 
 .shades{

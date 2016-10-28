@@ -34,7 +34,8 @@ class SceneApp extends Component {
                     return (
                     <FlatButton 
                         key={j}
-                        onClick={e=>this.onSceneClick(e, scene, brightColors[j+3].color)} 
+                        onClick={e=>this.onSceneClick(e, scene, brightColors[j+3].color)}
+                        className = {scene.isUnlocked ? null : "rainbow"}  
                         style={{color: brightColors[j+3].color, display: 'block', margin: '0 auto'}}>
                         {scene.isUnlocked ? scene.name : "?????"}
                     </FlatButton>

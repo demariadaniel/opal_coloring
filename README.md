@@ -9,6 +9,9 @@ Inspired By:
     Luke Pearson - Hidden Iceland Interactive
     http://mumblingidiot.deviantart.com/art/Hidden-Iceland-Interactive-125372001    
 
+    Casey Kolderup - ZZT Cartography
+    http://motd.co/2012/12/zzt-cartography/
+
     Alex Anderson - Fishing Shack Flag
     https://dribbble.com/shots/3035570-Fishing-Shack-Flag
 
