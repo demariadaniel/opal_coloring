@@ -30,6 +30,9 @@ class ChecksApp extends Component {
         return(
             <div className="App">
             <div className="App-header">
+                <i className="material-icons close" onClick={()=>this.props.onCancel()}>
+                    close
+                </i>
                {/*<FlatButton style={white} onClick={()=>this.applyScene()}>
                     Apply
                 </FlatButton>*/}

@@ -25,11 +25,24 @@ import {white} from './AllColors';
 import './styles/index.css';
 import './styles/App.css';
 
+//export initColors array from AllColors
+
+// all scenes imported/managed by SceneApp
+// BG/ternary operator moved to SceneApp
+//  change BG to display this.state.currentScene.scene
+//  each scene object has it's Box component as a property
+//  export scenes array from SceneApp  
+
+//colorIndex
+//sceneIndex
+
+
 class App extends Component {
   state = {
     openL: false,
     openR: false,
-    index: 1,
+    colorIndex: 1,
+    sceneIndex: 0,
     drawerIs: 'COLOR',
     colors: [white, white, white, white, white, white, white, white, white, white],
     scene: {name:'Sky Castle', icon: "cloud_circle", isUnlocked: true}
@@ -46,14 +59,14 @@ class App extends Component {
         setTimeout(()=>{
           this.setState({
             openR: !this.state.openR,
-            index: num,
+            colorIndex: num,
             drawerIs: 'COLOR'
         })
       }, 200)
       } else {
       this.setState({
         openR: !this.state.openR,
-        index: num,
+        colorIndex: num,
         drawerIs: 'COLOR'
       })
     }
@@ -79,15 +92,16 @@ class App extends Component {
   }
   applyColor(color){
     let newColors = this.state.colors;
-    newColors.splice(this.state.index, 1, color);
+    newColors.splice(this.state.colorIndex, 1, color);
     this.setState({
       colors: newColors,
       openR: false
     });
   }
-  applyScene(scene){
+  applyScene(scene, index){
     this.setState({
       scene: scene,
+      sceneIndex: index,
       openL: false
     });
   }

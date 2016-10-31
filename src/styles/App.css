@@ -52,6 +52,14 @@
   height: 100%;
 }
 
+.close {
+  font-size: 1.3rem;
+  float: right;
+  top: 0.5rem;
+  left: 14rem;
+  position: absolute;
+}
+
 .colorBtn, .sceneBtn, .checkBtn, .challengeBtn {
   margin: 0;
   display: inline-block;

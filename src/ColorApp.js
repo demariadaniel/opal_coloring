@@ -29,6 +29,9 @@ class ColorApp extends Component {
     return (
         <div className="App">
           <div className="App-header">
+            <i className="material-icons close" onClick={()=>this.props.onCancel()}>
+                close
+            </i>
             {this.state.colors.map(color=>{
                 return (
                   <FlatButton 
@@ -54,7 +57,7 @@ class ColorApp extends Component {
                 </FlatButton>
             </div>
             <FlatButton style={white} onClick={()=>this.applyColor()}>
-                Apply
+                Choose
             </FlatButton>
             <FlatButton style={white} onClick={()=>this.props.onCancel()}>
                 Cancel

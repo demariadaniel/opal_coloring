@@ -30,6 +30,9 @@ class FileApp extends Component {
         return(
             <div className="App">
             <div className="App-header">
+                <i className="material-icons close" onClick={()=>this.props.onCancel()}>
+                    close
+                </i>
                 {this.state.scenes.map((scene, j)=>{
                     return (
                     <FlatButton 
