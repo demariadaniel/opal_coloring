@@ -15,15 +15,15 @@ class SkyCastleBox extends Component {
         console.log(this.state.colors)
         return (
             <div className="skyCastleBox">
-                <LayerOne colors={this.state.colors} />
-                <LayerTwo colors={this.state.colors} />
-                <LayerThree colors={this.state.colors} />
-                <LayerFour colors={this.state.colors} />
-                <LayerFive colors={this.state.colors} />
-                <LayerSix colors={this.state.colors} />
-                <LayerSeven colors={this.state.colors} />
-                <LayerEight colors={this.state.colors} />
-                <LayerNine colors={this.state.colors} />
+                <LayerOne color={this.state.colors[0].color} />
+                <LayerTwo color={this.state.colors[1].color} />
+                <LayerThree color={this.state.colors[2].color} />
+                <LayerFour color={this.state.colors[3].color} />
+                <LayerFive color={this.state.colors[4].color} />
+                <LayerSix color={this.state.colors[5].color} />
+                <LayerSeven color={this.state.colors[6].color} />
+                <LayerEight color={this.state.colors[7].color} />
+                <LayerNine color={this.state.colors[8].color} />
             </div>
         )
     }
@@ -32,7 +32,7 @@ class SkyCastleBox extends Component {
 class LayerOne extends Component {
     render(){
         return(
-            <div style={{"color":this.props.colors[0].color, "zIndex":"2"}} className="layer">
+            <div style={{"color":this.props.color, "zIndex":"2"}} className="layer">
                 {/* Top Left Cloud */}
                 <i className="material-icons md-250"
                     style={{'left': '19.3125rem', 'fontSize': '7.8125rem'}}
@@ -71,7 +71,7 @@ class LayerOne extends Component {
 class LayerTwo extends Component {
     render(){
         return(
-            <div style={{"color":this.props.colors[1].color, "zIndex":"3"}} className="layer">
+            <div style={{"color":this.props.color, "zIndex":"3"}} className="layer">
             {/* Castle Cloud Base */}
                 {/* Left */}
                 <i className="material-icons md-250"
@@ -148,33 +148,60 @@ class LayerTwo extends Component {
 class LayerThree extends Component {
     render(){
         return(
-            <div style={this.props.colors[2]} className="layer">
+            <div style={{"color":this.props.color}} className="layer">
                 {/* Sun & Rays */}
                 <i className="material-icons md-250"
-                    style={{'top':'1rem', 'left':'1rem'}}
+                    style={{"font-size":'10rem', "position":'absolute'}}
                     >
                     brightness_low
                 </i>
-                <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(160deg)', 'fontSize':'3.4375rem', 'top':'-8.6875rem'}}
-                    >
-                    hdr_strong
-                </i>
-                <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(200deg)', 'fontSize':'3.4375rem', 'left': '-3.25rem', 'top':'-2rem'}}
-                    >
-                    hdr_strong
-                </i>
-                <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(245deg)', 'fontSize':'3.4375rem', 'left': '-11.6875rem', 'top':'55px'}}
-                    >
-                    hdr_strong
-                </i>
-                <i className="material-icons md-250"
-                    style={{'transform':'rotateZ(285deg)', 'fontSize':'3.4375rem', 'left': '-22.5rem', 'top':'3.625rem'}}
-                    >
-                    hdr_strong
-                </i>
+                <div style={{"transform": "rotateZ(-22.5deg)", "top": "2.25rem", "left": "-1.25rem", 
+                "position": "absolute"}}>
+                    <i className="material-icons md-250"
+                        style={{'transform':'rotateZ(90deg)', 'fontSize':'2.5rem', "position":'absolute', "top":"-2.25rem", "left":"3.25rem"}}
+                        >
+                        hdr_strong
+                    </i>
+                    <i className="material-icons md-250"
+                        style={{'transform':'rotateZ(145deg)', 'fontSize':'2.5rem', "position":'absolute', "top":"-.25rem", "left":"8rem"}}
+                        >
+                        hdr_strong
+                    </i>
+                    <i className="material-icons md-250"
+                        style={{'transform':'rotateZ(180deg)', 'fontSize':'2.5rem', "position":'absolute', 
+                        "top":"3.75rem", "left":"9.5rem"}}
+                        >
+                        hdr_strong
+                    </i>
+                    <i className="material-icons md-250"
+                        style={{'transform':'rotateZ(225deg)', 'fontSize':'2.5rem', "position":'absolute',
+                        "top":"8rem", "left":"8rem" }}
+                        >
+                        hdr_strong
+                    </i>
+                    <i className="material-icons md-250"
+                        style={{'transform':'rotateZ(270deg)', 'fontSize':'2.5rem', "position":'absolute',
+                        "top":"9.5rem", "left":"3.75rem" }}
+                        >
+                        hdr_strong
+                    </i>
+                    <i className="material-icons md-250"
+                        style={{'transform':'rotateZ(-45deg)', 'fontSize':'2.5rem', "position":'absolute', "top":"8rem", "left":"-.5rem" }}
+                        >
+                        hdr_strong
+                    </i>
+                    <i className="material-icons md-250"
+                        style={{'fontSize':'2.5rem', "position":'absolute', "top":"3.75rem", "left":"-2rem" }}
+                        >
+                        hdr_strong
+                    </i>
+                    <i className="material-icons md-250"
+                        style={{'transform':'rotateZ(45deg)', 'fontSize':'2.5rem', "position":'absolute', 
+                        "top":"-.25rem", "left":"-.5rem"}}
+                        >
+                        hdr_strong
+                    </i>
+                </div>
             </div>
             )
     }
@@ -182,7 +209,7 @@ class LayerThree extends Component {
 class LayerFour extends Component {
     render(){
         return(
-            <div style={{"color":this.props.colors[3].color, "zIndex":"1"}} className="layer">
+            <div style={{"color":this.props.color, "zIndex":"1"}} className="layer">
                 {/* Tower Details */}
                 <i className="material-icons md-250"
                     style={{"fontSize":"8rem", "left":"36.75rem", "top":"3.6rem"}}
@@ -250,7 +277,7 @@ class LayerFour extends Component {
 class LayerFive extends Component {
     render(){
         return(
-            <div style={this.props.colors[4]} className="layer">
+            <div style={{"color":this.props.color}} className="layer">
                 {/* Roof */}
                 <i className="material-icons md-250"
                     style={{"left": "56.65rem", "top": "-0.25rem", "fontSize": "5rem", "position":"absolute"}}
@@ -386,7 +413,7 @@ class LayerFive extends Component {
 class LayerSix extends Component {
     render(){
         return(
-            <div style={{"color":this.props.colors[5].color, "zIndex":"1"}} className="layer">
+            <div style={{"color":this.props.color, "zIndex":"1"}} className="layer">
                 {/* Left Tower */}
                 <i className="material-icons md-250"
                     style={{"transform":"rotateZ(180deg)", "left": "36rem", "fontSize": "9rem"}}
@@ -493,7 +520,7 @@ class LayerSix extends Component {
 class LayerSeven extends Component {
     render(){
         return(
-            <div style={this.props.colors[6]} className="layer hidden">
+            <div style={{"color":this.props.color}} className="layer hidden">
                 <i className="material-icons md-250">
                     cloud_circle
                 </i>
@@ -504,7 +531,7 @@ class LayerSeven extends Component {
 class LayerEight extends Component {
     render(){
         return(
-            <div style={{"color": this.props.colors[7].color, "zIndex":"2"}} className="layer">
+            <div style={{"color": this.props.color, "zIndex":"2"}} className="layer">
 
             </div>
             )
@@ -513,7 +540,7 @@ class LayerEight extends Component {
 class LayerNine extends Component {
     render(){
         return(
-            <div style={this.props.colors[8]} className="layer hidden">
+            <div style={{"color":this.props.color}} className="layer hidden">
                 <i className="material-icons md-250">
                     cloud_circle
                 </i>
