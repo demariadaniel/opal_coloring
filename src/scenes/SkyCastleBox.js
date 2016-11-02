@@ -121,6 +121,13 @@ class LayerTwo extends Component {
                     >
                     cloud
                 </i>
+                {/* Balloon */}
+                <i className="material-icons md-250"
+                    style={{"left": "22.5rem", "top": "4rem", "fontSize": "3rem", "position":"absolute",
+                    "transform":"rotateZ(-30deg)"}}
+                    >
+                    room
+                </i>
                 {/* Crack in Wall */}
            {/*     <i className="material-icons md-250"
                     style={{"left": "75rem", "top": "12rem", "fontSize": "6rem", "position":"absolute"}} 
@@ -148,7 +155,7 @@ class LayerTwo extends Component {
 class LayerThree extends Component {
     render(){
         return(
-            <div style={{"color":this.props.color}} className="layer">
+            <div style={{"color":this.props.color, 'zIndex':3}} className="layer">
                 {/* Sun & Rays */}
                 <i className="material-icons md-250"
                     style={{"font-size":'10rem', "position":'absolute'}}
@@ -202,6 +209,25 @@ class LayerThree extends Component {
                         hdr_strong
                     </i>
                 </div>
+                {/* Balloon Strings */}
+                <i className="material-icons md-250"
+                    style={{"left": "24rem", "top": "6rem", "fontSize": "2rem", "position":"absolute",
+                    "transform":"rotateZ(210deg)"}}
+                    >
+                    gesture
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "21rem", "top": "3rem", "fontSize": "2rem", "position":"absolute",
+                    "transform":"rotateZ(210deg)"}}
+                    >
+                    gesture
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "20rem", "top": "6rem", "fontSize": "2rem", "position":"absolute",
+                    "transform":"rotateZ(210deg)"}}
+                    >
+                    gesture
+                </i>
             </div>
             )
     }
@@ -269,6 +295,13 @@ class LayerFour extends Component {
                     style={{"left": "63rem", "top": "10rem", "fontSize": "12rem", "position":"absolute"
                     }}>
                     border_inner
+                </i>
+                {/* Balloon */}
+                <i className="material-icons md-250"
+                    style={{"left": "19.4rem", "top": "1rem", "fontSize": "3rem", "position":"absolute",
+                    "transform":"rotateZ(-30deg)"}}
+                    >
+                    room
                 </i>
             </div>
             )
@@ -406,6 +439,13 @@ class LayerFive extends Component {
                     }} >
                     panorama_fish_eye
                 </i>
+                {/* Balloon */}
+                <i className="material-icons md-250"
+                    style={{"left": "18.4rem", "top": "4rem", "fontSize": "3rem", "position":"absolute",
+                    "transform":"rotateZ(-30deg)"}}
+                    >
+                    room
+                </i>
             </div>
             )
     }
@@ -532,7 +572,69 @@ class LayerEight extends Component {
     render(){
         return(
             <div style={{"color": this.props.color, "zIndex":"2"}} className="layer">
-
+               {/*  <div style={{"position": "absolute", "left": "-4rem", "top": "0rem"}}>
+                 Dragon 
+                 <i className="material-icons md-250"
+                    style={{"left": "16rem", "top": "10.5rem", "fontSize": "4rem", "position":"absolute",
+                    "transform":"rotateZ(80deg)"
+                    }}>
+                    explore
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "15rem", "top": "13rem", "fontSize": "5rem", "position":"absolute",
+                    "transform":"rotateY(180deg) rotateZ(-145deg)"
+                    }}>
+                    landscape
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "17rem", "top": "13rem", "fontSize": "5rem", "position":"absolute",
+                    "transform":"rotateZ(216deg)"
+                    }}>
+                    landscape
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "18rem", "top": "11rem", "fontSize": "4rem", "position":"absolute",
+                    "transform":"rotateZ(211deg)"
+                    }}>
+                    landscape
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "21rem", "top": "11.5rem", "fontSize": "4rem", "position":"absolute",
+                    "transform":"rotateZ(211deg)"
+                    }}>
+                    landscape
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "22rem", "top": "11.5rem", "fontSize": "4rem", "position":"absolute",
+                    "transform":"rotateZ(277deg) rotateY(180deg)"
+                    }}>
+                    flash_on
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "18rem", "top": "6.5rem", "fontSize": "8rem", "position":"absolute",
+                    "transform":"rotateZ(-66deg)"
+                    }}>
+                    flash_on
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "18rem", "top": "6.5rem", "fontSize": "8rem", "position":"absolute",
+                    "transform":"rotateZ(-66deg)"
+                    }}>
+                    flash_on
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "15rem", "top": "4.5rem", "fontSize": "8rem", "position":"absolute",
+                    "transform":"rotateZ(-86deg)"
+                    }}>
+                    flash_on
+                </i>
+                 <i className="material-icons md-250"
+                    style={{"left": "17.25rem", "top": "12.75rem", "fontSize": "7rem", "position":"absolute",
+                    "transform":"rotateZ(300deg) rotateY(180deg)"
+                    }}>
+                    flash_on
+                </i>
+                </div>*/}
             </div>
             )
     }
