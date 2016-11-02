@@ -571,9 +571,9 @@ class LayerSeven extends Component {
 class LayerEight extends Component {
     render(){
         return(
-            <div style={{"color": this.props.color, "zIndex":"2"}} className="layer">
-                <div style={{"position": "absolute", "left": "-4rem", "top": "2rem"}}>
-                 {/* Dragon */} 
+            <div style={{"color": this.props.color, "zIndex":"4"}} className="layer">
+                <div style={{"position": "absolute", "left": "-4rem", "top": "3rem"}}>
+                 {/* Dragon Head */} 
                  <i className="material-icons md-250"
                     style={{"left": "16rem", "top": "9.25rem", "fontSize": "3rem", "position":"absolute",
                     "transform":"rotateZ(80deg)"
@@ -617,6 +617,37 @@ class LayerEight extends Component {
                     flash_on
                 </i>
                 </div>
+                {/* Dragon Body */}
+                <i className="material-icons md-250"
+                    style={{"left": "2rem", "top": "10.5rem", "fontSize": "7rem", "position":"absolute",
+                    "transform":"rotateZ(-9deg)"
+                    }}>
+                    terrain
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "4rem", "top": "13rem", "fontSize": "7rem", "position":"absolute",
+                    "transform":"rotateZ(171deg) rotateY(180deg)"
+                    }}>
+                    terrain
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "1.5rem", "top": "15rem", "fontSize": "7rem", "position":"absolute",
+                    "transform":"rotateZ(130deg) rotateY(180deg)"
+                    }}>
+                    terrain
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "-0.5rem", "top": "17rem", "fontSize": "7rem", "position":"absolute",
+                    "transform":"rotateZ(259deg)"
+                    }}>
+                    terrain
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "2.5rem", "top": "19.75rem", "fontSize": "7rem", "position":"absolute",
+                    "transform":"rotateZ(220deg)"
+                    }}>
+                    terrain
+                </i>
             </div>
             )
     }
