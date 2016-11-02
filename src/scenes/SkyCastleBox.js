@@ -572,49 +572,25 @@ class LayerEight extends Component {
     render(){
         return(
             <div style={{"color": this.props.color, "zIndex":"2"}} className="layer">
-               {/*  <div style={{"position": "absolute", "left": "-4rem", "top": "0rem"}}>
-                 Dragon 
+                <div style={{"position": "absolute", "left": "-4rem", "top": "2rem"}}>
+                 {/* Dragon */} 
                  <i className="material-icons md-250"
-                    style={{"left": "16rem", "top": "10.5rem", "fontSize": "4rem", "position":"absolute",
+                    style={{"left": "16rem", "top": "9.25rem", "fontSize": "3rem", "position":"absolute",
                     "transform":"rotateZ(80deg)"
                     }}>
                     explore
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "15rem", "top": "13rem", "fontSize": "5rem", "position":"absolute",
-                    "transform":"rotateY(180deg) rotateZ(-145deg)"
+                    style={{"left": "18rem", "top": "9.5rem", "fontSize": "4rem", "position":"absolute",
+                    "transform":"rotateZ(115deg)"
                     }}>
-                    landscape
+                    bluetooth
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "17rem", "top": "13rem", "fontSize": "5rem", "position":"absolute",
-                    "transform":"rotateZ(216deg)"
+                    style={{"left": "16.5rem", "top": "11rem", "fontSize": "4rem", "position":"absolute",
+                    "transform":"rotateZ(-45deg)"
                     }}>
-                    landscape
-                </i>
-                <i className="material-icons md-250"
-                    style={{"left": "18rem", "top": "11rem", "fontSize": "4rem", "position":"absolute",
-                    "transform":"rotateZ(211deg)"
-                    }}>
-                    landscape
-                </i>
-                <i className="material-icons md-250"
-                    style={{"left": "21rem", "top": "11.5rem", "fontSize": "4rem", "position":"absolute",
-                    "transform":"rotateZ(211deg)"
-                    }}>
-                    landscape
-                </i>
-                <i className="material-icons md-250"
-                    style={{"left": "22rem", "top": "11.5rem", "fontSize": "4rem", "position":"absolute",
-                    "transform":"rotateZ(277deg) rotateY(180deg)"
-                    }}>
-                    flash_on
-                </i>
-                <i className="material-icons md-250"
-                    style={{"left": "18rem", "top": "6.5rem", "fontSize": "8rem", "position":"absolute",
-                    "transform":"rotateZ(-66deg)"
-                    }}>
-                    flash_on
+                    bluetooth
                 </i>
                 <i className="material-icons md-250"
                     style={{"left": "18rem", "top": "6.5rem", "fontSize": "8rem", "position":"absolute",
@@ -624,17 +600,23 @@ class LayerEight extends Component {
                 </i>
                 <i className="material-icons md-250"
                     style={{"left": "15rem", "top": "4.5rem", "fontSize": "8rem", "position":"absolute",
-                    "transform":"rotateZ(-86deg)"
+                    "transform":"rotateZ(-66deg)"
                     }}>
                     flash_on
                 </i>
                  <i className="material-icons md-250"
-                    style={{"left": "17.25rem", "top": "12.75rem", "fontSize": "7rem", "position":"absolute",
-                    "transform":"rotateZ(300deg) rotateY(180deg)"
+                    style={{"left": "12.5rem", "top": "9.25rem", "fontSize": "8rem", "position":"absolute",
+                    "transform":"rotateZ(315deg) rotateY(180deg)"
                     }}>
                     flash_on
                 </i>
-                </div>*/}
+                <i className="material-icons md-250"
+                    style={{"left": "15rem", "top": "11.5rem", "fontSize": "7rem", "position":"absolute",
+                    "transform":"rotateZ(315deg) rotateY(180deg)"
+                    }}>
+                    flash_on
+                </i>
+                </div>
             </div>
             )
     }
