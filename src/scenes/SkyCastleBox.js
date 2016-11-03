@@ -535,7 +535,12 @@ class LayerSeven extends Component {
                 {/* Wing */}
                 <div style={{"position": "absolute", "left": "-1rem", "top": "0.5rem"}}>
                 <i className="material-icons md-250"
-                    style={{"position": "absolute", "left": "2rem", "top": "7.25rem", "fontSize": "10rem",
+                    style={{"position": "absolute", "left": "0rem", "top": "2.25rem", "fontSize": "10rem",
+                    "transform":"rotateZ(-180deg) rotateY(-180deg)"}}>
+                    done
+                </i>
+                <i className="material-icons md-250"
+                    style={{"position": "absolute", "left": "0.5rem", "top": "5.75rem", "fontSize": "10rem",
                     "transform":"rotateZ(-180deg) rotateY(-180deg)"}}>
                     done
                 </i>
@@ -555,7 +560,7 @@ class LayerSeven extends Component {
                     done
                 </i>
                  <i className="material-icons md-250"
-                    style={{"position": "absolute", "left": "5rem", "top": "7rem", "fontSize": "8rem",
+                    style={{"position": "absolute", "left": "2rem", "top": "7rem", "fontSize": "8rem",
                     "transform":"rotateZ(-180deg) rotateY(-180deg)"}}>
                     done
                 </i>
@@ -575,12 +580,22 @@ class LayerSeven extends Component {
                     done
                 </i>
                 <i className="material-icons md-250"
+                    style={{"position": "absolute", "left": "3rem", "top": "5rem", "fontSize": "7rem",
+                    "transform":"rotateZ(-180deg) rotateY(-180deg)"}}>
+                    done
+                </i>
+                <i className="material-icons md-250"
                     style={{"position": "absolute", "left": "6rem", "top": "9.5rem", "fontSize": "7rem",
                     "transform":"rotateZ(-180deg) rotateY(-180deg)"}}>
                     done
                 </i>
                  <i className="material-icons md-250"
-                    style={{"position": "absolute", "left": "3rem", "top": "6.5rem", "fontSize": "7rem",
+                    style={{"position": "absolute", "left": "3rem", "top": "8rem", "fontSize": "7rem",
+                    "transform":"rotateZ(-180deg) rotateY(-180deg)"}}>
+                    done
+                </i>
+                 <i className="material-icons md-250"
+                    style={{"position": "absolute", "left": "5.25rem", "top": "7.25rem", "fontSize": "7rem",
                     "transform":"rotateZ(-180deg) rotateY(-180deg)"}}>
                     done
                 </i>
