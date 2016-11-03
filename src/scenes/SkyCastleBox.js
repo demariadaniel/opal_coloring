@@ -63,6 +63,12 @@ class LayerOne extends Component {
                     >
                     cloud
                 </i>
+                {/* Outline Clouds */}
+                <i className="material-icons md-250" 
+                    style={{'top': '13rem', "left": "26.25rem", "font-size": "11rem", 
+                    "position":"absolute"}}>
+                    filter_drama
+                </i>
             </div>
             )
     }
@@ -159,11 +165,11 @@ class LayerThree extends Component {
                 {/* Sun & Rays */}
                 {/* Old Sun: 10rem Old Rays: top 2.25 left -1.25 no scale */}
                 <i className="material-icons md-250"
-                    style={{"font-size":'8rem', "position":'absolute'}}
+                    style={{"font-size":'8rem', "position":'absolute', "left":"7rem"}}
                     >
                     brightness_low
                 </i>
-                <div style={{"transform": "rotateZ(-22.5deg) scale(0.7)", "top": "2.25rem", "left": "-0.5rem", 
+                <div style={{"transform": "rotateZ(-22.5deg) scale(0.7)", "top": "2.25rem", "left": "6.5rem", 
                 "position": "absolute"}}>
                     <i className="material-icons md-250"
                         style={{'transform':'rotateZ(90deg)', 'fontSize':'2.5rem', "position":'absolute', "top":"-2.25rem", "left":"3.25rem"}}
@@ -698,6 +704,25 @@ class LayerEight extends Component {
                     "transform":"rotateZ(185deg)"
                     }}>
                     terrain
+                </i>
+                {/* Spikes */}
+                <i className="material-icons md-250"
+                    style={{"left": "4rem", "top": "21rem", "fontSize": "5rem", "position":"absolute",
+                    "transform":"rotateZ(225deg)"
+                    }}>
+                    fast_forward
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "9rem", "top": "24.5rem", "fontSize": "4rem", "position":"absolute",
+                    "transform":"rotateZ(195deg)"
+                    }}>
+                    fast_forward
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "13.5rem", "top": "26rem", "fontSize": "3rem", "position":"absolute",
+                    "transform":"rotateZ(185deg)"
+                    }}>
+                    fast_forward
                 </i>
             </div>
             )
