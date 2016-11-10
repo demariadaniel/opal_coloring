@@ -16,8 +16,17 @@ class SceneApp extends Component {
             this.setState({
                 error: true
             })
-        } else {
+        } else if (this.state.myScene.isUnlocked || this.state.buying) {
             this.props.applyScene(this.state.myScene, this.state.index);
+        }
+    }
+    disabled(){
+        if (this.state.myScene.isUnlocked && this.state.buying){
+            return true
+        } else if (this.state.myScene.isUnlocked == false && this.state.buying == false){
+            return true
+        } else {
+            return false
         }
     }
     onSceneClick(e, scene, color, index){
@@ -50,7 +59,9 @@ class SceneApp extends Component {
                 <p className={this.state.error ? "rainbow2" : "black"}>
                     {this.state.error ? "Choose Another Scene!" : "____________________"}
                 </p>
-                <FlatButton style={white} onClick={()=>this.applyScene()}>
+                <FlatButton style={this.disabled() ? grey : white} 
+                    disabled={this.disabled()}
+                    onClick={()=>this.applyScene()}>
                     Choose
                 </FlatButton>
                 <FlatButton style={white} onClick={()=>this.props.onCancel()}>

@@ -120,7 +120,8 @@ class App extends Component {
         scene: AllScenes[index],
         sceneIndex: index,
         openL: false,
-        coins: balance
+        coins: balance,
+        buying: false
       });
     }
   }
@@ -136,6 +137,13 @@ class App extends Component {
         openL: true,
       })
     }, 200)
+  }
+  cheat(e){
+    console.log(e)
+    let coins = this.state.coins+10;
+    this.setState({
+      coins: coins
+    })
   }
   componentWillUpdate(nextProps, nextState){
     if (nextState.coins > this.state.coins || this.state.coins > nextState.coins){
@@ -157,9 +165,13 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div className="BGcontainer">
-          
           {/* Color Buttons */}
           <div className="colorBtnBox">
+             {/* Debug Cheat Button */}
+             {/* <i className="material-icons md-32 colorIco" 
+                onClick={(e)=>this.cheat(e)}>
+                track_changes
+              </i> */}
               {this.state.colors.map((color, i)=>{
                 if(i<5){
                   return(
@@ -188,6 +200,7 @@ class App extends Component {
                   <p className="menuBtn">BG</p>
                   <i className="material-icons md-32 colorIco" style={this.state.colors[9]}>opacity</i>
               </RaisedButton>
+              
             </div>
 
             {/* Canvas */}

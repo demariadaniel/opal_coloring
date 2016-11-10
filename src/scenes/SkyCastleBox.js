@@ -12,7 +12,6 @@ class SkyCastleBox extends Component {
         test: false
     }
     render(){
-        console.log(this.state.colors)
         return (
             <div className="skyCastleBox">
                 <LayerOne color={this.state.colors[0].color} />
