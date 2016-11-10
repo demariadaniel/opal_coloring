@@ -47,7 +47,7 @@ class App extends Component {
     buying: false
   }
   onCancel(){
-    this.setState({openL: false, openR: false})
+    this.setState({openL: false, openR: false, buying: false})
   }
   onColorClick(e, num){
     if (this.state.openL || this.state.openR){
@@ -110,14 +110,17 @@ class App extends Component {
     if (this.state.buying && scene.isUnlocked){
       console.log('error!')
     } else {
+      let balance = this.state.coins;
       if (this.state.buying){
-        scene.isUnlocked = true
+        scene.isUnlocked = true;
+        balance -= 9;
       }
       AllScenes[index] = scene;
       this.setState({
         scene: AllScenes[index],
         sceneIndex: index,
-        openL: false
+        openL: false,
+        coins: balance
       });
     }
   }
