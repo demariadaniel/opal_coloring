@@ -6,7 +6,7 @@ import ColorApp from './ColorApp';
 import SceneApp from './SceneApp';
 import CoinsApp from './CoinsApp';
 import ChecksApp from './ChecksApp';
-import ChallengesApp from './ChallengesApp';
+import CollectionApp from './CollectionApp';
 import FileApp from './FileApp';
 // Scenes
 import {FairyBox, FarmBox, GhostBox, MermaidBox, RainbowBox, 
@@ -44,7 +44,9 @@ class App extends Component {
     scenes: AllScenes,
     coins: 0,
     coinFlip: false,
-    buying: false
+    buying: false,
+    debug: false,
+    complete: 0
   }
   onCancel(){
     this.setState({openL: false, openR: false, buying: false})
@@ -161,6 +163,11 @@ class App extends Component {
       }, 2000)
     }
   }
+  debug(){
+    this.setState({
+      debug: true
+    })
+  }
   render (){
     return (
       <MuiThemeProvider>
@@ -168,10 +175,11 @@ class App extends Component {
           {/* Color Buttons */}
           <div className="colorBtnBox">
              {/* Debug Cheat Button */}
-             {/* <i className="material-icons md-32 colorIco" 
-                onClick={(e)=>this.cheat(e)}>
-                track_changes
-              </i> */}
+             {this.state.debug ? 
+                <i className="material-icons md-32 colorIco" 
+                    onClick={(e)=>this.cheat(e)}>
+                    track_changes
+                </i> : null }
               {this.state.colors.map((color, i)=>{
                 if(i<5){
                   return(
@@ -229,9 +237,10 @@ class App extends Component {
                     /> 
                   : null}
                   {(this.state.drawerIs === 'CHALLENGES') ? 
-                  <ChallengesApp 
+                  <CollectionApp 
                     applyScene={(scene)=>this.applyScene(scene)}
                     onCancel={()=>this.onCancel()}
+                    debug={()=>this.debug()}
                     /> 
                   : null}
             </Drawer>
@@ -281,12 +290,12 @@ class App extends Component {
               </div>
               <div className="btmBtnBoxRight">
                 <RaisedButton onClick={e=>this.onAppClick(e, "CHECKS", "openR")} className="raised">
-                  <p className="menuBtn">Checkmarks</p>
+                  <p className="menuBtn">Checkmarks: {this.state.complete} / 10</p>
                   <i className="material-icons md-32 sceneIco">check</i>
                 </RaisedButton>
                 <RaisedButton onClick={e=>this.onAppClick(e, "CHALLENGES", "openR")} className="raised">
-                  <p className="menuBtn">Challenges</p>
-                  <i className="material-icons md-32 sceneIco">beenhere</i>
+                  <p className="menuBtn">Collection</p>
+                  <i className="material-icons md-32 sceneIco">redeem</i>
                 </RaisedButton>
               </div>
             </div>  

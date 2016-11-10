@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import {brightColors, white, grey}  from './AllColors.js'
 
-class ChallengesApp extends Component {
+class CollectionApp extends Component {
     state = {
         myScene: {name:'Sky Castle', icon: "wb_cloudy"},
         scenes: [
@@ -26,6 +26,11 @@ class ChallengesApp extends Component {
             myColor: color
         })
     }
+    onChange(e){
+        if (e.target.value.toLowerCase() == "debug"){
+            this.props.debug()
+        }
+    }
     render(){
         return(
             <div className="App">
@@ -33,6 +38,8 @@ class ChallengesApp extends Component {
                 <i className="material-icons close" onClick={()=>this.props.onCancel()}>
                     close
                 </i>
+                <input style={{"background-color": "#222", "color": "white"}}
+                    onChange={(e)=>this.onChange(e)}/>
             {/*<FlatButton style={white} onClick={()=>this.applyScene()}>
                     Apply
                 </FlatButton>*/}
@@ -43,7 +50,7 @@ class ChallengesApp extends Component {
             </div>
             <div className="scenePreview" style={{color: this.state.myColor}}>
                 <i className="material-icons md-250">
-                    beenhere
+                    redeem
                 </i>
             </div>
           </div>
@@ -51,4 +58,4 @@ class ChallengesApp extends Component {
     }
 }
 
-export default ChallengesApp;
+export default CollectionApp;

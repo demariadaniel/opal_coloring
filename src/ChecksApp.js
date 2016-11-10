@@ -4,26 +4,15 @@ import {brightColors, white, grey}  from './AllColors.js'
 
 class ChecksApp extends Component {
     state = {
-        myScene: {name:'Sky Castle', icon: "wb_cloudy"},
-        scenes: [
-            {name:'Fairy', icon: "local_florist", isUnlocked: false},
-            {name:'Farm', icon: "wb_sunny", isUnlocked: false},
-            {name:'Ghost', icon: "all_inclusive", isUnlocked: false},
-            {name:'Mermaid', icon: "filter_tilt_shift", isUnlocked: false},
-            {name:'Rainbow', icon: "leak_add", isUnlocked: false},
-            {name:'Sky Castle', icon: "cloud_circle", isUnlocked: true},
-            {name:'Treasure', icon: "star_half", isUnlocked: false}
-        ],
-        myColor: grey
+        scene: this.props.scene,
+        complete: 0,
+        total: 10,
+        answer: ""
     }
-    applyScene(){
-        this.props.applyScene(this.state.myScene);
-        //this.setState({myScene: {color: "#222"}});
-    }
-    onSceneClick(e, scene, color){
+    onChange(e, challenge){
+        e.preventDefault();
         this.setState({
-            myScene: scene,
-            myColor: color
+            answer: e.target.value
         })
     }
     render(){
@@ -33,10 +22,12 @@ class ChecksApp extends Component {
                 <i className="material-icons close" onClick={()=>this.props.onCancel()}>
                     close
                 </i>
-               {/*<FlatButton style={white} onClick={()=>this.applyScene()}>
-                    Apply
-                </FlatButton>*/}
-                <p className="rainbow">Feature coming soon!</p>
+                <p className="rainbow">Count the balloons</p>
+                <input style={{"backgroundColor": "#222", "color": "white"}}
+                    onChange={(e)=>this.onChange(e, "BALLOONS")}/>
+                <FlatButton style={white} type="submit">
+                    Submit
+                </FlatButton>
                 <FlatButton style={white} onClick={()=>this.props.onCancel()}>
                     Cancel
                 </FlatButton>
