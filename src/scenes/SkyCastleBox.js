@@ -21,8 +21,8 @@ class SkyCastleBox extends Component {
                 <LayerFour color={this.state.colors[3].color} />
                 <LayerFive color={this.state.colors[4].color} />
                 <LayerSix color={this.state.colors[5].color} />
-                <LayerSeven color={this.state.colors[6].color} />
-                <LayerEight color={this.state.colors[7].color} />
+                <DragonLayer color0={this.state.colors[6].color} 
+                             color1={this.state.colors[7].color} />
                 <LayerNine color={this.state.colors[8].color} />
             </div>
         )
@@ -64,11 +64,11 @@ class LayerOne extends Component {
                     cloud
                 </i>
                 {/* Outline Clouds */}
-                <i className="material-icons md-250" 
+               {/* <i className="material-icons md-250" 
                     style={{'top': '13rem', "left": "26.25rem", "font-size": "11rem", 
                     "position":"absolute"}}>
                     filter_drama
-                </i>
+                </i> */}
             </div>
             )
     }
@@ -91,7 +91,7 @@ class LayerTwo extends Component {
                     cloud
                 </i>
                 <i className="material-icons md-250"
-                    style={{'fontSize': '7.8125rem', 'left':'6.875rem', 'top':'17.5rem'}}
+                    style={{'fontSize': '7.8125rem', 'left':'12rem', 'top':'18.5rem'}}
                     >
                     cloud
                 </i>
@@ -165,7 +165,7 @@ class LayerThree extends Component {
                 {/* Sun & Rays */}
                 {/* Old Sun: 10rem Old Rays: top 2.25 left -1.25 no scale */}
                 <i className="material-icons md-250"
-                    style={{"font-size":'8rem', "position":'absolute', "left":"7rem"}}
+                    style={{"fontSize":'8rem', "position":'absolute', "left":"7rem"}}
                     >
                     brightness_low
                 </i>
@@ -528,10 +528,11 @@ class LayerSix extends Component {
             )
     }
 }
-class LayerSeven extends Component {
+class DragonLayer extends Component {
     render(){
         return(
-            <div style={{"color":this.props.color, "zIndex":"6"}} className="layer">
+            <div className="layer" draggable="true">
+            <div style={{"color":this.props.color0, "zIndex":"6"}} className="layer">
                 {/* Wing */}
                 <div style={{"position": "absolute", "left": "-1rem", "top": "0.5rem"}}>
                 <i className="material-icons md-250"
@@ -601,13 +602,7 @@ class LayerSeven extends Component {
                 </i>
                 </div>
             </div>
-            )
-    }
-}
-class LayerEight extends Component {
-    render(){
-        return(
-            <div style={{"color": this.props.color, "zIndex":"4"}} className="layer">
+            <div style={{"color": this.props.color1, "zIndex":"4"}} className="layer">
                 {/* Old rotate: left: -4, top: 3, 0 rotate */}
                 <div style={{"position": "absolute", "left": "-4rem", "top": "10rem",
                     "transform":"rotateZ(-18deg)"}}>
@@ -740,9 +735,11 @@ class LayerEight extends Component {
                     fast_forward
                 </i>
             </div>
+            </div>
             )
     }
 }
+
 class LayerNine extends Component {
     render(){
         return(

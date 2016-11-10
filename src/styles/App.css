@@ -41,6 +41,10 @@
   background-color: rgb(254, 254, 254);
 }
 
+.black {
+  color: #222
+}
+
 .btmBtnBoxLeft, .fileBtnBox{
   position: relative;
   text-align: left;
@@ -61,10 +65,23 @@
   position: absolute;
 }
 
-.colorBtn, .sceneBtn, .checkBtn, .challengeBtn {
-  margin: 0;
-  display: inline-block;
-  vertical-align: text-bottom;
+.coinFlip {
+  transition: all ease-out .3s;
+    animation-name: coinFlip;
+    animation-duration: .6s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes coinFlip {
+    0% {transform: rotateY(0deg)}
+    25% {transform: rotateY(180deg)}
+    50% {transform: rotateY(360deg)}
+    75% {transform: rotateY(180deg)}
+    100% {transform: rotateY(360deg)}
+}
+
+.coinIco {
+  left: 0.3125rem
 }
 
 .colorBtnBox, .colorBtnBox2, .btmBtnBoxRight{
@@ -111,6 +128,12 @@
   left: 0rem;
 }
 
+.menuBtn {
+  margin: 0;
+  display: inline-block;
+  vertical-align: text-bottom;
+}
+
 .raised {
   margin: 0 0.3125rem;
 }
@@ -119,6 +142,13 @@
     transition: all ease-out .7s;
     animation-name: rainbow;
     animation-duration: 7s;
+    animation-iteration-count: infinite;
+}
+
+.rainbow2{
+    transition: all ease-out .2s;
+    animation-name: rainbow;
+    animation-duration: 2s;
     animation-iteration-count: infinite;
 }
 

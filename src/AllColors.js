@@ -17,23 +17,23 @@ import {red500, red900, redA200,
     grey800, grey400
                     } from 'material-ui/styles/colors';
 
-  const red = {color: red500, name: 'Red'};
-  const pink = {color: pink500, name: 'Pink'};
-  const purple = {color: purple500, name: 'Purple'};
-  const deepPurple = {color: deepPurple500, name: 'Deep Purple'};
-  const indigo = {color: indigo500, name: 'Indigo'};
-  const blue = {color: blue500, name: 'Blue'};
-  const lightBlue = {color: lightBlue500, name: 'Light Blue'};
-  const cyan = {color: cyan500, name: 'Cyan'};
-  const teal = {color: teal500, name: 'Teal'};
-  const green = {color: green500, name: 'Green'};
-  const lightGreen = {color: lightGreen500, name: 'Light Green'};
-  const lime = {color: lime500, name: 'Lime'};
-  const yellow = {color: yellow500, name: 'Yellow'};
-  const amber = {color: amber500, name: 'Amber'};
-  const orange = {color: orange500, name: 'Orange'};
-  const deepOrange = {color: deepOrange500, name: 'Deep Orange'};
-  const grey = {color: grey400, name: 'Grey'};
+  const red = {color: red500, name: 'Red', change: false};
+  const pink = {color: pink500, name: 'Pink', change: false};
+  const purple = {color: purple500, name: 'Purple', change: false};
+  const deepPurple = {color: deepPurple500, name: 'Deep Purple', change: false};
+  const indigo = {color: indigo500, name: 'Indigo', change: false};
+  const blue = {color: blue500, name: 'Blue', change: false};
+  const lightBlue = {color: lightBlue500, name: 'Light Blue', change: false};
+  const cyan = {color: cyan500, name: 'Cyan', change: false};
+  const teal = {color: teal500, name: 'Teal', change: false};
+  const green = {color: green500, name: 'Green', change: false};
+  const lightGreen = {color: lightGreen500, name: 'Light Green', change: false};
+  const lime = {color: lime500, name: 'Lime', change: false};
+  const yellow = {color: yellow500, name: 'Yellow', change: false};
+  const amber = {color: amber500, name: 'Amber', change: false};
+  const orange = {color: orange500, name: 'Orange', change: false};
+  const deepOrange = {color: deepOrange500, name: 'Deep Orange', change: false};
+  const grey = {color: grey400, name: 'Grey', change: false};
 
   const redBr = {color: redA200, name: 'Red'};
   const pinkBr = {color: pinkA200, name: 'Pink'};
@@ -51,7 +51,7 @@ import {red500, red900, redA200,
   const amberBr = {color: amberA200, name: 'Amber'};
   const orangeBr = {color: orangeA100, name: 'Orange'};
   const deepOrangeBr = {color: deepOrangeA200, name: 'Deep Orange'};
-  const white = {color: 'white', name: 'White'};
+  const white = {color: 'white', name: 'White', change: false};
   
   const redDk = {color: red900, name: 'Red'};
   const pinkDk = {color: pink900, name: 'Pink'};

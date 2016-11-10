@@ -1,39 +1,31 @@
 import React, { Component } from 'react';
 import FlatButton from 'material-ui/FlatButton';
 import {brightColors, white, grey}  from './AllColors.js'
-// Scenes
-import FairyBox from './scenes/FairyBox';
-import FarmBox from './scenes/FarmBox';
-import GhostBox from './scenes/GhostBox';
-import MermaidBox from './scenes/MermaidBox';
-import RainbowBox from './scenes/RainbowBox';
-import SkyCastleBox from './scenes/SkyCastleBox';
-import TreasureBox from './scenes/TreasureBox';
 
 class SceneApp extends Component {
     state = {
-        myScene: {name:'Sky Castle', icon: "wb_cloudy"},
-        scenes: [
-            {name:'Sky Castle', icon: "cloud_circle", isUnlocked: true, scene: SkyCastleBox},
-            {name:'Fairy', icon: "local_florist", isUnlocked: false, scene: FairyBox},
-            {name:'Farm', icon: "wb_sunny", isUnlocked: false, scene: FarmBox},
-            {name:'Ghost', icon: "all_inclusive", isUnlocked: false, scene: GhostBox},
-            {name:'Mermaid', icon: "filter_tilt_shift", isUnlocked: false, scene: MermaidBox},
-            {name:'Rainbow', icon: "leak_add", isUnlocked: false, scene: RainbowBox},
-            {name:'Treasure', icon: "star_half", isUnlocked: false, scene: TreasureBox}
-        ],
+        myScene: this.props.scenes[0],
+        scenes: this.props.scenes,
         myColor: grey,
-        index: 0
+        index: 0,
+        buying: this.props.buying,
+        error: false
     }
     applyScene(){
-        this.props.applyScene(this.state.myScene, this.state.index);
-        //this.setState({myScene: {color: "#222"}});
+        if (this.state.myScene.isUnlocked && this.state.buying){
+            this.setState({
+                error: true
+            })
+        } else {
+            this.props.applyScene(this.state.myScene, this.state.index);
+        }
     }
     onSceneClick(e, scene, color, index){
         this.setState({
             myScene: scene,
             myColor: color,
-            index: index
+            index: index,
+            error: false
         })
     }
     render(){
@@ -55,7 +47,9 @@ class SceneApp extends Component {
                     )
                 })      
                 }
-                
+                <p className={this.state.error ? "rainbow2" : "black"}>
+                    {this.state.error ? "Choose Another Scene!" : "____________________"}
+                </p>
                 <FlatButton style={white} onClick={()=>this.applyScene()}>
                     Choose
                 </FlatButton>

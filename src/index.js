@@ -9,13 +9,8 @@ import ChecksApp from './ChecksApp';
 import ChallengesApp from './ChallengesApp';
 import FileApp from './FileApp';
 // Scenes
-import FairyBox from './scenes/FairyBox';
-import FarmBox from './scenes/FarmBox';
-import GhostBox from './scenes/GhostBox';
-import MermaidBox from './scenes/MermaidBox';
-import RainbowBox from './scenes/RainbowBox';
-import SkyCastleBox from './scenes/SkyCastleBox';
-import TreasureBox from './scenes/TreasureBox';
+import {FairyBox, FarmBox, GhostBox, MermaidBox, RainbowBox, 
+    SkyCastleBox, TreasureBox, AllScenes} from './AllScenes';
 // Material Components
 import Drawer from 'material-ui/Drawer';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -45,7 +40,11 @@ class App extends Component {
     sceneIndex: 0,
     drawerIs: 'COLOR',
     colors: [white, white, white, white, white, white, white, white, white, white],
-    scene: {name:'Sky Castle', icon: "cloud_circle", isUnlocked: true}
+    scene: AllScenes[0],
+    scenes: AllScenes,
+    coins: 0,
+    coinFlip: false,
+    buying: false
   }
   onCancel(){
     this.setState({openL: false, openR: false})
@@ -92,18 +91,64 @@ class App extends Component {
   }
   applyColor(color){
     let newColors = this.state.colors;
+    let newCoins = this.state.coins;
+    console.log(color)
+    if (this.state.colors[this.state.colorIndex].change===false){
+      console.log(this.state.colors[this.state.colorIndex])
+      color.change = true;
+      newCoins += 1;
+    }
+    console.log(newCoins)
     newColors.splice(this.state.colorIndex, 1, color);
     this.setState({
       colors: newColors,
-      openR: false
+      openR: false,
+      coins: newCoins
     });
   }
   applyScene(scene, index){
+    if (this.state.buying && scene.isUnlocked){
+      console.log('error!')
+    } else {
+      if (this.state.buying){
+        scene.isUnlocked = true
+      }
+      AllScenes[index] = scene;
+      this.setState({
+        scene: AllScenes[index],
+        sceneIndex: index,
+        openL: false
+      });
+    }
+  }
+  buyScene(){
     this.setState({
-      scene: scene,
-      sceneIndex: index,
-      openL: false
-    });
+      openL: false,
+      drawerIs: 'SCENE',
+      buying: true 
+    })
+    console.log(this.state);
+    setTimeout(()=>{
+      this.setState({
+        openL: true,
+      })
+    }, 200)
+  }
+  componentWillUpdate(nextProps, nextState){
+    if (nextState.coins > this.state.coins || this.state.coins > nextState.coins){
+      this.setState({
+        coinFlip: true
+      })
+    }
+  }
+  componentDidUpdate(prevProps, prevState){
+    if (this.state.coinFlip){
+      setTimeout(()=>{
+        this.setState({
+          coinFlip: false
+        })
+      }, 2000)
+    }
   }
   render (){
     return (
@@ -116,7 +161,7 @@ class App extends Component {
                 if(i<5){
                   return(
                     <RaisedButton key={i} onClick={e=>this.onColorClick(e, i)} className="raised">
-                        <p className="colorBtn">Color {i+1}</p>
+                        <p className="menuBtn">Color {i+1}</p>
                         <i className="material-icons md-32 colorIco" style={this.state.colors[i]}>opacity</i>
                     </RaisedButton>
                   )
@@ -129,7 +174,7 @@ class App extends Component {
                 if(i>4 && i!==9){
                   return(
                     <RaisedButton key={i} onClick={e=>this.onColorClick(e, i)} className="raised">
-                        <p className="colorBtn">Color {i+1}</p>
+                        <p className="menuBtn">Color {i+1}</p>
                         <i className="material-icons md-32 colorIco" style={this.state.colors[i]}>opacity</i>
                     </RaisedButton>
                   )
@@ -137,7 +182,7 @@ class App extends Component {
                 })
               }
               <RaisedButton key={9} onClick={e=>this.onColorClick(e, 9)} className="raised">
-                  <p className="colorBtn">BG</p>
+                  <p className="menuBtn">BG</p>
                   <i className="material-icons md-32 colorIco" style={this.state.colors[9]}>opacity</i>
               </RaisedButton>
             </div>
@@ -177,12 +222,15 @@ class App extends Component {
             <Drawer open={this.state.openL} className="drawerStylez">
                 {(this.state.drawerIs === 'COINS') ? 
                   <CoinsApp 
-                    applyColor={(color)=>this.applyColor(color)}
+                    buyScene={()=>this.buyScene()}
+                    coins={this.state.coins}
                     onCancel={()=>this.onCancel()}
                     /> 
                   : null}
                 {(this.state.drawerIs === 'SCENE') ? 
-                  <SceneApp 
+                  <SceneApp
+                    buying={this.state.buying}
+                    scenes={this.state.scenes} 
                     applyScene={(scene)=>this.applyScene(scene)}
                     onCancel={()=>this.onCancel()}
                     /> 
@@ -200,23 +248,28 @@ class App extends Component {
             <div className="btmBtnBox">
               <div className="btmBtnBoxLeft">
                 <RaisedButton onClick={e=>this.onAppClick(e, "SCENE", "openL")} className="raised">
-                  <p className="sceneBtn">
+                  <p className="menuBtn">
                     Scene: {this.state.scene.isUnlocked ? this.state.scene.name : "?????"}
                   </p>
                   <i className="material-icons md-32 sceneIco">{this.state.scene.icon}</i>
                 </RaisedButton>
                 <RaisedButton onClick={e=>this.onAppClick(e, "COINS", "openL")} className="raised">
-                  <p className="sceneBtn">Coins</p>
-                  <i className="material-icons md-32 sceneIco">camera</i>
+                  <p className={"menuBtn "+(this.state.coinFlip ? "rainbow2" : null)}> 
+                      Coins: {this.state.coins}
+                      </p>
+                  <i className={"material-icons md-32 coinIco "+
+                      (this.state.coinFlip ? "coinFlip" : null)}>
+                      camera
+                      </i>
                 </RaisedButton>
               </div>
               <div className="btmBtnBoxRight">
                 <RaisedButton onClick={e=>this.onAppClick(e, "CHECKS", "openR")} className="raised">
-                  <p className="checkBtn">Checkmarks</p>
+                  <p className="menuBtn">Checkmarks</p>
                   <i className="material-icons md-32 sceneIco">check</i>
                 </RaisedButton>
                 <RaisedButton onClick={e=>this.onAppClick(e, "CHALLENGES", "openR")} className="raised">
-                  <p className="challengeBtn">Challenges</p>
+                  <p className="menuBtn">Challenges</p>
                   <i className="material-icons md-32 sceneIco">beenhere</i>
                 </RaisedButton>
               </div>
