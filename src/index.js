@@ -91,6 +91,17 @@ class App extends Component {
       });
     }
   }
+  answer(i){
+    let _scene = this.state.scene;
+    let _coins = this.state.coins;
+    _scene.checkmarks.checkmarks[i].complete = true;
+    _scene.checkmarks.complete += 1;
+    _coins += _scene.checkmarks.checkmarks[i].prize;
+    this.setState({
+      scene: _scene,
+      coins: _coins
+    })
+  }
   applyColor(color){
     let newColors = this.state.colors;
     let newCoins = this.state.coins;
@@ -250,6 +261,8 @@ class App extends Component {
                     applyScene={(scene)=>this.applyScene(scene)}
                     onCancel={()=>this.onCancel()}
                     debug={()=>this.debug()}
+                    checkmarks={this.state.scene.checkmarks}
+                    answer={(i)=>this.answer(i)}
                     /> 
                   : null}
                   {(this.state.drawerIs === 'CHALLENGES') ? 
@@ -305,7 +318,7 @@ class App extends Component {
               </div>
               <div className="btmBtnBoxRight">
                 <RaisedButton onClick={e=>this.onAppClick(e, "CHECKS", "openR")} className="raised">
-                  <p className="menuBtn">Checkmarks: {this.state.complete} / 10</p>
+                  <p className="menuBtn">Checkmarks: {this.state.scene.checkmarks.complete} / {this.state.scene.checkmarks.checkmarks.length}</p>
                   <i className="material-icons md-32 sceneIco">check</i>
                 </RaisedButton>
                 <RaisedButton onClick={e=>this.onAppClick(e, "CHALLENGES", "openR")} className="raised">

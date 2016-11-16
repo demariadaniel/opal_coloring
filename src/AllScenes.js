@@ -7,8 +7,12 @@ import RainbowBox from './scenes/RainbowBox';
 import SkyCastleBox from './scenes/SkyCastleBox';
 import TreasureBox from './scenes/TreasureBox';
 
+//Checkmarks
+import SkyCheckMarks from './checkmarks/SkyCheckMarks';
+
 // Scene Objects
-let SkyCastle = {name:'Sky Castle', icon: "cloud_circle", isUnlocked: true, scene: SkyCastleBox};
+let SkyCastle = {name:'Sky Castle', icon: "cloud_circle", isUnlocked: true, scene: SkyCastleBox, 
+                checkmarks: SkyCheckMarks};
 let Fairy = {name:'Fairy', icon: "local_florist", isUnlocked: false, scene: FairyBox};
 let Space = {name:'Space', icon: "wb_sunny", isUnlocked: false, scene: FarmBox};
 let Ghost = {name:'Ghost', icon: "all_inclusive", isUnlocked: false, scene: GhostBox};
