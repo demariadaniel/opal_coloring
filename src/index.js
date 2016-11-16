@@ -98,7 +98,7 @@ class App extends Component {
     if (this.state.colors[this.state.colorIndex].change===false){
       console.log(this.state.colors[this.state.colorIndex])
       color.change = true;
-      newCoins += 1;
+      newCoins += 3;
     }
     console.log(newCoins)
     newColors.splice(this.state.colorIndex, 1, color);
@@ -115,7 +115,7 @@ class App extends Component {
       let balance = this.state.coins;
       if (this.state.buying){
         scene.isUnlocked = true;
-        balance -= 9;
+        balance -= 27;
       }
       AllScenes[index] = scene;
       this.setState({
@@ -172,6 +172,21 @@ class App extends Component {
     return (
       <MuiThemeProvider>
         <div className="BGcontainer">
+          {/* Menu Buttons */}
+          <div className="menuBtnBox">
+              <RaisedButton onClick={e=>this.onLogoClick(e)} className="raised">
+                  <p className="menuBtn">Opal</p>
+                  <i className="material-icons md-32 colorIco" style={this.state.colors[0]}>opacity</i>
+              </RaisedButton>
+              <RaisedButton onClick={e=>this.onSaveClick(e)} className="raised">
+                  <p className="menuBtn">Save</p>
+                  <i className="material-icons md-32 colorIco" style={this.state.colors[0]}>file_download</i>
+              </RaisedButton>
+              <RaisedButton onClick={e=>this.onLoadClick(e)} className="raised">
+                  <p className="menuBtn">Load</p>
+                  <i className="material-icons md-32 colorIco" style={this.state.colors[1]}>file_upload</i>
+              </RaisedButton>
+          </div>
           {/* Color Buttons */}
           <div className="colorBtnBox">
              {/* Debug Cheat Button */}
@@ -234,13 +249,13 @@ class App extends Component {
                   <ChecksApp 
                     applyScene={(scene)=>this.applyScene(scene)}
                     onCancel={()=>this.onCancel()}
+                    debug={()=>this.debug()}
                     /> 
                   : null}
                   {(this.state.drawerIs === 'CHALLENGES') ? 
                   <CollectionApp 
                     applyScene={(scene)=>this.applyScene(scene)}
                     onCancel={()=>this.onCancel()}
-                    debug={()=>this.debug()}
                     /> 
                   : null}
             </Drawer>

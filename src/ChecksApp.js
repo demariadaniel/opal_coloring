@@ -11,6 +11,9 @@ class ChecksApp extends Component {
     }
     onChange(e, challenge){
         e.preventDefault();
+        if (e.target.value.toLowerCase() == "debug"){
+            this.props.debug()
+        }
         this.setState({
             answer: e.target.value
         })

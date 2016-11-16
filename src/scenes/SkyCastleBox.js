@@ -237,7 +237,7 @@ class LayerThree extends Component {
                 {/* Sword */}
                 {/* In hand: left:30, top:16.25, fontSize:3, rotateZ(180) */}
                 <i className="material-icons md-250"
-                    style={{"position": "absolute", "left": "30rem", "top": "18rem", "fontSize": "3rem",
+                    style={{"position": "absolute", "left": "30rem", "top": "17.75rem", "fontSize": "3rem",
                     "transform":"rotateZ(120deg) rotateY(-180deg)"}}>
                     colorize
                 </i>

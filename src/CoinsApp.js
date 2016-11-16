@@ -49,7 +49,7 @@ class CoinsApp extends Component {
                 <i className="material-icons close" onClick={()=>this.props.onCancel()}>
                     close
                 </i>
-                <FlatButton style={white} onClick={()=>this.price(9, "SCENE")}>
+                <FlatButton style={white} onClick={()=>this.price(27, "SCENE")}>
                     Unlock a New Scene
                 </FlatButton>
                 <p style={grey}>

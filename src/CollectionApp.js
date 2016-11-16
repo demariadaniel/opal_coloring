@@ -26,11 +26,6 @@ class CollectionApp extends Component {
             myColor: color
         })
     }
-    onChange(e){
-        if (e.target.value.toLowerCase() == "debug"){
-            this.props.debug()
-        }
-    }
     render(){
         return(
             <div className="App">
@@ -38,8 +33,6 @@ class CollectionApp extends Component {
                 <i className="material-icons close" onClick={()=>this.props.onCancel()}>
                     close
                 </i>
-                <input style={{"background-color": "#222", "color": "white"}}
-                    onChange={(e)=>this.onChange(e)}/>
             {/*<FlatButton style={white} onClick={()=>this.applyScene()}>
                     Apply
                 </FlatButton>*/}

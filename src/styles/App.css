@@ -84,7 +84,7 @@
   left: 0.3125rem
 }
 
-.colorBtnBox, .colorBtnBox2, .btmBtnBoxRight{
+.colorBtnBox, .colorBtnBox2, .btmBtnBoxRight, .menuBtnBox{
   position: relative;
   text-align: right;
 }
@@ -132,6 +132,13 @@
   margin: 0;
   display: inline-block;
   vertical-align: text-bottom;
+}
+
+.menuBtnBox {
+  float: left;
+  z-index: 4;
+  left: 0rem;
+  top: 0rem;
 }
 
 .raised {
