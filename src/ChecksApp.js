@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import FlatButton from 'material-ui/FlatButton';
 import Checkbox from 'material-ui/Checkbox';
+import Dialog from 'material-ui/Dialog';
+import FlatButton from 'material-ui/FlatButton';
 import {brightColors, white, grey}  from './AllColors.js';
 
 class ChecksApp extends Component {
@@ -8,26 +9,71 @@ class ChecksApp extends Component {
         checkmarks: this.props.checkmarks.checkmarks,
         complete: this.props.checkmarks.complete,
         tempanswers: [],
+        open: false,
+        message: "",
+        options: false
     }
     answer(e, checkmark, i){
-        if (checkmark.complete) {
-            console.log('Complete!')
+        if (checkmark.complete && checkmark.type != "CREATIVE") {
+            this.setState({
+                open: true,
+                message: "Checkmark already complete.",
+                options: false
+            })
         } else if (checkmark.type == "COUNT"){
             if (checkmark.answer.includes(this.state.tempanswers[i].toLowerCase())){
-                console.log("correct");
                 this.props.answer(i);
+                this.correct(checkmark);
             } else {
-                console.log('wrong')
-                // let _checkmarks = this.state.checkmarks;
-                // _checkmarks[i].complete = false;
-                // this.setState({
-                //     checkmarks: _checkmarks
-                // })
+                this.incorrect();
             }
         } else if (checkmark.type == "CREATIVE") {
-            console.log(this.state.tempanswers[i])
+            if (this.state.tempanswers[i] != undefined){
+                if (checkmark.complete){
+                    this.setState({
+                        open: true,
+                        message: `Your current answer is ${this.state.tempanswers[i]}.
+                        Would you like to change this?`,
+                        options: true
+                    })
+                } else {
+                    this.correct(checkmark);
+                    this.props.answer(i);
+                }
+            } else {
+                this.incomplete()
+            }
         }
-
+    }
+    changeanswer(){
+        
+    }
+    correct(checkmark){
+        this.setState({
+            open: true,
+            message: `Checkmark complete! Great job.
+            You've earned ${checkmark.prize} coins!`,
+            options: false
+        })
+    }
+    incomplete(){
+        this.setState({
+            open: true,
+            message: "Please enter an answer.",
+            options: false
+        })
+    }
+    incorrect(){
+        this.setState({
+            open: true,
+            message: "Incorrect! Try again.",
+            options: false
+        })
+    }
+    oK(){
+        this.setState({
+            open: false
+        })
     }
     onChange(e, i){
         //e.preventDefault();
@@ -42,9 +88,24 @@ class ChecksApp extends Component {
         }
     }
     render(){
-        console.log(this.state.checkmarks)
+        const OK = [
+                (<FlatButton onClick={()=>this.oK()}>
+                    OK!
+                </FlatButton>)
+            ];
+        const OPTIONS = [
+                (<FlatButton onClick={()=>this.changeAnswer()}>
+                    "Yes please!"
+                </FlatButton>),
+                (<FlatButton onClick={()=>this.oK()}>
+                    "No thanks."
+                </FlatButton>)
+            ];
         return(
           <div className="App">
+            <Dialog open={this.state.open} actions={this.state.options ? OPTIONS : OK}>
+                {this.state.message}
+            </Dialog>
             <div className="App-header">
                 <i className="material-icons close" onClick={()=>this.props.onCancel()}>
                     close
@@ -57,7 +118,8 @@ class ChecksApp extends Component {
                                 (<input style={{"backgroundColor": "#222", "color": "white"}} 
                                         onChange={(e)=>this.onChange(e, i)}/>) 
                                 : null }
-                                <Checkbox onCheck={(e)=>this.answer(e, checkmark, i)}
+                                <Checkbox
+                                    onCheck={(e)=>this.answer(e, checkmark, i)}
                                     checked={checkmark.complete} 
                                     />
                             </div>
