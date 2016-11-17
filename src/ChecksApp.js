@@ -20,6 +20,9 @@ class ChecksApp extends Component {
                 message: "Checkmark already complete.",
                 options: false
             })
+        } else if (this.state.tempanswers[i] == undefined && 
+                  (checkmark.type == "COUNT" || checkmark.type == "CREATIVE")) {
+            this.incomplete();    
         } else if (checkmark.type == "COUNT"){
             if (checkmark.answer.includes(this.state.tempanswers[i].toLowerCase())){
                 this.props.answer(i);
@@ -28,25 +31,21 @@ class ChecksApp extends Component {
                 this.incorrect();
             }
         } else if (checkmark.type == "CREATIVE") {
-            if (this.state.tempanswers[i] != undefined){
-                if (checkmark.complete){
-                    this.setState({
-                        open: true,
-                        message: `Your current answer is ${this.state.tempanswers[i]}.
-                        Would you like to change this?`,
-                        options: true
-                    })
-                } else {
-                    this.correct(checkmark);
-                    this.props.answer(i);
-                }
+            if (checkmark.complete){
+                this.setState({
+                    open: true,
+                    message: `Your current answer is ${this.state.tempanswers[i]}.
+                    Would you like to change this?`,
+                    options: true
+                })
             } else {
-                this.incomplete()
+                this.correct(checkmark);
+                this.props.answer(i);
             }
         }
     }
     changeanswer(){
-        
+
     }
     correct(checkmark){
         this.setState({
@@ -80,11 +79,11 @@ class ChecksApp extends Component {
         if (e.target.value.toLowerCase() == "debug"){
             this.props.debug()
         } else {
-        let _answers = this.state.tempanswers;
-        _answers[i] = e.target.value;
-        this.setState({
-            tempanswers: _answers
-        })
+            let _answers = this.state.tempanswers;
+            _answers[i] = e.target.value;
+            this.setState({
+                tempanswers: _answers
+            })
         }
     }
     render(){
@@ -106,7 +105,7 @@ class ChecksApp extends Component {
             <Dialog open={this.state.open} actions={this.state.options ? OPTIONS : OK}>
                 {this.state.message}
             </Dialog>
-            <div className="App-header">
+            <div className="Checks-App-header">
                 <i className="material-icons close" onClick={()=>this.props.onCancel()}>
                     close
                 </i>
