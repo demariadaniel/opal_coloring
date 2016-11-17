@@ -28,7 +28,7 @@ class ChecksApp extends Component {
                 this.props.answer(i);
                 this.correct(checkmark);
             } else {
-                this.incorrect();
+                this.incorrect(checkmark);
             }
         } else if (checkmark.type == "CREATIVE") {
             if (checkmark.complete){
@@ -39,19 +39,23 @@ class ChecksApp extends Component {
                     options: true
                 })
             } else {
-                this.correct(checkmark);
+                this.correct(checkmark, i);
                 this.props.answer(i);
             }
         }
-    }
-    changeanswer(){
+    } 
+    changeAnswer(){
 
     }
-    correct(checkmark){
+    correct(checkmark, i){
+        let _message = checkmark.correct ? checkmark.correct : `Checkmark complete! Great job.`;
+        if (checkmark.type == "CREATIVE" && checkmark.correct){
+            _message += this.state.tempanswers[i] + "."
+        }
+        _message += ` You've earned ${checkmark.prize} coins!`;
         this.setState({
             open: true,
-            message: `Checkmark complete! Great job.
-            You've earned ${checkmark.prize} coins!`,
+            message: _message,
             options: false
         })
     }
@@ -62,10 +66,10 @@ class ChecksApp extends Component {
             options: false
         })
     }
-    incorrect(){
+    incorrect(checkmark){
         this.setState({
             open: true,
-            message: "Incorrect! Try again.",
+            message: checkmark.incorrect? checkmark.incorrect : "Incorrect! Try again.",
             options: false
         })
     }
@@ -93,11 +97,11 @@ class ChecksApp extends Component {
                 </FlatButton>)
             ];
         const OPTIONS = [
-                (<FlatButton onClick={()=>this.changeAnswer()}>
-                    "Yes please!"
+                (<FlatButton onClick={(e)=>this.changeAnswer(e)}>
+                    Yes please!
                 </FlatButton>),
                 (<FlatButton onClick={()=>this.oK()}>
-                    "No thanks."
+                    No thanks.
                 </FlatButton>)
             ];
         return(

@@ -9,7 +9,8 @@ const SkyCheckMarks = {
             type: "COUNT",
             answer: ["3", "three"],
             prize: 3,
-            complete: false
+            complete: false,
+            incorrect: "Incorrect. Look closely..."
         },{
             text: "Count the number of Birds",
             type: "COUNT",
@@ -20,7 +21,8 @@ const SkyCheckMarks = {
             text: "Give the Kingdom a Name",
             type: "CREATIVE",
             prize: 3,
-            complete: false
+            complete: false,
+            correct: 'Welcome to the majestic kingdom of ' 
         },{
             text: "Give the Knight a Name",
             type: "CREATIVE",
