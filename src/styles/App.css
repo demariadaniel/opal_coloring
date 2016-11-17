@@ -56,6 +56,19 @@
   height: 100%;
 }
 
+.checkInput{
+  background-color: #222; 
+  color: white;
+  font-size: 1rem; 
+  z-index: 4; 
+  position: absolute;
+  left: 0;
+}
+
+.checkmark {
+  position: relative
+}
+
 .Checks-App-header{
   overflow: scroll
 }

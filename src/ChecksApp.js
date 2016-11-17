@@ -91,6 +91,14 @@ class ChecksApp extends Component {
         }
     }
     render(){
+        let iconStyle = (checkmark) => {
+            let style = {};
+            checkmark.complete ? null : style["fill"] = "white";
+            checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
+                    style["left"] = "5.5rem" : style["left"] = "0.625rem";
+            console.log(style)
+            return style
+        }
         const OK = [
                 (<FlatButton onClick={()=>this.oK()}>
                     OK!
@@ -116,15 +124,23 @@ class ChecksApp extends Component {
                 {this.state.checkmarks.map((checkmark, i)=>{
                         return (
                             <div className="checkmark" key={i}>
-                                <p>{checkmark.text}</p>
                                 {checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
-                                (<input style={{"backgroundColor": "#222", "color": "white"}} 
-                                        onChange={(e)=>this.onChange(e, i)}/>) 
-                                : null }
+                                    <p style={{'textAlign':'left'}}>{checkmark.text}</p> : null}
+                                {checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
+                                (<input className={"checkInput"}
+                                        onChange={(e)=>this.onChange(e, i)}/>)
+                                        : null }
                                 <Checkbox
+                                    label=
+                                        {checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
+                                        null : checkmark.text}
+                                    labelPosition={"left"}
+                                    labelStyle={white}
+                                    iconStyle={iconStyle(checkmark)}
                                     onCheck={(e)=>this.answer(e, checkmark, i)}
                                     checked={checkmark.complete} 
-                                    />
+                                />
+                                <br/>
                             </div>
                             )
                     })
