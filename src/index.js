@@ -126,7 +126,7 @@ class App extends Component {
       let balance = this.state.coins;
       if (this.state.buying){
         scene.isUnlocked = true;
-        balance -= 27;
+        balance -= 25;
       }
       AllScenes[index] = scene;
       this.setState({
