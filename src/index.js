@@ -189,13 +189,23 @@ class App extends Component {
                   <p className="menuBtn">Opal</p>
                   <i className="material-icons md-32 colorIco" style={this.state.colors[0]}>opacity</i>
               </RaisedButton>
+              <RaisedButton onClick={e=>this.onLoginClick(e)} className="raised">
+                  <p className="menuBtn">Login</p>
+                  <i className="material-icons md-32 colorIco" style={{"color" : "rgb(0, 0, 0)"}}>
+                    perm_identity
+                  </i>
+              </RaisedButton>
               <RaisedButton onClick={e=>this.onSaveClick(e)} className="raised">
                   <p className="menuBtn">Save</p>
-                  <i className="material-icons md-32 colorIco" style={this.state.colors[0]}>file_download</i>
+                  <i className="material-icons md-32 colorIco" style={{"color" : "rgb(0, 0, 0)"}}>
+                  vertical_align_bottom    
+                  </i>
               </RaisedButton>
               <RaisedButton onClick={e=>this.onLoadClick(e)} className="raised">
                   <p className="menuBtn">Load</p>
-                  <i className="material-icons md-32 colorIco" style={this.state.colors[1]}>file_upload</i>
+                  <i className="material-icons md-32 colorIco" style={{"color" : "rgb(0, 0, 0)"}}>
+                    vertical_align_top
+                  </i>
               </RaisedButton>
           </div>
           {/* Color Buttons */}

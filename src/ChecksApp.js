@@ -105,7 +105,8 @@ class ChecksApp extends Component {
                 </FlatButton>)
             ];
         const OPTIONS = [
-                (<FlatButton onClick={(e)=>this.changeAnswer(e)}>
+                (<FlatButton onClick={(e)=>this.changeAnswer(e)}
+                    style={{"color" : "rgb(0, 188, 212)"}}>
                     Yes please!
                 </FlatButton>),
                 (<FlatButton onClick={()=>this.oK()}>
