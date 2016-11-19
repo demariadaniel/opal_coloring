@@ -1,6 +1,7 @@
 // React
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import axios from 'axios';
 // Drawer Components
 import ColorApp from './ColorApp';
 import SceneApp from './SceneApp';
@@ -46,7 +47,11 @@ class App extends Component {
     coinFlip: false,
     buying: false,
     debug: false,
-    complete: 0
+    complete: 0,
+    user: {
+      userName: "Soji",
+      id: 0
+    }
   }
   onCancel(){
     this.setState({openL: false, openR: false, buying: false})
@@ -179,29 +184,52 @@ class App extends Component {
       debug: true
     })
   }
+  onSaveColors(title){
+    let newPalette = {
+      title: title,
+      palette: this.state.colors,
+      user_id: "0"
+    };
+    axios.post('http://localhost:8080/palettes/', newPalette)
+      .then(res =>{
+        console.log(res)
+      })
+  }
+  onLoadColors(title){
+    axios.get('http://localhost:8080/palettes/'+title)
+      .then(res =>{
+        let _colors = this.state.colors; 
+        for(let i = 0; i < 10; i++){
+          _colors[i] = res.data.palette[i];
+          this.setState({
+            colors: _colors
+          })
+        }
+      })
+  }
   render (){
     return (
       <MuiThemeProvider>
         <div className="BGcontainer">
           {/* Menu Buttons */}
           <div className="menuBtnBox">
-              <RaisedButton onClick={e=>this.onLogoClick(e)} className="raised">
+              <RaisedButton onClick={e=>this.onAppClick(e, "OPAL")} className="raised">
                   <p className="menuBtn">Opal</p>
                   <i className="material-icons md-32 colorIco" style={this.state.colors[0]}>opacity</i>
               </RaisedButton>
-              <RaisedButton onClick={e=>this.onLoginClick(e)} className="raised">
+              <RaisedButton onClick={e=>this.onAppClick(e, "LOGIN", "openL")} className="raised">
                   <p className="menuBtn">Login</p>
                   <i className="material-icons md-32 colorIco" style={{"color" : "rgb(0, 0, 0)"}}>
                     perm_identity
                   </i>
               </RaisedButton>
-              <RaisedButton onClick={e=>this.onSaveClick(e)} className="raised">
+              <RaisedButton onClick={e=>this.onAppClick(e, "SAVE", "openL")} className="raised">
                   <p className="menuBtn">Save</p>
                   <i className="material-icons md-32 colorIco" style={{"color" : "rgb(0, 0, 0)"}}>
                   vertical_align_bottom    
                   </i>
               </RaisedButton>
-              <RaisedButton onClick={e=>this.onLoadClick(e)} className="raised">
+              <RaisedButton onClick={e=>this.onAppClick(e, "LOAD", "openL")} className="raised">
                   <p className="menuBtn">Load</p>
                   <i className="material-icons md-32 colorIco" style={{"color" : "rgb(0, 0, 0)"}}>
                     vertical_align_top
@@ -298,10 +326,16 @@ class App extends Component {
                     onCancel={()=>this.onCancel()}
                     /> 
                   : null}
-                {(this.state.drawerIs === 'FILE') ? 
-                  <FileApp 
-                    applyScene={(scene)=>this.applyScene(scene)}
+                {(this.state.drawerIs === 'SAVE' || 
+                  this.state.drawerIs === "LOAD" || 
+                  this.state.drawerIs === "LOGIN") ? 
+                  <FileApp
+                    drawerIs = {this.state.drawerIs}
+                    onSaveColors={(title)=>this.onSaveColors(title)} 
+                    onLoadColors={(title)=>this.onLoadColors(title)}
+                    onLogin={(userId, password)=>this.onLogin(userId, password)}
                     onCancel={()=>this.onCancel()}
+                    user={this.state.user}
                     /> 
                   : null}
             </Drawer>

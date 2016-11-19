@@ -3,6 +3,7 @@ const router  = express.Router();
 const Palette = require('./../models/Palettes');
 
 router.get('/',(req,res) => {
+    console.log('all endpoint');
 	Palette.find({}, (err, paletteArray) => {
 			if(err){
 				console.log(err);
@@ -11,7 +12,7 @@ router.get('/',(req,res) => {
 			}
 			else{
 				console.log(paletteArray)
-				res.json(paletteArray)
+				res.send(paletteArray)
 			}
 		})
 });
@@ -27,14 +28,14 @@ router.get('/:title',(req,res) => {
 			else{
 				console.log(palette)
 				res.json(palette)
-		z	}
+			}
 		})
 });
 
 
 router.post('/',(req,res) => {
 	let __palette = req.body;
-	let newPalette = Palette(__shop);
+	let newPalette = Palette(__palette);
 		newPalette.save((err, savedPalette) => {
 			if(err){
 				console.log(err);
@@ -44,7 +45,7 @@ router.post('/',(req,res) => {
 			else{
 				console.log(savedPalette)
 				res.json(savedPalette)
-		z	}
+			}
 		})
 });
 
