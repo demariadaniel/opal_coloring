@@ -81,12 +81,12 @@ class App extends Component {
         if (this.state.openL || this.state.openR){
         this.setState({
           openL: false,
-          openR: false,  
+          openR: false
         })
         setTimeout(()=>{
           this.setState({
             [`${side}`]: !this.state[`${side}`],
-            drawerIs: app
+                      drawerIs: app  
         })
       }, 200)
       } else {
