@@ -7,12 +7,60 @@ const paletteSchema = new Schema({
     required: true,
     unique: true
   },
-  palette: { 
-    type: Array, 
-    required: true, 
-    unique: true 
+  palette: [
+    {unique: false,
+      color: String,
+      name: String,
+      change: Boolean},
+    {unique: false,
+      color: String,
+      name: String,
+      change: Boolean},
+    {unique: false,
+      color: String,
+      name: String,
+      change: Boolean},
+    {unique: false,
+      color: String,
+      name: String,
+      change: Boolean},
+    {unique: false,
+      color: String,
+      name: String,
+      change: Boolean},
+    {unique: false,
+      color: String,
+      name: String,
+      change: Boolean},
+    {unique: false,
+      color: String,
+      name: String,
+      change: Boolean},
+    {unique: false,
+      color: String,
+      name: String,
+      change: Boolean},
+    {unique: false,
+      color: String,
+      name: String,
+      change: Boolean},
+    {unique: false,
+      color: String,
+      name: String,
+      change: Boolean}
+  ],
+  user: {
+    userName: {
+      type: String,
+      required: true,
+      unique: false
+    },
+    id: {
+      type: String,
+      required: false,
+      unique: false
+    }
   },
-  user_id: String,
   created_at: Date,
   updated_at: Date
 });

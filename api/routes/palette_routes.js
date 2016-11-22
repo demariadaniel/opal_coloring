@@ -34,7 +34,11 @@ router.get('/:title',(req,res) => {
 
 
 router.post('/',(req,res) => {
+	console.log(req.body)
 	let __palette = req.body;
+	for (let i = 0; i <10; i++){
+		delete __palette.palette[i]._id
+	}
 	let newPalette = Palette(__palette);
 		newPalette.save((err, savedPalette) => {
 			if(err){

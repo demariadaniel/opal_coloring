@@ -49,9 +49,10 @@ class App extends Component {
     debug: false,
     complete: 0,
     user: {
-      userName: "Soji",
+      userName: "",
       id: 0
-    }
+    },
+    loggedIn: false
   }
   onCancel(){
     this.setState({openL: false, openR: false, buying: false})
@@ -110,13 +111,11 @@ class App extends Component {
   applyColor(color){
     let newColors = this.state.colors;
     let newCoins = this.state.coins;
-    console.log(color)
     if (this.state.colors[this.state.colorIndex].change===false){
-      console.log(this.state.colors[this.state.colorIndex])
       color.change = true;
       newCoins += 3;
-    }
     console.log(newCoins)
+    }
     newColors.splice(this.state.colorIndex, 1, color);
     this.setState({
       colors: newColors,
@@ -184,15 +183,18 @@ class App extends Component {
       debug: true
     })
   }
-  onSaveColors(title){
+  onSaveColors(title, user){
+    
     let newPalette = {
       title: title,
       palette: this.state.colors,
-      user_id: "0"
+      user: user
     };
+    console.log(newPalette)
     axios.post('http://localhost:8080/palettes/', newPalette)
       .then(res =>{
         console.log(res)
+        this.onCancel()
       })
   }
   onLoadColors(title){
@@ -331,7 +333,8 @@ class App extends Component {
                   this.state.drawerIs === "LOGIN") ? 
                   <FileApp
                     drawerIs = {this.state.drawerIs}
-                    onSaveColors={(title)=>this.onSaveColors(title)} 
+                    loggedIn = {this.state.loggedIn}
+                    onSaveColors={(title, user)=>this.onSaveColors(title, user)} 
                     onLoadColors={(title)=>this.onLoadColors(title)}
                     onLogin={(userId, password)=>this.onLogin(userId, password)}
                     onCancel={()=>this.onCancel()}

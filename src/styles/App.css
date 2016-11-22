@@ -56,13 +56,16 @@
   height: 100%;
 }
 
-.checkInput{
-  background-color: #222; 
-  color: white;
-  font-size: 1rem; 
+.checkInput{ 
   z-index: 4; 
   position: absolute;
   left: 0;
+}
+
+.checkInput, .fileInput {
+  background-color: #222; 
+  color: white;
+  font-size: 1rem;
 }
 
 .checkmark {
