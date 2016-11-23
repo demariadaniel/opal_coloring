@@ -184,13 +184,11 @@ class App extends Component {
     })
   }
   onSaveColors(title, user){
-    
     let newPalette = {
       title: title,
       palette: this.state.colors,
       user: user
     };
-    console.log(newPalette)
     axios.post('http://localhost:8080/palettes/', newPalette)
       .then(res =>{
         console.log(res)

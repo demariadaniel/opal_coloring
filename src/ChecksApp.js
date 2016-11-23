@@ -96,7 +96,6 @@ class ChecksApp extends Component {
             checkmark.complete ? null : style["fill"] = "white";
             checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
                     style["left"] = "5.5rem" : style["left"] = "0.625rem";
-            console.log(style)
             return style
         }
         const OK = [
