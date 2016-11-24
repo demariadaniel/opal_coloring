@@ -9,7 +9,7 @@ import React, { Component } from 'react';
 class SkyCastleBox extends Component {
     state = {
         colors: this.props.colors,
-        test: false
+        test: false,
     }
     render(){
         return (
@@ -18,7 +18,8 @@ class SkyCastleBox extends Component {
                 <LayerTwo color={this.state.colors[1].color} />
                 <LayerThree color={this.state.colors[2].color} />
                 <LayerFour color={this.state.colors[3].color} />
-                <LayerFive color={this.state.colors[4].color} />
+                <LayerFive color={this.state.colors[4].color} 
+                            flag={this.props.rotate.flag} />
                 <LayerSix color={this.state.colors[5].color} />
                 <DragonLayer color0={this.state.colors[6].color} 
                              color1={this.state.colors[7].color} />
@@ -321,7 +322,19 @@ class LayerFour extends Component {
     }
 }
 class LayerFive extends Component {
+
     render(){
+        let brokenFlag=()=>{
+            let style = {
+                "left": "47.75rem", 
+                "top": "3rem", 
+                "fontSize": "4rem", 
+                "position":"absolute",
+                "transformOrigin": "bottom center",
+                "transform": "rotateZ("+this.props.flag+")"
+            }
+            return style
+        }
         return(
             <div style={{"color":this.props.color}} className="layer">
                 {/* Roof */}
@@ -332,7 +345,7 @@ class LayerFive extends Component {
                 </i>
                 {/* Flag */}
                 <i className="material-icons md-250"
-                    style={{"left": "48rem", "top": "3rem", "fontSize": "4rem", "position":"absolute"}}
+                    style={brokenFlag()}
                     >
                     assistant_photo
                 </i>

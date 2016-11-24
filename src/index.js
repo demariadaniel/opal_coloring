@@ -19,6 +19,7 @@ import {FairyBox, FarmBox, GhostBox, MermaidBox, RainbowBox,
 import Dialog from 'material-ui/Dialog';
 import Drawer from 'material-ui/Drawer';
 import RaisedButton from 'material-ui/RaisedButton';
+import Slider from 'material-ui/Slider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 // Styles & Colors
@@ -48,7 +49,10 @@ class App extends Component {
     },
     loggedIn: false,
     smallDevice: false,
-    openM: false
+    openM: false,
+    rotate: {
+      flag: "14deg"
+    }
   }
   onCancel(){
     this.setState({openL: false, openR: false, buying: false})
@@ -203,6 +207,15 @@ class App extends Component {
         }
       })
   }
+  onSlide(value, checkmark){
+    let _rotate = this.state.rotate;
+    let _deg = value + "deg";
+    console.log(_deg)
+    _rotate[checkmark] = _deg;
+    this.setState({
+      rotate: _rotate
+    })
+  }
   render (){
     if(screen.wdith < 675){
       this.setState({
@@ -278,7 +291,9 @@ class App extends Component {
 
             {/* Canvas */}
             <div className="BG" style={{backgroundColor: this.state.colors[9].color}}>
-              <this.state.scene.scene colors={this.state.colors} />
+              <this.state.scene.scene 
+                colors={this.state.colors} 
+                rotate={this.state.rotate} />
             </div>
 
             {/* Drawers */}
@@ -293,12 +308,13 @@ class App extends Component {
                   <ChecksApp 
                     applyScene={(scene)=>this.applyScene(scene)}
                     onCancel={()=>this.onCancel()}
+                    onSlide={(v,c)=>this.onSlide(v,c)}
                     debug={()=>this.debug()}
                     checkmarks={this.state.scene.checkmarks}
                     answer={(i)=>this.answer(i)}
                     /> 
                   : null}
-                  {(this.state.drawerIs === 'CHALLENGES') ? 
+                  {(this.state.drawerIs === 'COLLECTION') ? 
                   <CollectionApp 
                     applyScene={(scene)=>this.applyScene(scene)}
                     onCancel={()=>this.onCancel()}

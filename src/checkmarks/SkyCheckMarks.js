@@ -35,11 +35,17 @@ const SkyCheckMarks = {
             prize: 3,
             complete: false
         },{
-            text: "Raise the Crooked Flag",
+            text: "Fix the Crooked Flag",
             type: "SLIDER",
-            answer: 45,
+            value: 'flag',
+            max: 30,
+            min: -30,
+            minAnswer: -3,
+            maxAnswer: 3,
+            default: 14,            
             prize: 5,
-            complete: false
+            complete: false,
+            incorrect: "Not quite, just a little bit more..."
         },{
             text: "Help the Heroes defeat the Dragon",
             type: "CLICK",

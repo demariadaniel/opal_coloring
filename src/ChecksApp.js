@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Checkbox from 'material-ui/Checkbox';
+import Slider from 'material-ui/Slider';
 import TextField from 'material-ui/TextField';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
@@ -40,9 +41,17 @@ class ChecksApp extends Component {
                     options: true
                 })
             } else {
-                this.correct(checkmark, i);
                 this.props.answer(i);
+                this.correct(checkmark, i);
             }
+        } else if (checkmark.type == "SLIDER") {
+            if (this.state.tempanswers[i] < checkmark.maxAnswer 
+                && this.state.tempanswers[i] > checkmark.minAnswer){
+                    this.props.answer(i)
+                    this.correct(checkmark, i)
+                } else {
+                    this.incorrect(checkmark)
+                }
         }
     } 
     changeAnswer(){
@@ -91,12 +100,19 @@ class ChecksApp extends Component {
             })
         }
     }
+    onSlide(value, checkmark, i){
+        this.props.onSlide(value, checkmark)
+        let _answers = this.state.tempanswers;
+            _answers[i] = value;
+            this.setState({
+                tempanswers: _answers
+            })
+    }
     render(){
         let iconStyle = (checkmark) => {
             let style = {};
             checkmark.complete ? null : style["fill"] = "white";
-            checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
-                    style["left"] = "5.5rem" : style["left"] = "0.625rem";
+            checkmark.type == "CLICK" ? style["left"] = "0.625rem" : style["left"] = "5.5rem";
             return style
         }
         const OK = [
@@ -125,13 +141,15 @@ class ChecksApp extends Component {
                 {this.state.checkmarks.map((checkmark, i)=>{
                         return (
                             <div key={i} 
-                                className={checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ?
-                                    "checkmark checkExtra" : "checkmark"}
+                                className={checkmark.type == "CLICK" ?
+                                    "checkmark checkLess" : "checkmark checkMore"}
                                 >
-                                {checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
-                                    <p style={{'textAlign':'left', "marginBottom":"-0.75rem"}}>
+                                {checkmark.type == "CLICK" ? null :
+                                    <p style={{'textAlign':'left'}}
+                                        className={checkmark.type == "SLIDER" ? "checkStext" : "checkPtext"}>
                                         {checkmark.text}
-                                    </p> : null}
+                                    </p>
+                                }
                                 {checkmark.type == "COUNT" ? 
                                 (<TextField 
                                         disabled={checkmark.complete}
@@ -151,12 +169,19 @@ class ChecksApp extends Component {
                                         floatingLabelText="Write a name"
                                         onChange={(e)=>this.onChange(e, i)}/>)
                                         : null }
+                                 {checkmark.type == "SLIDER" ? 
+                                (<Slider 
+                                        onChange={(e, value)=>this.onSlide(value, checkmark.value, i)}
+                                        max={checkmark.max}
+                                        min={checkmark.min}
+                                        defaultValue={checkmark.default}
+                                        />)
+                                        : null }
                                 <Checkbox
-                                    style={checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
-                                        {"bottom":"3.5rem"} : null}
+                                    style={checkmark.type == "CLICK" ? null : {"bottom":"3.5rem"}}
+                                    className={checkmark.type=="SLIDER" ? "checkSlide" : null}
                                     label=
-                                        {checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
-                                        null : checkmark.text}
+                                        {checkmark.type == "CLICK" ? checkmark.text : null }
                                     labelPosition={"left"}
                                     labelStyle={white}
                                     iconStyle={iconStyle(checkmark)}

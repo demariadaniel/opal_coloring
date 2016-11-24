@@ -109,12 +109,28 @@
   font-size: 1rem;
 }
 
+.checkLess {
+  margin-bottom: 0.5rem;
+}
+
 .checkmark {
   position: relative;
 }
 
-.checkExtra {
+.checkMore {
   margin-bottom: -1.25rem;
+}
+
+.checkPtext {
+  margin-bottom:-0.75rem;
+}
+
+.checkSlide {
+  bottom: 7rem !important
+}
+
+.checkStext {
+  margin-bottom:0.75rem;
 }
 
 .close {
