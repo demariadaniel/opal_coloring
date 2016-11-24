@@ -206,7 +206,7 @@ class App extends Component {
   render (){
     if(screen.wdith < 675){
       this.setState({
-        smallDevice = true
+        smallDevice : true
       })
     }
     return (
