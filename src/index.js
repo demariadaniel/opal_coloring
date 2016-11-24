@@ -27,6 +27,7 @@ import {white} from './AllColors';
 import './styles/index.css';
 import './styles/App.css';
 
+// App will need way to load initial slider values
 
 class App extends Component {
   state = {
@@ -51,7 +52,12 @@ class App extends Component {
     smallDevice: false,
     openM: false,
     slider: {
-      flag: "14deg"
+      flag: "14deg",
+      dragon: {
+        "top": '0rem',
+        "left": '0rem',
+        'rotate':'0deg'
+      }
     }
   }
   onCancel(){
@@ -209,14 +215,18 @@ class App extends Component {
   }
   onSlide(value, checkmark){
     let _slider = this.state.slider;
-    let _deg = "";
+    let result;
     if (checkmark.kind == "rotate"){
-      _deg = value + "deg";
+      result = value + "deg";
     } else if (checkmark.kind === "move"){
-      _deg = value + "rem";
+      result = {};
+      for (let j = 0; j < checkmark.keys.length; j++){
+        let property = checkmark.keys[j];
+        result[property] = value;
+      }
     }
-    console.log(_deg)
-    _slider[checkmark.value] = _deg;
+    console.log(result)
+    _slider[checkmark.value] = result;
     this.setState({
       slider: _slider
     })

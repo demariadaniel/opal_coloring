@@ -16,7 +16,8 @@ class SkyCastleBox extends Component {
                             flag={this.props.slider.flag} />
                 <LayerSix color={this.state.colors[5].color} />
                 <DragonLayer color0={this.state.colors[6].color} 
-                            color1={this.state.colors[7].color} />
+                            color1={this.state.colors[7].color} 
+                            dragon={this.props.slider.dragon} />
                 <LayerNine color={this.state.colors[8].color} />
             </div>
         )
@@ -543,11 +544,35 @@ class LayerSix extends Component {
 }
 class DragonLayer extends Component {
     render(){
+        let dragonChallenge =()=>{
+            let _top = (this.props.dragon.top*0.15).toString();
+            if (_top.charAt(0) === "-"){
+                _top = _top.substring(1)
+            } else {
+                _top = '-' + _top
+            }
+            let style = {
+                'left': this.props.dragon.left + "rem",
+                'top': _top + "rem"
+            }
+            return style
+        }
+        let wingFlap =()=>{
+            let rotate = this.props.dragon.rotate;
+            let style={
+                "position": "absolute", 
+                "left": "-1rem", 
+                "top": "0.5rem",
+                "transformOrigin":"bottom right",
+                "transform":"rotateZ("+rotate+"deg)"
+            }
+            return style
+        }
         return(
-            <div className="layer" draggable="true">
+            <div className="layer wing" style={dragonChallenge()}>
             <div style={{"color":this.props.color0, "zIndex":"6"}} className="layer">
                 {/* Wing */}
-                <div style={{"position": "absolute", "left": "-1rem", "top": "0.5rem"}}>
+                <div style={wingFlap()}>
                 <i className="material-icons md-250"
                     style={{"position": "absolute", "left": "0rem", "top": "2.25rem", "fontSize": "10rem",
                     "transform":"rotateZ(-180deg) rotateY(-180deg)"}}>

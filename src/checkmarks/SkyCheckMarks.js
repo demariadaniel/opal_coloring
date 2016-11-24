@@ -60,6 +60,20 @@ const SkyCheckMarks = {
             prize: 10,
             complete: false
         },{
+            text: "Fly the Dragon",
+            type: "SLIDER",
+            kind: 'move',
+            value: 'dragon',
+            keys: ['top','left','rotate'],
+            max: 10,
+            min: -3,
+            minAnswer: -3,
+            maxAnswer: 1,
+            default: 0,
+            prize: 10,
+            complete: false,
+            incorrect: 'Make the dragon retreat from the heroes!'
+        },{
             text: "Help the Heroes defeat the Dragon",
             type: "CLICK",
             count: 0,
