@@ -40,11 +40,12 @@
   width: 100%;
 }
 
-.App-header, .Checks-App-header {
+.App-header {
   background-color: #222;
   height: 60%;
   padding: 1.25rem;
   color: white;
+  overflow: scroll
 }
 
 .btmBtnBox {
@@ -105,11 +106,11 @@
 }
 
 .checkmark {
-  position: relative
+  position: relative;
 }
 
-.Checks-App-header{
-  overflow: scroll
+.checkExtra {
+  margin-bottom: -1.25rem;
 }
 
 .close {

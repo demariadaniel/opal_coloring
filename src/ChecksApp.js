@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import Checkbox from 'material-ui/Checkbox';
+import TextField from 'material-ui/TextField';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import {brightColors, white, grey}  from './AllColors.js';
+import {brightColors, white, grey, teal}  from './AllColors.js';
 
 class ChecksApp extends Component {
     state = {
@@ -117,20 +118,42 @@ class ChecksApp extends Component {
             <Dialog open={this.state.open} actions={this.state.options ? OPTIONS : OK}>
                 {this.state.message}
             </Dialog>
-            <div className="Checks-App-header">
+            <div className="App-header">
                 <i className="material-icons close" onClick={()=>this.props.onCancel()}>
                     close
                 </i>
                 {this.state.checkmarks.map((checkmark, i)=>{
                         return (
-                            <div className="checkmark" key={i}>
+                            <div key={i} 
+                                className={checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ?
+                                    "checkmark checkExtra" : "checkmark"}
+                                >
                                 {checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
-                                    <p style={{'textAlign':'left'}}>{checkmark.text}</p> : null}
-                                {checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
-                                (<input className={"checkInput"}
+                                    <p style={{'textAlign':'left', "marginBottom":"-0.75rem"}}>
+                                        {checkmark.text}
+                                    </p> : null}
+                                {checkmark.type == "COUNT" ? 
+                                (<TextField 
+                                        disabled={checkmark.complete}
+                                        inputStyle={white}
+                                        type="number"
+                                        floatingLabelStyle={grey}
+                                        floatingLabelFocusStyle={{"color":"rgb(0, 188, 212)"}}
+                                        floatingLabelText="Enter a number!"
+                                        onChange={(e)=>this.onChange(e, i)}/>)
+                                        : null }
+                                {checkmark.type == "CREATIVE" ? 
+                                (<TextField 
+                                        inputStyle={white}
+                                        type="text"
+                                        floatingLabelStyle={grey}
+                                        floatingLabelFocusStyle={{"color":"rgb(0, 188, 212)"}}
+                                        floatingLabelText="Write a name!"
                                         onChange={(e)=>this.onChange(e, i)}/>)
                                         : null }
                                 <Checkbox
+                                    style={checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
+                                        {"bottom":"3.5rem"} : null}
                                     label=
                                         {checkmark.type == "COUNT" || checkmark.type == "CREATIVE" ? 
                                         null : checkmark.text}
@@ -139,7 +162,7 @@ class ChecksApp extends Component {
                                     iconStyle={iconStyle(checkmark)}
                                     onCheck={(e)=>this.answer(e, checkmark, i)}
                                     checked={checkmark.complete} 
-                                />
+                                        />
                                 <br/>
                             </div>
                             )
@@ -160,14 +183,7 @@ class ChecksApp extends Component {
 }
 
 /*
-                {this.state.checkmarks.map((checkmark, i)=>{
-                        console.log(checkmark)
-                        return (<Checkbox/>)
-                    })
-                }
-
-
-
+className={"checkInput"}
 */
 
 export default ChecksApp;

@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+
 // Drawer Components
 import ColorApp from './ColorApp';
 import SceneApp from './SceneApp';
@@ -9,28 +10,21 @@ import CoinsApp from './CoinsApp';
 import ChecksApp from './ChecksApp';
 import CollectionApp from './CollectionApp';
 import FileApp from './FileApp';
+
 // Scenes
 import {FairyBox, FarmBox, GhostBox, MermaidBox, RainbowBox, 
     SkyCastleBox, TreasureBox, AllScenes} from './AllScenes';
+
 // Material Components
+import Dialog from 'material-ui/Dialog';
 import Drawer from 'material-ui/Drawer';
 import RaisedButton from 'material-ui/RaisedButton';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 // Styles & Colors
 import {white} from './AllColors';
 import './styles/index.css';
 import './styles/App.css';
-
-//export initColors array from AllColors
-
-// all scenes imported/managed by SceneApp
-// BG/ternary operator moved to SceneApp
-//  change BG to display this.state.currentScene.scene
-//  each scene object has it's Box component as a property
-//  export scenes array from SceneApp  
-
-//colorIndex
-//sceneIndex
 
 
 class App extends Component {
@@ -277,13 +271,7 @@ class App extends Component {
 
             {/* Canvas */}
             <div className="BG" style={{backgroundColor: this.state.colors[9].color}}>
-              {(this.state.scene.name === 'Rainbow') ? <RainbowBox colors={this.state.colors}/> : null}
-              {(this.state.scene.name === 'Mermaid') ? <MermaidBox colors={this.state.colors}/> : null}
-              {(this.state.scene.name === 'Sky Castle') ? <SkyCastleBox colors={this.state.colors}/> : null}
-              {(this.state.scene.name === 'Farm') ? <FarmBox colors={this.state.colors}/> : null}
-              {(this.state.scene.name === 'Fairy') ? <FairyBox colors={this.state.colors}/> : null}
-              {(this.state.scene.name === 'Treasure') ? <TreasureBox colors={this.state.colors}/> : null}
-              {(this.state.scene.name === 'Ghost') ? <GhostBox colors={this.state.colors}/> : null}
+              <this.state.scene.scene colors={this.state.colors} />
             </div>
 
             {/* Drawers */}

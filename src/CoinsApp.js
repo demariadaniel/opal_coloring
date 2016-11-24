@@ -12,7 +12,6 @@ class CoinsApp extends Component {
     }
     applyScene(){
         this.props.applyScene(this.state.myScene);
-        //this.setState({myScene: {color: "#222"}});
     }
     choose(){
         if (this.state.type == "SCENE"){
@@ -56,8 +55,8 @@ class CoinsApp extends Component {
                     Cost: <span className="rainbow">{this.state.price}</span>
                 </p>
                 <p style={grey}>
-                    Total Coins: 
-                    <span className="rainbow">{this.props.coins}</span>
+                    Total Coins:  
+                    <span className="rainbow"> {this.props.coins}</span>
                 </p>
 
                 <FlatButton style={this.state.error ? grey : white} onClick={()=>this.choose()} 
