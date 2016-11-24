@@ -382,7 +382,7 @@ class App extends Component {
                   <p className="menuBtn">Checkmarks: {this.state.scene.checkmarks.complete} / {this.state.scene.checkmarks.checkmarks.length}</p>
                   <i className="material-icons md-32 sceneIco">check</i>
                 </RaisedButton>
-                <RaisedButton onClick={e=>this.onAppClick(e, "CHALLENGES", "openR")} className="raised">
+                <RaisedButton onClick={e=>this.onAppClick(e, "COLLECTION", "openR")} className="raised">
                   <p className="menuBtn">Collection</p>
                   <i className="material-icons md-32 sceneIco">redeem</i>
                 </RaisedButton>
