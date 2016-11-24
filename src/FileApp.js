@@ -20,7 +20,6 @@ class FileApp extends Component {
         }
     }
     componentWillReceiveProps(nextProps){
-        console.log(nextProps);
         if (this.state.drawerIs != nextProps.drawerIs){
             if (nextProps.drawerIs == "LOAD"){
                 this.loadPalettes()
@@ -63,7 +62,6 @@ class FileApp extends Component {
         if (this.artistInput.value === "" && !this.state.loggedIn){
             __message += " and a user name"
         }
-        console.log(__message)
         if (__message.length < 15){
             console.log(__message.length)
             this.props.onSaveColors(this.state.title, this.state.user);
@@ -77,7 +75,6 @@ class FileApp extends Component {
                 message: __message,
                 error: true
             })
-            console.log(this.state)
         }
     }
     render(){

@@ -46,7 +46,9 @@ class App extends Component {
       userName: "",
       id: 0
     },
-    loggedIn: false
+    loggedIn: false,
+    smallDevice: false,
+    openM: false
   }
   onCancel(){
     this.setState({openL: false, openR: false, buying: false})
@@ -202,6 +204,11 @@ class App extends Component {
       })
   }
   render (){
+    if(screen.wdith < 675){
+      this.setState({
+        smallDevice = true
+      })
+    }
     return (
       <MuiThemeProvider>
         <div className="BGcontainer">

@@ -139,7 +139,7 @@ class ChecksApp extends Component {
                                         type="number"
                                         floatingLabelStyle={grey}
                                         floatingLabelFocusStyle={{"color":"rgb(0, 188, 212)"}}
-                                        floatingLabelText="Enter a number!"
+                                        floatingLabelText="Enter a number"
                                         onChange={(e)=>this.onChange(e, i)}/>)
                                         : null }
                                 {checkmark.type == "CREATIVE" ? 
@@ -148,7 +148,7 @@ class ChecksApp extends Component {
                                         type="text"
                                         floatingLabelStyle={grey}
                                         floatingLabelFocusStyle={{"color":"rgb(0, 188, 212)"}}
-                                        floatingLabelText="Write a name!"
+                                        floatingLabelText="Write a name"
                                         onChange={(e)=>this.onChange(e, i)}/>)
                                         : null }
                                 <Checkbox

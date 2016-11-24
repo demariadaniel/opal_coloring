@@ -30,7 +30,11 @@
 
 @media (max-width: 955px) {
   html{
-    font-size: 10px !important
+    font-size: 10px !important;
+  }
+  body{
+    overflow: scroll;
+    width: 955px
   }
 }
 
@@ -65,8 +69,8 @@
 
 .BG {
   text-align: center;
-  width: 90vw; /* 1296px */
-  height: 71vh; /* 500px */
+  width: 90%;
+  height: 71vh; /* Problematic */
   margin: 0 auto;
   position: relative;
   top: 2.25rem;
