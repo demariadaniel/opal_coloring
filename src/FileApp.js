@@ -15,13 +15,13 @@ class FileApp extends Component {
         message: ""
     }
     componentWillMount(){
-        if (this.props.drawerIs == "LOAD"){
+        if (this.props.drawerIs === "LOAD"){
             this.loadPalettes()
         }
     }
     componentWillReceiveProps(nextProps){
-        if (this.state.drawerIs != nextProps.drawerIs){
-            if (nextProps.drawerIs == "LOAD"){
+        if (this.state.drawerIs !== nextProps.drawerIs){
+            if (nextProps.drawerIs === "LOAD"){
                 this.loadPalettes()
             } else {
                 this.setState({
@@ -115,7 +115,7 @@ class FileApp extends Component {
                             style={{color: brightColors[parseInt(Math.random()*10)].color, 
                             display: 'block', margin: '0 auto'}}>
                                 {palette.title}
-                                {palette.user.userName != "" ? ` by ${palette.user.userName}` : null}
+                                {palette.user.userName !== "" ? ` by ${palette.user.userName}` : null}
                         </FlatButton>
                         {palette.palette.map((color, k)=>{
                             return (

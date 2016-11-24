@@ -1,11 +1,5 @@
 import React, { Component } from 'react';
 
- {/* REM Measurements: 
-     7.8125rem = 125px
-     3.4375rem = 55px
-     22.5rem   = 360px
-                        */}
-
 class SkyCastleBox extends Component {
     state = {
         colors: this.props.colors,
@@ -19,10 +13,10 @@ class SkyCastleBox extends Component {
                 <LayerThree color={this.state.colors[2].color} />
                 <LayerFour color={this.state.colors[3].color} />
                 <LayerFive color={this.state.colors[4].color} 
-                            flag={this.props.rotate.flag} />
+                            flag={this.props.slider.flag} />
                 <LayerSix color={this.state.colors[5].color} />
                 <DragonLayer color0={this.state.colors[6].color} 
-                             color1={this.state.colors[7].color} />
+                            color1={this.state.colors[7].color} />
                 <LayerNine color={this.state.colors[8].color} />
             </div>
         )

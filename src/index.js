@@ -50,7 +50,7 @@ class App extends Component {
     loggedIn: false,
     smallDevice: false,
     openM: false,
-    rotate: {
+    slider: {
       flag: "14deg"
     }
   }
@@ -208,12 +208,17 @@ class App extends Component {
       })
   }
   onSlide(value, checkmark){
-    let _rotate = this.state.rotate;
-    let _deg = value + "deg";
+    let _slider = this.state.slider;
+    let _deg = "";
+    if (checkmark.kind == "rotate"){
+      _deg = value + "deg";
+    } else if (checkmark.kind === "move"){
+      _deg = value + "rem";
+    }
     console.log(_deg)
-    _rotate[checkmark] = _deg;
+    _slider[checkmark.value] = _deg;
     this.setState({
-      rotate: _rotate
+      slider: _slider
     })
   }
   render (){
@@ -293,7 +298,7 @@ class App extends Component {
             <div className="BG" style={{backgroundColor: this.state.colors[9].color}}>
               <this.state.scene.scene 
                 colors={this.state.colors} 
-                rotate={this.state.rotate} />
+                slider={this.state.slider} />
             </div>
 
             {/* Drawers */}

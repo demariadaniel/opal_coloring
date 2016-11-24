@@ -37,6 +37,7 @@ const SkyCheckMarks = {
         },{
             text: "Fix the Crooked Flag",
             type: "SLIDER",
+            kind: 'rotate',
             value: 'flag',
             max: 30,
             min: -30,
@@ -47,20 +48,25 @@ const SkyCheckMarks = {
             complete: false,
             incorrect: "Not quite, just a little bit more..."
         },{
+            text: "Find the Hidden Treasure",
+            type: "SLIDER",
+            kind: 'move',
+            value: 'treasure',
+            max: 5,
+            min: -5,
+            minAnswer: -0.5,
+            maxAnswer: 0.5,
+            default: 0,
+            prize: 10,
+            complete: false
+        },{
             text: "Help the Heroes defeat the Dragon",
             type: "CLICK",
             count: 0,
             answer: 4,
             prize: 10,
             complete: false
-        },{
-            text: "Find the Hidden Treasure",
-            type: "CLICK",
-            count: 0,
-            answer: 2,
-            prize: 10,
-            complete: false
-        },
+        }
     ]
 };
 

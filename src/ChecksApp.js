@@ -4,7 +4,7 @@ import Slider from 'material-ui/Slider';
 import TextField from 'material-ui/TextField';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
-import {brightColors, white, grey, teal}  from './AllColors.js';
+import {brightColors, white, grey}  from './AllColors.js';
 
 class ChecksApp extends Component {
     state = {
@@ -171,7 +171,7 @@ class ChecksApp extends Component {
                                         : null }
                                  {checkmark.type == "SLIDER" ? 
                                 (<Slider 
-                                        onChange={(e, value)=>this.onSlide(value, checkmark.value, i)}
+                                        onChange={(e, value)=>this.onSlide(value, checkmark, i)}
                                         max={checkmark.max}
                                         min={checkmark.min}
                                         defaultValue={checkmark.default}
