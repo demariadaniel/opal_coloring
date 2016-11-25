@@ -12,7 +12,7 @@ class FileApp extends Component {
         password: "",
         loggedIn: this.props.loggedIn,
         error: false,
-        message: ""
+        errorMessage: ""
     }
     componentWillMount(){
         if (this.props.drawerIs === "LOAD"){
@@ -29,16 +29,35 @@ class FileApp extends Component {
                 })
             }
         }
+        if (this.state.errorMessage != nextProps.errorMessage){
+            this.setState({
+                errorMessage: nextProps.errorMessage,
+                error: true
+            })
+        }
     }
     loadPalettes(){
         axios.get('http://localhost:8080/palettes')
-            .then(res=>{
+            .then((res, err) =>{
+                if (err){
+                    console.log(err);
+                    this.setState({
+                        error: true,
+                        errorMessage: err
+                    })
+                }
                 this.setState({
                     palettes: res.data,
                     drawerIs: this.props.drawerIs
                 })
-                console.log(this.state.palettes)
             })
+    }
+    onCancel(){
+        this.setState({
+            error: false,
+            errorMessage: ""
+        })
+        this.props.onCancel()
     }
     onChange(e, type){
         if (type === "TITLE"){
@@ -63,12 +82,11 @@ class FileApp extends Component {
             __message += " and a user name"
         }
         if (__message.length < 15){
-            console.log(__message.length)
             this.props.onSaveColors(this.state.title, this.state.user);
-            this.setState({
-                message: "",
-                error: false
-            })
+            // this.setState({
+            //     message: "",
+            //     error: false
+            // })
         } else {
             __message += "!";
             this.setState({
@@ -82,13 +100,13 @@ class FileApp extends Component {
             return(
             <div className="App">
             <div className="App-header">
-                <i className="material-icons close" onClick={()=>this.props.onCancel()}>
+                <i className="material-icons close" onClick={()=>this.onCancel()}>
                     close
                 </i>
 
                 <p className="rainbow">Feature coming soon!</p>
 
-                <FlatButton style={white} onClick={()=>this.props.onCancel()}>
+                <FlatButton style={white} onClick={()=>this.onCancel()}>
                     Cancel
                 </FlatButton>
             </div>
@@ -103,9 +121,10 @@ class FileApp extends Component {
             return(
                 <div className="App">
                 <div className="App-header">
-                    <i className="material-icons close" onClick={()=>this.props.onCancel()}>
+                    <i className="material-icons close" onClick={()=>this.onCancel()}>
                         close
                     </i>
+                    {this.state.error ? <p className="rainbow"> {this.state.errorMessage}</p> : <br/> }
                     {this.state.palettes.length > 0 ?
                         this.state.palettes.map((palette, j)=>{
                         return (
@@ -132,7 +151,7 @@ class FileApp extends Component {
                         )
                     })
                     : <p className="rainbow">No palettes saved!</p> }
-                    <FlatButton style={white} onClick={()=>this.props.onCancel()}>
+                    <FlatButton style={white} onClick={()=>this.onCancel()}>
                         Cancel
                     </FlatButton>
                 </div>
@@ -147,7 +166,7 @@ class FileApp extends Component {
             return(
                 <div className="App">
                 <div className="App-header">
-                    <i className="material-icons close" onClick={()=>this.props.onCancel()}>
+                    <i className="material-icons close" onClick={()=>this.onCancel()}>
                         close
                     </i>
                     <p style={white}>Title</p>
@@ -161,12 +180,12 @@ class FileApp extends Component {
                                 onChange={(e)=>this.onChange(e, "ARTIST")}/>
                         </p>
                     }
-                    {this.state.error ? <p className="rainbow"> {this.state.message}</p> : <br/> }
+                    {this.state.error ? <p className="rainbow"> {this.state.errorMessage}</p> : <br/> }
                     <FlatButton style={white} 
                         onClick={(e)=>this.validate()}>
                         Save
                     </FlatButton>
-                    <FlatButton style={white} onClick={()=>this.props.onCancel()}>
+                    <FlatButton style={white} onClick={()=>this.onCancel()}>
                         Cancel
                     </FlatButton>
                 </div>

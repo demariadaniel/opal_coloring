@@ -7,8 +7,7 @@ router.get('/',(req,res) => {
 	Palette.find({}, (err, paletteArray) => {
 			if(err){
 				console.log(err);
-				res.status(400)
-				   .json({err})
+				res.send({error: true, errorMessage: "Error Loading Palettes"})
 			}
 			else{
 				console.log(paletteArray)
@@ -22,8 +21,7 @@ router.get('/:title',(req,res) => {
     Palette.findOne({"title":req.params.title}, (err, palette) => {
 			if(err){
 				console.log(err);
-				res.status(400)
-				   .json({err})
+				res.send({error: true, errorMessage: "Error Loading Palette"})
 			}
 			else{
 				console.log(palette)
@@ -42,9 +40,9 @@ router.post('/',(req,res) => {
 	let newPalette = Palette(__palette);
 		newPalette.save((err, savedPalette) => {
 			if(err){
-				console.log(err);
-				res.status(400)
-				   .json({err})
+				if (err.code == 11000){
+					res.send({error:true, errorMessage:"Title already created"});
+				}
 			}
 			else{
 				console.log(savedPalette)

@@ -18,6 +18,7 @@ import {FairyBox, FarmBox, GhostBox, MermaidBox, RainbowBox,
 // Material Components
 import Dialog from 'material-ui/Dialog';
 import Drawer from 'material-ui/Drawer';
+import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
 import Slider from 'material-ui/Slider';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -32,6 +33,7 @@ import './styles/App.css';
 class App extends Component {
   state = {
     openL: false,
+    openM: false,
     openR: false,
     colorIndex: 1,
     sceneIndex: 0,
@@ -50,18 +52,22 @@ class App extends Component {
     },
     loggedIn: false,
     smallDevice: false,
-    openM: false,
     slider: {
       flag: "14deg",
       dragon: {
         "top": '0rem',
         "left": '0rem',
         'rotate':'0deg'
-      }
+      },
+      message: "",
+      errorMessage: ""
     }
   }
   onCancel(){
-    this.setState({openL: false, openR: false, buying: false})
+    this.setState({openL: false, openR: false, buying: false, errorMessage:""})
+  }
+  oK(){
+    this.setState({openM: false, message:""})
   }
   onColorClick(e, num){
     if (this.state.openL || this.state.openR){
@@ -197,19 +203,34 @@ class App extends Component {
     };
     axios.post('http://localhost:8080/palettes/', newPalette)
       .then(res =>{
-        console.log(res)
-        this.onCancel()
+        if (res.data.error){
+          this.setState({
+            errorMessage: res.data.errorMessage
+          })
+        } else {
+          this.setState({
+            openM: true,
+            message: `${title} saved to palettes!`
+          })
+          this.onCancel()
+       }
       })
   }
   onLoadColors(title){
     axios.get('http://localhost:8080/palettes/'+title)
       .then(res =>{
-        let _colors = this.state.colors; 
-        for(let i = 0; i < 10; i++){
-          _colors[i] = res.data.palette[i];
+        if (res.data.error){
           this.setState({
-            colors: _colors
+            errorMessage: res.data.errorMessage
           })
+        } else {
+          let _colors = this.state.colors; 
+          for(let i = 0; i < 10; i++){
+            _colors[i] = res.data.palette[i];
+            this.setState({
+              colors: _colors
+            })
+          }
         }
       })
   }
@@ -237,9 +258,17 @@ class App extends Component {
         smallDevice : true
       })
     }
+    const OK = [
+      (<FlatButton onClick={()=>this.oK()}>
+          OK!
+        </FlatButton>)
+              ]
     return (
       <MuiThemeProvider>
         <div className="BGcontainer">
+            <Dialog open={this.state.openM} actions={OK}>
+                {this.state.message}
+            </Dialog>
           {/* Menu Buttons */}
           <div className="menuBtnBox">
               <RaisedButton onClick={e=>this.onAppClick(e, "OPAL")} className="raised">
@@ -362,6 +391,7 @@ class App extends Component {
                     onLoadColors={(title)=>this.onLoadColors(title)}
                     onLogin={(userId, password)=>this.onLogin(userId, password)}
                     onCancel={()=>this.onCancel()}
+                    errorMessage={this.state.errorMessage}
                     user={this.state.user}
                     /> 
                   : null}

@@ -545,7 +545,7 @@ class LayerSix extends Component {
 class DragonLayer extends Component {
     render(){
         let dragonChallenge =()=>{
-            let _top = (this.props.dragon.top*0.15).toString();
+            let _top = (0.5*this.props.dragon.top).toString();
             if (_top.charAt(0) === "-"){
                 _top = _top.substring(1)
             } else {
@@ -563,7 +563,7 @@ class DragonLayer extends Component {
                 "position": "absolute", 
                 "left": "-1rem", 
                 "top": "0.5rem",
-                "transformOrigin":"bottom right",
+                "transformOrigin":"100% 100%",
                 "transform":"rotateZ("+rotate+"deg)"
             }
             return style
