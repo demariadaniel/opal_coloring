@@ -77,4 +77,6 @@ const brightColors = [purpleBr, deepPurpleBr, indigoBr, blueBr, lightBlueBr, cya
 
 const darkColors = [purpleDk, deepPurpleDk, indigoDk, blueDk, lightBlueDk, cyanDk, tealDk, greenDk, lightGreenDk, limeDk, yellowDk, amberDk, orangeDk, brownDk, redDk, pinkDk, darkGrey];
 
-export {stdColors, brightColors, darkColors, white, grey, darkGrey}
+const everyColor = stdColors.concat(brightColors).concat(darkColors);
+
+export {stdColors, brightColors, darkColors, white, grey, darkGrey, everyColor}

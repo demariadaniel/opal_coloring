@@ -252,7 +252,6 @@ class App extends Component {
         result[property] = value;
       }
     }
-    console.log(result)
     _slider[checkmark.value] = result;
     this.setState({
       slider: _slider

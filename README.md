@@ -4,6 +4,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 using [React Material-UI](http://www.material-ui.com/#/) 
 
+and [Material Icons](https://material.io/icons/)
+
 Inspired By:
 
     Luke Pearson - Hidden Iceland Interactive
@@ -11,12 +13,3 @@ Inspired By:
 
     Casey Kolderup - ZZT Cartography
     http://motd.co/2012/12/zzt-cartography/
-
-    Alex Anderson - Fishing Shack Flag
-    https://dribbble.com/shots/3035570-Fishing-Shack-Flag
-
-    Steve Wolf - Levi's Commuter Magazine
-    https://dribbble.com/shots/3040804-Levi-s-Commuter-magazine
-
-    Andrea Beaty - Iggy Peck, Architect
-    https://www.andreabeaty.com/iggy-peck-architect.html
