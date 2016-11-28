@@ -9,7 +9,7 @@ class HowToPlay extends Component {
     componentDidMount(){
         let rndm = 0;
         let __color = [];
-        for(let i = 0; i < 15; i++){
+        for(let i = 0; i < 14; i++){
             rndm = parseInt(Math.random()*51);
             __color[i] = everyColor[rndm].color;
         }
@@ -17,18 +17,17 @@ class HowToPlay extends Component {
             colors: __color
         })
     }
-    render(index){
-        let rndm = 0;
-        let __color = this.state.colors;
+    render(){
         setTimeout(()=>{
-            let i = parseInt(Math.random()*15);
+            let rndm = 0;
+            let __color = this.state.colors;
+            let i = parseInt(Math.random()*14);
                 rndm = parseInt(Math.random()*51);
                 __color[i] = everyColor[rndm].color;
                 this.setState({
                     colors: __color
                 })
-            console.log('a')
-        }, 300);
+        }, 600);
         return(
             <div className="howToPlay">
                 <h1>Welcome to Opal!</h1>
@@ -36,32 +35,35 @@ class HowToPlay extends Component {
                 <div className="logo">
                         {/* Outline */}
                     <i className="material-icons logoIcon" 
+                        style={{"color": white.color, "transform" : "translateX(-50%) scaleY(1.45)",
+                                "zIndex" : 5}}>
+                            panorama_fisheye
+                    </i>
+                    <i className="material-icons logoIcon" 
                         style={{"color":this.state.colors[0], 
-                                "transform" : "translateX(-50%) translateY(-16%) rotateZ(180deg) scaleX(1.5)"}}>
+                                "transform" : "translateX(-50%) translateY(-16%) rotateZ(180deg) scaleX(1.5)",
+                                "zIndex" : 4}}>
                             keyboard_arrow_up
                     </i>
                     <i className="material-icons logoIcon" 
                         style={{"color":this.state.colors[1], 
-                                "transform" : "translateX(-50%) translateY(15%) scaleY(1.0) scaleX(1.5)"}}>
+                                "transform" : "translateX(-50%) translateY(15%) scaleX(1.5)",
+                                "zIndex" : 4}}>
                             keyboard_arrow_up
-                    </i>
-                    <i className="material-icons logoIcon" 
-                        style={{"color": this.state.colors[14], "transform" : "translateX(-50%) scaleY(1.45)"}}>
-                            panorama_fisheye
                     </i>
                         {/* Top Diamonds */}
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[2], 
-                                "fontSize":"10rem",
+                                "fontSize":"8rem",
                                 "transform" : 
-                                    "translateX(-74%) translateY(-14%) scaleY(1.45) scaleX(1.45) rotateZ(180deg)",
+                                    "translateX(-73%) translateY(-14%) scaleY(1.45) scaleX(1.45) rotateZ(180deg)",
                                 "zIndex" : 1
                                 }}>
                             play_arrow
                     </i>
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[3], 
-                                "fontSize":"10rem",
+                                "fontSize":"8rem",
                                 "transform" : 
                                     "translateX(-25%) translateY(-14%) scaleY(1.45) scaleX(1.45)",
                                 "zIndex" : 1
@@ -70,16 +72,16 @@ class HowToPlay extends Component {
                     </i>
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[4], 
-                                "fontSize":"9rem",
+                                "fontSize":"7rem",
                                 "transform" : 
-                                    "translateX(-74%) translateY(14%) scaleY(1.45) scaleX(1.45) rotateZ(180deg)",
+                                    "translateX(-73%) translateY(14%) scaleY(1.45) scaleX(1.45) rotateZ(180deg)",
                                 "zIndex" : 3
                                 }}>
                             play_arrow
                     </i>
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[5], 
-                                "fontSize":"9rem",
+                                "fontSize":"7rem",
                                 "transform" : 
                                     "translateX(-25%) translateY(14%) scaleY(1.45) scaleX(1.45)",
                                 "zIndex" : 3
@@ -89,7 +91,7 @@ class HowToPlay extends Component {
                         {/* Middle Diamonds */}
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[6], 
-                                "fontSize":"10rem",
+                                "fontSize":"8rem",
                                 "transform" : 
                                     "translateX(-8%) translateY(49%) scaleY(1.45) scaleX(1.45) rotateZ(180deg)",
                                 "zIndex" : 1
@@ -98,7 +100,7 @@ class HowToPlay extends Component {
                     </i>
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[7], 
-                                "fontSize":"10rem",
+                                "fontSize":"8rem",
                                 "transform" : 
                                     "translateX(-8%) translateY(50%) scaleY(1.45) scaleX(1.45)",
                                 "zIndex" : 1
@@ -107,7 +109,7 @@ class HowToPlay extends Component {
                     </i>
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[8], 
-                                "fontSize":"10rem",
+                                "fontSize":"8rem",
                                 "transform" : 
                                     "translateX(-92%) translateY(50%) scaleY(1.45) scaleX(1.45) rotateZ(180deg)",
                                 "zIndex" : 2
@@ -116,7 +118,7 @@ class HowToPlay extends Component {
                     </i>
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[9], 
-                                "fontSize":"10rem",
+                                "fontSize":"8rem",
                                 "transform" : 
                                     "translateX(-93%) translateY(49%) scaleY(1.45) scaleX(1.45)",
                                 "zIndex" : 1
@@ -126,36 +128,36 @@ class HowToPlay extends Component {
                         {/* Bottom Diamonds */}
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[10], 
-                                "fontSize":"10rem",
+                                "fontSize":"8rem",
                                 "transform" : 
-                                    "translateX(-74%) translateY(113%) scaleY(1.5) scaleX(1.45) rotateZ(180deg)",
+                                    "translateX(-73%) translateY(113%) scaleY(1.5) scaleX(1.45) rotateZ(180deg)",
                                 "zIndex" : 1
                                 }}>
                             play_arrow
                     </i>
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[11], 
-                                "fontSize":"10rem",
+                                "fontSize":"8rem",
                                 "transform" : 
-                                    "translateX(-25%) translateY(113%) scaleY(1.45) scaleX(1.45)",
+                                    "translateX(-26%) translateY(113%) scaleY(1.45) scaleX(1.45)",
                                 "zIndex" : 1
                                 }}>
                             play_arrow
                     </i>
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[12], 
-                                "fontSize":"9rem",
+                                "fontSize":"7rem",
                                 "transform" : 
-                                    "translateX(-74%) translateY(106%) scaleY(1.5) scaleX(1.45) rotateZ(180deg)",
+                                    "translateX(-73%) translateY(106%) scaleY(1.5) scaleX(1.45) rotateZ(180deg)",
                                 "zIndex" : 3
                                 }}>
                             play_arrow
                     </i>
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[13], 
-                                "fontSize":"9rem",
+                                "fontSize":"7rem",
                                 "transform" : 
-                                    "translateX(-25%) translateY(106%) scaleY(1.5) scaleX(1.45)",
+                                    "translateX(-26%) translateY(106%) scaleY(1.5) scaleX(1.45)",
                                 "zIndex" : 3
                                 }}>
                             play_arrow

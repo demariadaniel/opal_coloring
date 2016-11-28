@@ -211,17 +211,24 @@
 }
 
 .logo {
-  margin: 5rem 0 -1rem 0;
+  margin: 2rem 0 -5rem 0;
   height: 24rem;
   width: 100%;
   position: relative;
+  transition: all ease-out 3s;
+  animation-name: logoFade;
+  animation-duration: 3s;
+}
+
+@keyframes logoFade {
+  0% {opacity: 0}
+  100% {opacity: 1}
 }
 
 .logoIcon {
-  font-size: 20rem;
+  font-size: 16rem;
   position: absolute;
   transform: translateX(-50%);
-  z-index: 4;
   transition: all ease 0.25s;
 }
 

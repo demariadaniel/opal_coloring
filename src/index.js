@@ -64,6 +64,9 @@ class App extends Component {
       errorMessage: ""
     }
   }
+  componentDidMount(){
+    this.setState({openM:true, message: <HowToPlay/>})
+  }
   onCancel(){
     this.setState({openL: false, openR: false, buying: false, errorMessage:""})
   }
@@ -132,7 +135,6 @@ class App extends Component {
     if (this.state.colors[this.state.colorIndex].change===false){
       color.change = true;
       newCoins += 3;
-    console.log(newCoins)
     }
     newColors.splice(this.state.colorIndex, 1, color);
     this.setState({
