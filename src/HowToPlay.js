@@ -9,7 +9,7 @@ class HowToPlay extends Component {
     componentDidMount(){
         let rndm = 0;
         let __color = [];
-        for(let i = 0; i < 14; i++){
+        for(let i = 0; i < 17; i++){
             rndm = parseInt(Math.random()*51);
             __color[i] = everyColor[rndm].color;
         }
@@ -21,7 +21,7 @@ class HowToPlay extends Component {
         setTimeout(()=>{
             let rndm = 0;
             let __color = this.state.colors;
-            let i = parseInt(Math.random()*14);
+            let i = parseInt(Math.random()*16);
                 rndm = parseInt(Math.random()*51);
                 __color[i] = everyColor[rndm].color;
                 this.setState({
@@ -161,6 +161,43 @@ class HowToPlay extends Component {
                                 "zIndex" : 3
                                 }}>
                             play_arrow
+                    </i>
+                        {/* Stars */}
+                    <i className="material-icons logoIcon" 
+                        style={{"color": this.state.colors[15], 
+                                "fontSize":"4rem",
+                                "transform" : 
+                                    "translateX(-256%) translateY(160%)",
+                                "zIndex" : 4
+                                }}>
+                            grade
+                    </i>
+                    <i className="material-icons logoIcon" 
+                        style={{"color": this.state.colors[16], 
+                                "fontSize":"4rem",
+                                "transform" : 
+                                    "translateX(-356%) translateY(160%)",
+                                "zIndex" : 4
+                                }}>
+                            grade
+                    </i>
+                    <i className="material-icons logoIcon" 
+                        style={{"color": this.state.colors[0], 
+                                "fontSize":"4rem",
+                                "transform" : 
+                                    "translateX(156%) translateY(160%)",
+                                "zIndex" : 4
+                                }}>
+                            grade
+                    </i>
+                    <i className="material-icons logoIcon" 
+                        style={{"color": this.state.colors[1], 
+                                "fontSize":"4rem",
+                                "transform" : 
+                                    "translateX(256%) translateY(160%)",
+                                "zIndex" : 4
+                                }}>
+                            grade
                     </i>
                 </div>
                 <p>Opal is a kids color-by-numbers app, where surprise pictures are revealed as you play.</p>
