@@ -199,6 +199,11 @@
   visibility: hidden;
 }
 
+.howToPlay {
+  overflow: scroll;
+  text-align: center;
+}
+
 .layer {
   position: absolute;
   top: 0rem;

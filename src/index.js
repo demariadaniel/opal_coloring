@@ -10,6 +10,7 @@ import CoinsApp from './CoinsApp';
 import ChecksApp from './ChecksApp';
 import CollectionApp from './CollectionApp';
 import FileApp from './FileApp';
+import HowToPlay from './HowToPlay';
 
 // Scenes
 import {FairyBox, FarmBox, GhostBox, MermaidBox, RainbowBox, 
@@ -91,7 +92,12 @@ class App extends Component {
     }
   }
   onAppClick(e, app, side){
-        if (this.state.openL || this.state.openR){
+    if (app === "OPAL"){
+          this.setState({
+            openM: true,
+            message: <HowToPlay/>
+        })
+      } else if (this.state.openL || this.state.openR){
         this.setState({
           openL: false,
           openR: false
@@ -260,13 +266,15 @@ class App extends Component {
     }
     const OK = [
       (<FlatButton onClick={()=>this.oK()}>
-          OK!
+          {this.state.openM ? "Let's Play!" : "OK!"}
         </FlatButton>)
               ]
     return (
       <MuiThemeProvider>
         <div className="BGcontainer">
-            <Dialog open={this.state.openM} actions={OK}>
+            <Dialog open={this.state.openM} 
+                actions={OK}
+                autoScrollBodyContent={true}>
                 {this.state.message}
             </Dialog>
           {/* Menu Buttons */}
