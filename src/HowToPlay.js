@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FlatButton from 'material-ui/FlatButton';
-import {everyColor, grey, white} from './AllColors';
+import {brightColors, everyColor, grey, white} from './AllColors';
 
 class HowToPlay extends Component {
     state = {
@@ -10,15 +10,11 @@ class HowToPlay extends Component {
         let rndm = 0;
         let __color = [];
         for(let i = 0; i < 17; i++){
-            rndm = parseInt(Math.random()*51);
-            let noWhiteStars=()=>{
-                if ((i === 15 || i === 16) && (rndm === 33)){
-                    rndm = parseInt(Math.random()*51);
-                    noWhiteStars()
-                }
+            rndm = parseInt(Math.random()*17);
+            if ((i === 15 || i === 16) && (rndm === 17)){
+                rndm = parseInt(Math.random()*16);
             }
-            noWhiteStars()
-            __color[i] = everyColor[rndm].color;
+            __color[i] = brightColors[rndm].color;
         }
         this.setState({
             colors: __color
@@ -41,7 +37,7 @@ class HowToPlay extends Component {
                 this.setState({
                     colors: __color
                 })
-        }, 400);
+        }, 300);
         return(
             <div className="howToPlay">
                 <h1>Welcome to Opal!</h1>
@@ -251,7 +247,6 @@ class HowToPlay extends Component {
                     <h3 className="rainbow">Coming Soon...</h3>
                         <p>More Scenes, More Challenges</p>
                         <p>Animations, Stickers, and more in your Collection</p>
-                        <p>User Profiles</p>
                         <p>Progress Tracking & Autosave</p>
                         <p>Short stories with each scene</p>
                         <p>Share your picture to Facebook</p>

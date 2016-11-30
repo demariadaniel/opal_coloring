@@ -14,7 +14,8 @@ class ChecksApp extends Component {
         open: false,
         message: "",
         options: false,
-        clickComplete: false
+        clickComplete: false,
+        change: 0
     }
     answer(e, checkmark, i){
         if (checkmark.complete && checkmark.type != "CREATIVE") {
@@ -27,7 +28,7 @@ class ChecksApp extends Component {
                   (checkmark.type == "COUNT" || checkmark.type == "CREATIVE")) {
             this.incomplete();    
         } else if (checkmark.type == "COUNT"){
-            if (checkmark.answer.includes(this.state.tempanswers[i].toLowerCase())){
+            if (checkmark.answer=== parseInt(this.state.tempanswers[i])){
                 this.props.answer(i);
                 this.correct(checkmark);
             } else {
@@ -39,7 +40,8 @@ class ChecksApp extends Component {
                     open: true,
                     message: `Your current answer is ${this.state.tempanswers[i]}.
                     Would you like to change this?`,
-                    options: true
+                    options: true,
+                    change: i
                 })
             } else {
                 this.props.answer(i);
@@ -64,7 +66,7 @@ class ChecksApp extends Component {
         }
     } 
     changeAnswer(){
-
+        // Display old answer
     }
     componentWillReceiveProps(nextProps){
         if (nextProps.clickComplete != false){

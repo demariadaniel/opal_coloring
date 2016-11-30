@@ -20,6 +20,7 @@ class SkyCastleBox extends Component {
                             treasure={this.props.slider.treasure} />
                 <DragonLayer color0={this.state.colors[6].color} 
                             color1={this.state.colors[7].color} 
+                            color2={this.state.colors[2].color}
                             dragon={this.props.slider.dragon} />
                 <LayerNine color={this.state.colors[8].color} />
             </div>
@@ -159,9 +160,9 @@ class LayerTwo extends Component {
 class LayerThree extends Component {
     render(){
         let secretTreasure =()=> {
-            let percent = (62 - this.props.treasure)/3;
-            let top = 5 + (3*percent) + "rem";
-            let opacity = 1-percent;
+            let scale = (62 - this.props.treasure)/3;
+            let top = 5 + (3*scale) + "rem";
+            let opacity = 1-scale;
             return {"left": "59rem", "top": top, "fontSize": "3rem", "position":"absolute", 
                 "opacity":opacity};
         }
@@ -568,22 +569,38 @@ class DragonLayer extends Component {
             } else {
                 _top = '-' + _top
             }
-            let style = {
+            return {
                 'left': this.props.dragon + "rem",
                 'top': _top + "rem"
             }
-            return style
         }
         let wingFlap =()=>{
-            let rotate = this.props.dragon;
-            let style={
-                "position": "absolute", 
+            let rotate = 10 + (Math.sin(this.props.dragon)*30);
+            return {
+                "position": "absolute",
+                "width":"12rem", 
+                "height":"15rem", 
                 "left": "-1rem", 
                 "top": "0.5rem",
                 "transformOrigin":"100% 100%",
                 "transform":"rotateZ("+rotate+"deg)"
             }
-            return style
+        }
+        let fire =()=>{
+            if (this.props.dragon > 0){
+                let scale = this.props.dragon / 16;
+                let opacity = scale > 0.6 ? scale : 0;
+                console.log({"opacity": scale, "transform":"scale("+(0.75+scale)+")",
+                            "top":0-(scale*10)+"rem",
+                            "left":0-(scale*15)+"rem"})
+                return {
+                    "opacity": opacity, "transform":"scale("+(0.75+scale)+")",
+                    "position":"absolute","top":0-(scale*10)+"rem",
+                    "left":0-(scale*15)+"rem"
+                }
+            } else {
+                return {"opacity":0, "transform":"scale(0.5)"}
+            } 
         }
         return(
             <div className="layer wing" style={dragonChallenge()}>
@@ -591,8 +608,8 @@ class DragonLayer extends Component {
                 {/* Wing */}
                 <div style={wingFlap()}>
                 <i className="material-icons md-250"
-                    style={{"position": "absolute", "left": "0rem", "top": "2.25rem", "fontSize": "10rem",
-                    "transform":"rotateZ(-180deg) rotateY(-180deg)"}}>
+                    style={{"position": "absolute", "left": "0rem", "top": "2.25rem", 
+                    "fontSize": "10rem", "transform":"rotateZ(-180deg) rotateY(-180deg)"}}>
                     done
                 </i>
                 <i className="material-icons md-250"
@@ -741,6 +758,27 @@ class DragonLayer extends Component {
                     }}>
                     flash_on
                 </i>
+                {/* Flame */}
+                <div style={fire()}>
+                    <i className="material-icons md-250"
+                        style={{"left": "20.5rem", "top": "12.5rem", "fontSize": "4rem", "position":"absolute",
+                        "transform":"rotateZ(115deg)", "zIndex":6
+                        }}>
+                        whatshot
+                    </i>
+                    <i className="material-icons md-250"
+                        style={{"left": "20rem", "top": "12rem", "fontSize": "5rem", "position":"absolute",
+                        "transform":"rotateZ(115deg) rotateY(180deg)", "color": this.props.color0, "zIndex":5
+                        }}>
+                        whatshot
+                    </i>
+                    <i className="material-icons md-250"
+                        style={{"left": "19.5rem", "top": "11.5rem", "fontSize": "6rem", "position":"absolute",
+                        "transform":"rotateZ(115deg) rotateY(180deg)", "color": this.props.color2, "zIndex":4
+                        }}>
+                        whatshot
+                    </i>
+                </div>
                 </div>
                 {/* Dragon Body */}
                 <i className="material-icons md-250"

@@ -12,9 +12,9 @@ const SkyCheckMarks = {
             complete: false,
             incorrect: "Incorrect. Look closely..."
         },{
-            text: "Count the number of Birds",
+            text: "How many arrows can you see on the castle?",
             type: "COUNT",
-            answer: ["2", "two"],
+            answer: 7,
             prize: 3,
             complete: false
         },{
@@ -27,13 +27,15 @@ const SkyCheckMarks = {
             text: "Give the Knight a Name",
             type: "CREATIVE",
             prize: 3,
-            complete: false
+            complete: false,
+            correct: 'All bow before the legendary hero, '
         },
         {
             text: "Give the Princess a Name",
             type: "CREATIVE",
             prize: 3,
-            complete: false
+            complete: false,
+            correct: 'Introducing the smartest and kindest soul in the entire kingdom, '
         },{
             text: "Fix the Crooked Flag",
             type: "SLIDER",
@@ -59,7 +61,7 @@ const SkyCheckMarks = {
             default: 59,
             clickAnswer: false,
             hint: 'You found it! Now click the treasure to complete the challenge.',
-            incorrect: '',
+            incorrect: 'Keep looking...',
             prize: 10,
             complete: false
         },{
@@ -67,8 +69,8 @@ const SkyCheckMarks = {
             type: "SLIDER",
             kind: 'move',
             value: 'dragon',
-            max: 10,
-            min: -3,
+            max: 16,
+            min: -8,
             minAnswer: -3,
             maxAnswer: 1,
             default: 0,
