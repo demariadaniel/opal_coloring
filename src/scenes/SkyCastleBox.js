@@ -17,7 +17,7 @@ class SkyCastleBox extends Component {
                 <LayerFive color={this.state.colors[4].color} 
                             flag={this.props.slider.flag} />
                 <LayerSix color={this.state.colors[5].color} 
-                            treasure={this.props.slider.treasure} />
+                            treasure={this.props.slider.treasure}/>
                 <DragonLayer color0={this.state.colors[6].color} 
                             color1={this.state.colors[7].color} 
                             color2={this.state.colors[2].color}
@@ -159,13 +159,11 @@ class LayerTwo extends Component {
 }
 class LayerThree extends Component {
     render(){
-        let secretTreasure =()=> {
-            let scale = (62 - this.props.treasure)/3;
+            let scale = (3 - this.props.treasure)/3;
             let top = 5 + (3*scale) + "rem";
-            let opacity = 1-scale;
-            return {"left": "59rem", "top": top, "fontSize": "3rem", "position":"absolute", 
-                "opacity":opacity};
-        }
+            //let __opacity = 1-scale;
+            let secretTreasure = {"left": "59rem", "top": top, "fontSize": "3rem", "position":"absolute", 
+                "opacity": 1-scale};
         return(
             <div style={{"color":this.props.color, 'zIndex':3}} className="layer">
                 {/* Sun & Rays */}
@@ -250,7 +248,7 @@ class LayerThree extends Component {
                 </i>
                 {/* Secret Treasure */}
                 <i className="material-icons md-250"
-                    style={secretTreasure()}
+                    style={secretTreasure}
                     onClick={()=>this.props.clickChallenge("treasure")}
                     >
                     business_center
@@ -337,8 +335,7 @@ class LayerFour extends Component {
 class LayerFive extends Component {
 
     render(){
-        let brokenFlag=()=>{
-            let style = {
+        let brokenFlag={
                 "left": "47.75rem", 
                 "top": "3rem", 
                 "fontSize": "4rem", 
@@ -346,8 +343,6 @@ class LayerFive extends Component {
                 "transformOrigin": "bottom center",
                 "transform": "rotateZ("+this.props.flag+")"
             }
-            return style
-        }
         return(
             <div style={{"color":this.props.color}} className="layer">
                 {/* Roof */}
@@ -358,7 +353,7 @@ class LayerFive extends Component {
                 </i>
                 {/* Flag */}
                 <i className="material-icons md-250"
-                    style={brokenFlag()}
+                    style={brokenFlag}
                     >
                     assistant_photo
                 </i>
@@ -455,6 +450,9 @@ class LayerFive extends Component {
 }
 class LayerSix extends Component {
     render(){
+        let throne={
+            "left": 59+this.props.treasure+"rem", "top": "5rem", "fontSize": "3rem", "position":"absolute"
+        }
         return(
             <div style={{"color":this.props.color, "zIndex":"1"}} className="layer">
                 {/* Left Tower */}
@@ -511,7 +509,7 @@ class LayerSix extends Component {
                     event_seat
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": this.props.treasure+"rem", "top": "5rem", "fontSize": "3rem", "position":"absolute"}}
+                    style={throne}
                     >
                     event_seat
                 </i>
@@ -562,21 +560,18 @@ class LayerSix extends Component {
 }
 class DragonLayer extends Component {
     render(){
-        let dragonChallenge =()=>{
-            let _top = (0.5*this.props.dragon).toString();
-            if (_top.charAt(0) === "-"){
-                _top = _top.substring(1)
-            } else {
-                _top = '-' + _top
-            }
-            return {
+        let _top = (0.5*this.props.dragon).toString();
+        if (_top.charAt(0) === "-"){
+            _top = _top.substring(1)
+        } else {
+            _top = '-' + _top
+        }
+        let dragonChallenge ={
                 'left': this.props.dragon + "rem",
                 'top': _top + "rem"
             }
-        }
-        let wingFlap =()=>{
-            let rotate = 10 + (Math.sin(this.props.dragon)*30);
-            return {
+        let rotate = 10 + (Math.sin(this.props.dragon)*30);
+        let wingFlap ={
                 "position": "absolute",
                 "width":"12rem", 
                 "height":"15rem", 
@@ -585,28 +580,22 @@ class DragonLayer extends Component {
                 "transformOrigin":"100% 100%",
                 "transform":"rotateZ("+rotate+"deg)"
             }
-        }
-        let fire =()=>{
-            if (this.props.dragon > 0){
-                let scale = this.props.dragon / 16;
-                let opacity = scale > 0.6 ? scale : 0;
-                console.log({"opacity": scale, "transform":"scale("+(0.75+scale)+")",
-                            "top":0-(scale*10)+"rem",
-                            "left":0-(scale*15)+"rem"})
-                return {
-                    "opacity": opacity, "transform":"scale("+(0.75+scale)+")",
-                    "position":"absolute","top":0-(scale*10)+"rem",
-                    "left":0-(scale*15)+"rem"
+        let fire={};
+        if (this.props.dragon > 0){
+            let scale = this.props.dragon / 16;
+            let opacity = scale > 0.6 ? scale : 0;
+            fire={"opacity": opacity, "transform":"scale("+(0.75+scale)+")",
+                "position":"absolute","top":0-(scale*10)+"rem",
+                "left":0-(scale*15)+"rem"
                 }
             } else {
-                return {"opacity":0, "transform":"scale(0.5)"}
+                fire={"opacity":0, "transform":"scale(0.5)"}
             } 
-        }
         return(
-            <div className="layer wing" style={dragonChallenge()}>
+            <div className="layer wing" style={dragonChallenge}>
             <div style={{"color":this.props.color0, "zIndex":"6"}} className="layer">
                 {/* Wing */}
-                <div style={wingFlap()}>
+                <div style={wingFlap}>
                 <i className="material-icons md-250"
                     style={{"position": "absolute", "left": "0rem", "top": "2.25rem", 
                     "fontSize": "10rem", "transform":"rotateZ(-180deg) rotateY(-180deg)"}}>
@@ -765,7 +754,7 @@ class DragonLayer extends Component {
                     flash_on
                 </i>
                 {/* Flame */}
-                <div style={fire()}>
+                <div style={fire}>
                     <i className="material-icons md-250"
                         style={{"left": "20.5rem", "top": "12.5rem", "fontSize": "4rem", "position":"absolute",
                         "transform":"rotateZ(115deg)", "zIndex":6

@@ -57,7 +57,7 @@ class App extends Component {
     slider: {
       flag: "14deg",
       dragon: 0,
-      treasure: 59
+      treasure: 0
     },
     message: "",
     errorMessage: ""
@@ -267,6 +267,7 @@ class App extends Component {
     } else if (checkmark.kind === "move"){
       result = value;
     } else if (checkmark.kind === "multi"){
+      console.log('why')
       result = {};
       for (let j = 0; j < checkmark.keys.length; j++){
         let property = checkmark.keys[j];

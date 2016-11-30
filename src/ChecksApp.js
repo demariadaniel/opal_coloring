@@ -191,6 +191,7 @@ class ChecksApp extends Component {
                                         max={checkmark.max}
                                         min={checkmark.min}
                                         defaultValue={checkmark.default}
+                                        step={checkmark.step ? checkmark.step : 0.1}
                                         />)
                                         : null }
                                 <Checkbox
