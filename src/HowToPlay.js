@@ -61,6 +61,12 @@ class HowToPlay extends Component {
                                 "zIndex" : 4}}>
                             keyboard_arrow_up
                     </i>
+                                       <i className="material-icons logoIcon" 
+                        style={{"color":this.state.colors[14], 
+                                "transform" : "translateX(-50%) scaleY(0.9)",
+                                "zIndex" : 3}}>
+                            stop
+                    </i>
                         {/* Top Diamonds */}
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[2], 
@@ -198,7 +204,7 @@ class HowToPlay extends Component {
                             grade
                     </i>
                     <i className="material-icons logoIcon" 
-                        style={{"color": this.state.colors[16], 
+                        style={{"color": this.state.colors[15], 
                                 "fontSize":"4rem",
                                 "transform" : 
                                     "translateX(156%) translateY(160%)",
@@ -207,7 +213,7 @@ class HowToPlay extends Component {
                             grade
                     </i>
                     <i className="material-icons logoIcon" 
-                        style={{"color": this.state.colors[1], 
+                        style={{"color": this.state.colors[16], 
                                 "fontSize":"4rem",
                                 "transform" : 
                                     "translateX(256%) translateY(160%)",

@@ -178,45 +178,45 @@ class LayerThree extends Component {
                 <div style={{"transform": "rotateZ(-22.5deg) scale(0.7)", "top": "2.25rem", "left": "6.5rem", 
                 "position": "absolute"}}>
                     <i className="material-icons md-250"
-                        style={{'transform':'rotateZ(90deg)', 'fontSize':'2.5rem', "position":'absolute', "top":"-2.25rem", "left":"3.25rem"}}
+                        style={{'transform':'rotateZ(90deg)', 'fontSize':'2rem', "position":'absolute', "top":"-2.25rem", "left":"3.25rem"}}
                         >
                         hdr_strong
                     </i>
                     <i className="material-icons md-250"
-                        style={{'transform':'rotateZ(145deg)', 'fontSize':'2.5rem', "position":'absolute', "top":"-.25rem", "left":"8rem"}}
+                        style={{'transform':'rotateZ(145deg)', 'fontSize':'2rem', "position":'absolute', "top":"-.25rem", "left":"8rem"}}
                         >
                         hdr_strong
                     </i>
                     <i className="material-icons md-250"
-                        style={{'transform':'rotateZ(180deg)', 'fontSize':'2.5rem', "position":'absolute', 
+                        style={{'transform':'rotateZ(180deg)', 'fontSize':'2rem', "position":'absolute', 
                         "top":"3.75rem", "left":"9.5rem"}}
                         >
                         hdr_strong
                     </i>
                     <i className="material-icons md-250"
-                        style={{'transform':'rotateZ(225deg)', 'fontSize':'2.5rem', "position":'absolute',
+                        style={{'transform':'rotateZ(225deg)', 'fontSize':'2rem', "position":'absolute',
                         "top":"8rem", "left":"8rem" }}
                         >
                         hdr_strong
                     </i>
                     <i className="material-icons md-250"
-                        style={{'transform':'rotateZ(270deg)', 'fontSize':'2.5rem', "position":'absolute',
+                        style={{'transform':'rotateZ(270deg)', 'fontSize':'2rem', "position":'absolute',
                         "top":"9.5rem", "left":"3.75rem" }}
                         >
                         hdr_strong
                     </i>
                     <i className="material-icons md-250"
-                        style={{'transform':'rotateZ(-45deg)', 'fontSize':'2.5rem', "position":'absolute', "top":"8rem", "left":"-.5rem" }}
+                        style={{'transform':'rotateZ(-45deg)', 'fontSize':'2rem', "position":'absolute', "top":"8rem", "left":"-.5rem" }}
                         >
                         hdr_strong
                     </i>
                     <i className="material-icons md-250"
-                        style={{'fontSize':'2.5rem', "position":'absolute', "top":"3.75rem", "left":"-2rem" }}
+                        style={{'fontSize':'2rem', "position":'absolute', "top":"3.75rem", "left":"-2rem" }}
                         >
                         hdr_strong
                     </i>
                     <i className="material-icons md-250"
-                        style={{'transform':'rotateZ(45deg)', 'fontSize':'2.5rem', "position":'absolute', 
+                        style={{'transform':'rotateZ(45deg)', 'fontSize':'2rem', "position":'absolute', 
                         "top":"-.25rem", "left":"-.5rem"}}
                         >
                         hdr_strong
@@ -224,19 +224,19 @@ class LayerThree extends Component {
                 </div>
                 {/* Balloon Strings */}
                 <i className="material-icons md-250"
-                    style={{"left": "24rem", "top": "5rem", "fontSize": "2rem", "position":"absolute",
+                    style={{"left": "24rem", "top": "5rem", "fontSize": "1.75rem", "position":"absolute",
                     "transform":"rotateZ(210deg)"}}
                     >
                     gesture
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "21rem", "top": "3rem", "fontSize": "2rem", "position":"absolute",
+                    style={{"left": "21rem", "top": "3rem", "fontSize": "1.75rem", "position":"absolute",
                     "transform":"rotateZ(210deg)"}}
                     >
                     gesture
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "20rem", "top": "6rem", "fontSize": "2rem", "position":"absolute",
+                    style={{"left": "20rem", "top": "6rem", "fontSize": "1.75rem", "position":"absolute",
                     "transform":"rotateZ(210deg)"}}
                     >
                     gesture
@@ -686,30 +686,36 @@ class DragonLayer extends Component {
                     }}>
                     show_chart
                 </i>
-             {/*   <i className="material-icons md-250"
-                    style={{"left": "3rem", "top": "14.25rem", "fontSize": "2rem", "position":"absolute",
+             <i className="material-icons md-250"
+                    style={{"left": "2rem", "top": "14.25rem", "fontSize": "3rem", "position":"absolute",
                     "transform":"rotateZ(56deg)"
                     }}>
                     details
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "4.5rem", "top": "17.25rem", "fontSize": "2rem", "position":"absolute",
-                    "transform":"rotateZ(80deg)"
+                    style={{"left": "0.75rem", "top": "19rem", "fontSize": "2.75rem", "position":"absolute",
+                    "transform":"rotateZ(90deg)"
                     }}>
                     details
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "3rem", "top": "14.25rem", "fontSize": "2rem", "position":"absolute",
-                    "transform":"rotateZ(56deg)"
+                    style={{"left": "4.25rem", "top": "24.25rem", "fontSize": "2.25rem", "position":"absolute",
+                    "transform":"rotateZ(95deg)"
                     }}>
                     details
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "4.5rem", "top": "17.25rem", "fontSize": "2rem", "position":"absolute",
-                    "transform":"rotateZ(80deg)"
+                    style={{"left": "9.5rem", "top": "27.25rem", "fontSize": "2rem", "position":"absolute",
+                    "transform":"rotateZ(75deg)"
                     }}>
                     details
-                </i> */}
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "14.5rem", "top": "28.25rem", "fontSize": "1.5rem", "position":"absolute",
+                    "transform":"rotateZ(75deg)"
+                    }}>
+                    details
+                </i>
             </div>
             <div style={{"color": this.props.color1, "zIndex":"4"}} className="layer">
                 {/* Old rotate: left: -4, top: 3, 0 rotate */}
