@@ -46,6 +46,7 @@ class App extends Component {
     coinFlip: false,
     buying: false,
     debug: false,
+    clickComplete: false,
     complete: 0,
     user: {
       userName: "",
@@ -55,14 +56,11 @@ class App extends Component {
     smallDevice: false,
     slider: {
       flag: "14deg",
-      dragon: {
-        "top": '0rem',
-        "left": '0rem',
-        'rotate':'0deg'
-      },
-      message: "",
-      errorMessage: ""
-    }
+      dragon: 0,
+      treasure: 59
+    },
+    message: "",
+    errorMessage: ""
   }
   componentDidMount(){
     this.setState({openM:true, message: <HowToPlay/>})
@@ -126,7 +124,8 @@ class App extends Component {
     _coins += _scene.checkmarks.checkmarks[i].prize;
     this.setState({
       scene: _scene,
-      coins: _coins
+      coins: _coins,
+      clickComplete: false
     })
   }
   applyColor(color){
@@ -168,7 +167,6 @@ class App extends Component {
       drawerIs: 'SCENE',
       buying: true 
     })
-    console.log(this.state);
     setTimeout(()=>{
       this.setState({
         openL: true,
@@ -181,6 +179,25 @@ class App extends Component {
     this.setState({
       coins: coins
     })
+  }
+  clickChallenge(value){
+    let _scene = this.state.scene;
+    for (let i = 0; i < _scene.checkmarks.checkmarks.length; i++){
+      if(_scene.checkmarks.checkmarks[i].type === "SLIDER" 
+        || _scene.checkmarks.checkmarks[i].type === "CLICK"){
+        if(_scene.checkmarks.checkmarks[i].value === value){
+          _scene.checkmarks.checkmarks[i].clickAnswer = true;
+          let complete = {
+            i: i,
+            checkmark: _scene.checkmarks.checkmarks[i]
+          }
+          this.setState({
+            scene: this.state.scene,
+            clickComplete: complete
+          })
+        }
+      }
+    }
   }
   componentWillUpdate(nextProps, nextState){
     if (nextState.coins > this.state.coins || this.state.coins > nextState.coins){
@@ -248,6 +265,8 @@ class App extends Component {
     if (checkmark.kind == "rotate"){
       result = value + "deg";
     } else if (checkmark.kind === "move"){
+      result = value;
+    } else if (checkmark.kind === "multi"){
       result = {};
       for (let j = 0; j < checkmark.keys.length; j++){
         let property = checkmark.keys[j];
@@ -275,7 +294,8 @@ class App extends Component {
         <div className="BGcontainer">
             <Dialog open={this.state.openM} 
                 actions={OK}
-                autoScrollBodyContent={true}>
+                autoScrollBodyContent={true}
+                onRequestClose={()=>this.oK()}>
                 {this.state.message}
             </Dialog>
           {/* Menu Buttons */}
@@ -346,7 +366,8 @@ class App extends Component {
             <div className="BG" style={{backgroundColor: this.state.colors[9].color}}>
               <this.state.scene.scene 
                 colors={this.state.colors} 
-                slider={this.state.slider} />
+                slider={this.state.slider} 
+                clickChallenge={(value)=>this.clickChallenge(value)}/>
             </div>
 
             {/* Drawers */}
@@ -365,6 +386,7 @@ class App extends Component {
                     debug={()=>this.debug()}
                     checkmarks={this.state.scene.checkmarks}
                     answer={(i)=>this.answer(i)}
+                    clickComplete={this.state.clickComplete}
                     /> 
                   : null}
                   {(this.state.drawerIs === 'COLLECTION') ? 

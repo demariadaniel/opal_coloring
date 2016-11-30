@@ -13,7 +13,8 @@ class ChecksApp extends Component {
         tempanswers: [],
         open: false,
         message: "",
-        options: false
+        options: false,
+        clickComplete: false
     }
     answer(e, checkmark, i){
         if (checkmark.complete && checkmark.type != "CREATIVE") {
@@ -45,10 +46,18 @@ class ChecksApp extends Component {
                 this.correct(checkmark, i);
             }
         } else if (checkmark.type == "SLIDER") {
-            if (this.state.tempanswers[i] < checkmark.maxAnswer 
-                && this.state.tempanswers[i] > checkmark.minAnswer){
-                    this.props.answer(i)
-                    this.correct(checkmark, i)
+            if (this.state.tempanswers[i] <= checkmark.maxAnswer 
+                && this.state.tempanswers[i] >= checkmark.minAnswer){
+                    if (checkmark.clickAnswer === false){
+                        this.setState({
+                            open: true,
+                            message: checkmark.hint,
+                            options: false
+                        })
+                    } else {
+                        this.props.answer(i)
+                        this.correct(checkmark, i)
+                    }
                 } else {
                     this.incorrect(checkmark)
                 }
@@ -56,6 +65,11 @@ class ChecksApp extends Component {
     } 
     changeAnswer(){
 
+    }
+    componentWillReceiveProps(nextProps){
+        if (nextProps.clickComplete != false){
+            this.answer(null, nextProps.clickComplete.checkmark, nextProps.clickComplete.i)
+        }
     }
     correct(checkmark, i){
         let _message = checkmark.correct ? checkmark.correct : `Checkmark complete! Great job.`;

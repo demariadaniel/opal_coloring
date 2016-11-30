@@ -10,11 +10,14 @@ class SkyCastleBox extends Component {
             <div className="skyCastleBox">
                 <LayerOne color={this.state.colors[0].color} />
                 <LayerTwo color={this.state.colors[1].color} />
-                <LayerThree color={this.state.colors[2].color} />
+                <LayerThree color={this.state.colors[2].color} 
+                            treasure={this.props.slider.treasure}
+                            clickChallenge={(value)=>this.props.clickChallenge(value)} />
                 <LayerFour color={this.state.colors[3].color} />
                 <LayerFive color={this.state.colors[4].color} 
                             flag={this.props.slider.flag} />
-                <LayerSix color={this.state.colors[5].color} />
+                <LayerSix color={this.state.colors[5].color} 
+                            treasure={this.props.slider.treasure} />
                 <DragonLayer color0={this.state.colors[6].color} 
                             color1={this.state.colors[7].color} 
                             dragon={this.props.slider.dragon} />
@@ -155,6 +158,13 @@ class LayerTwo extends Component {
 }
 class LayerThree extends Component {
     render(){
+        let secretTreasure =()=> {
+            let percent = (62 - this.props.treasure)/3;
+            let top = 5 + (3*percent) + "rem";
+            let opacity = 1-percent;
+            return {"left": "59rem", "top": top, "fontSize": "3rem", "position":"absolute", 
+                "opacity":opacity};
+        }
         return(
             <div style={{"color":this.props.color, 'zIndex':3}} className="layer">
                 {/* Sun & Rays */}
@@ -236,6 +246,13 @@ class LayerThree extends Component {
                     style={{"position": "absolute", "left": "30rem", "top": "17.75rem", "fontSize": "3rem",
                     "transform":"rotateZ(120deg) rotateY(-180deg)"}}>
                     colorize
+                </i>
+                {/* Secret Treasure */}
+                <i className="material-icons md-250"
+                    style={secretTreasure()}
+                    onClick={()=>this.props.clickChallenge("treasure")}
+                    >
+                    business_center
                 </i>
             </div>
             )
@@ -351,12 +368,12 @@ class LayerFive extends Component {
                 </i>
 
                 {/* Princess Wand */}
-              {/*  <i className="material-icons md-250"
+            {/*  <i className="material-icons md-250"
                     style={{"left": "53.25rem", "top": "11.5rem", "fontSize": "4rem", "position":"absolute",
                         "transform":"rotateZ(180deg)"
                     }} >
                     mic_none
-                </i> */}
+                </i>  */}
 
                  {/* Center Arrows */}
                 <i className="material-icons md-250"
@@ -493,7 +510,7 @@ class LayerSix extends Component {
                     event_seat
                 </i>
                 <i className="material-icons md-250"
-                    style={{"left": "59rem", "top": "5rem", "fontSize": "3rem", "position":"absolute"}}
+                    style={{"left": this.props.treasure+"rem", "top": "5rem", "fontSize": "3rem", "position":"absolute"}}
                     >
                     event_seat
                 </i>
@@ -545,20 +562,20 @@ class LayerSix extends Component {
 class DragonLayer extends Component {
     render(){
         let dragonChallenge =()=>{
-            let _top = (0.5*this.props.dragon.top).toString();
+            let _top = (0.5*this.props.dragon).toString();
             if (_top.charAt(0) === "-"){
                 _top = _top.substring(1)
             } else {
                 _top = '-' + _top
             }
             let style = {
-                'left': this.props.dragon.left + "rem",
+                'left': this.props.dragon + "rem",
                 'top': _top + "rem"
             }
             return style
         }
         let wingFlap =()=>{
-            let rotate = this.props.dragon.rotate;
+            let rotate = this.props.dragon;
             let style={
                 "position": "absolute", 
                 "left": "-1rem", 
@@ -827,4 +844,24 @@ class LayerNine extends Component {
     }
 }
 
+class Treasure extends Component {
+    render(){
+        return(
+                <div>
+                    <i className="material-icons md-250"
+                        style={{"left": this.props.treasure+"rem", "top": "12rem", "fontSize": "4rem", "position":"absolute",
+                        "zIndex":"2", "color": this.props.color0}}
+                        >
+                        border_all
+                    </i>
+                    <i className="material-icons md-250"
+                        style={{"left": this.props.treasure+"rem", "top": "12rem", "fontSize": "4rem", "position":"absolute",
+                        "zIndex":"3", "color": this.props.color0}}
+                        >
+                        apps
+                    </i>
+                </div>
+        )
+    }
+}
 export default SkyCastleBox;

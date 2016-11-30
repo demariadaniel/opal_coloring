@@ -7,7 +7,7 @@ const SkyCheckMarks = {
         {
             text: "Count the number of Balloons",
             type: "COUNT",
-            answer: ["3", "three"],
+            answer: 3,
             prize: 3,
             complete: false,
             incorrect: "Incorrect. Look closely..."
@@ -52,11 +52,14 @@ const SkyCheckMarks = {
             type: "SLIDER",
             kind: 'move',
             value: 'treasure',
-            max: 5,
-            min: -5,
-            minAnswer: -0.5,
-            maxAnswer: 0.5,
-            default: 0,
+            max: 62,
+            min: 59,
+            minAnswer: 60.5,
+            maxAnswer: 62,
+            default: 59,
+            clickAnswer: false,
+            hint: 'You found it! Now click the treasure to complete the challenge.',
+            incorrect: '',
             prize: 10,
             complete: false
         },{
@@ -64,7 +67,6 @@ const SkyCheckMarks = {
             type: "SLIDER",
             kind: 'move',
             value: 'dragon',
-            keys: ['top','left','rotate'],
             max: 10,
             min: -3,
             minAnswer: -3,

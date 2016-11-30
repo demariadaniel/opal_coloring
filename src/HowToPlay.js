@@ -11,6 +11,13 @@ class HowToPlay extends Component {
         let __color = [];
         for(let i = 0; i < 17; i++){
             rndm = parseInt(Math.random()*51);
+            let noWhiteStars=()=>{
+                if ((i === 15 || i === 16) && (rndm === 33)){
+                    rndm = parseInt(Math.random()*51);
+                    noWhiteStars()
+                }
+            }
+            noWhiteStars()
             __color[i] = everyColor[rndm].color;
         }
         this.setState({
@@ -23,11 +30,18 @@ class HowToPlay extends Component {
             let __color = this.state.colors;
             let i = parseInt(Math.random()*16);
                 rndm = parseInt(Math.random()*51);
+                let noWhiteStars=()=>{
+                    if ((i === 15 || i === 16) && (rndm === 33)){
+                        rndm = parseInt(Math.random()*51);
+                        noWhiteStars()
+                    }
+                }
+                noWhiteStars()
                 __color[i] = everyColor[rndm].color;
                 this.setState({
                     colors: __color
                 })
-        }, 600);
+        }, 400);
         return(
             <div className="howToPlay">
                 <h1>Welcome to Opal!</h1>
@@ -89,6 +103,12 @@ class HowToPlay extends Component {
                             play_arrow
                     </i>
                         {/* Middle Diamonds */}
+                    <i className="material-icons logoIcon" 
+                        style={{"color": this.state.colors[16], "fontSize":"4rem",
+                                "transform":"scaleY(1.45) translateY(100%) translateX(-50%",
+                                "zIndex" : 5}}>
+                            lens
+                    </i>
                     <i className="material-icons logoIcon" 
                         style={{"color": this.state.colors[6], 
                                 "fontSize":"8rem",
@@ -173,7 +193,7 @@ class HowToPlay extends Component {
                             grade
                     </i>
                     <i className="material-icons logoIcon" 
-                        style={{"color": this.state.colors[16], 
+                        style={{"color": this.state.colors[0], 
                                 "fontSize":"4rem",
                                 "transform" : 
                                     "translateX(-356%) translateY(160%)",
@@ -182,7 +202,7 @@ class HowToPlay extends Component {
                             grade
                     </i>
                     <i className="material-icons logoIcon" 
-                        style={{"color": this.state.colors[0], 
+                        style={{"color": this.state.colors[16], 
                                 "fontSize":"4rem",
                                 "transform" : 
                                     "translateX(156%) translateY(160%)",
@@ -205,36 +225,37 @@ class HowToPlay extends Component {
                 <div>
                     <h2>How to Play</h2>
                     <h3 className="rainbow">Colors</h3>
-                        <p>  Click one of the color buttons at the top-right of the screen to open the Colors menu.
-                        
-                        </p>
-                        <p>  Select a color, then press `Choose` and part of the picture will appear.
-                        
-                        </p>
-                        <p>  Choose all 10 colors to see the whole scene!
-                        
-                        </p>
+                        <p>  Click one of the color buttons at the top-right of the screen to open the Colors menu.</p>
+                        <p>  Select a color, then press `Choose` and part of the picture will appear.</p>
+                        <p>  Choose all 10 colors to see the whole scene!</p>
                     <br/>
                     <h3 className="rainbow">Checkmarks</h3>
-                        <p>  Each scene comes with a set of challenges called 'Checkmarks.'
-                        
-                        </p>
-                        <p>  There are a few different types of checkmarks, including Spelling, Counting and Creative questions.
-                        
-                        </p>
-                        <p>  Some checkmarks ask you to change the scene using a slider or by clicking on the picture.
-                        
-                        </p>
-                        <p>  When you have entered your answer, click the square box next to the challenge to complete that 
-                        
-                        </p>
+                        <p>  Each scene comes with a set of challenges called 'Checkmarks.'</p>
+                        <p>  There are a few different types of checkmarks, including Spelling, Counting and Creative questions.</p>
+                        <p>  Some checkmarks ask you to change the scene using a slider or by clicking on the picture.</p>
+                        <p>  When you have entered your answer, click the square box next to the challenge to complete that </p>
                         <p>checkmark!</p>
                     <br/>
                     <h3 className="rainbow">Coins</h3>
                         <p>  Choosing colors and completing checkmarks will earn you coins!</p>
                         <p>  Coins can be used to unlock new scenes.</p>
                         <p>  Coins can also unlock stickers and animations to keep in your 'Collection'.</p>
-                        <p>  'Collection' will be added to version 2.0 of Opal.</p>
+                        <p>  'Collection' is not yet finished and will be added to the next version of Opal.</p>
+                    <br/>
+                    <h3 className="rainbow">Save & Load</h3>
+                        <p>  You can save your color palette to use again next time you play.</p>
+                        <p>  Open the 'Save' menu, enter a title for your palette and your name, then click 'Save'</p>
+                        <p>  Open the 'Load' menu to choose from the list of saved palettes</p> 
+                        <p>  Palettes are saved 'community style' so you can use palettes that other players have created!</p>
+                    <br/>
+                    <h3 className="rainbow">Coming Soon...</h3>
+                        <p>More Scenes, More Challenges</p>
+                        <p>Animations, Stickers, and more in your Collection</p>
+                        <p>User Profiles</p>
+                        <p>Progress Tracking & Autosave</p>
+                        <p>Short stories with each scene</p>
+                        <p>Share your picture to Facebook</p>
+                    <br/>
                 </div>
             </div>
             )

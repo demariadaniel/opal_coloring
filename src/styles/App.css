@@ -186,11 +186,6 @@
   transition: all ease 0.25s
 }
 
-.dragonBody {
-  display: inline-block;
-  position:relative;
-}
-
 .drawerStylez {
   padding: 0.3125rem;
 }
@@ -277,13 +272,18 @@
   100% {color: #222}
 }
 
+.sceneIco{
+  color: #222
+}
+
 .shades{
   width: 100%;
   overflow: contain;
 }
 
-.sceneIco{
-  color: #222
+.stickerBody {
+  display: inline-block;
+  position:relative;
 }
 
 i.material-icons.md-32{
