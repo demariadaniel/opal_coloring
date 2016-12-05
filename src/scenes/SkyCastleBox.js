@@ -12,6 +12,7 @@ class SkyCastleBox extends Component {
                 <LayerTwo color={this.state.colors[1].color} />
                 <LayerThree color={this.state.colors[2].color} 
                             treasure={this.props.slider.treasure}
+                            checkmarks={this.props.checkmarks.checkmarks}
                             clickChallenge={(value)=>this.props.clickChallenge(value)} />
                 <LayerFour color={this.state.colors[3].color} />
                 <LayerFive color={this.state.colors[4].color} 
@@ -164,6 +165,7 @@ class LayerThree extends Component {
             //let __opacity = 1-scale;
             let secretTreasure = {"left": "59rem", "top": top, "fontSize": "3rem", "position":"absolute", 
                 "opacity": 1-scale};
+            this.props.checkmarks[6].clickAnswer ? secretTreasure["display"] = "none" : null;
         return(
             <div style={{"color":this.props.color, 'zIndex':3}} className="layer">
                 {/* Sun & Rays */}

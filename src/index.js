@@ -216,7 +216,7 @@ class App extends Component {
           }
           this.setState({
             scene: this.state.scene,
-            clickComplete: complete
+            clickComplete: complete,
           })
         }
       }
@@ -410,6 +410,7 @@ class App extends Component {
             {/* Canvas */}
             <div className="BG" style={{backgroundColor: this.state.colors[9].color}}>
               <this.state.scene.scene 
+                checkmarks={this.state.scene.checkmarks}
                 colors={this.state.colors} 
                 slider={this.state.slider} 
                 clickChallenge={(value)=>this.clickChallenge(value)}/>
