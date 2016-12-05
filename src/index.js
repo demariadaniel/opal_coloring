@@ -28,11 +28,16 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import {white} from './AllColors';
 import './styles/index.css';
 import './styles/App.css';
+const image0 = require('./images/seigaiha.png');
+const image1 = require('./images/asanoha-400px.png');
+const image2 = require('./images/sayagata-400px.png');
+const images = [image0, image1, image2];
 
 // App will need way to load initial slider values
 
 class App extends Component {
   state = {
+    background: 0,
     openL: false,
     openM: false,
     openR: false,
@@ -161,6 +166,24 @@ class App extends Component {
       });
     }
   }
+  bgClick(value){
+    let bgIndex = this.state.background;
+    if (value === "LEFT"){
+      bgIndex--;
+      if(bgIndex < 0){
+        bgIndex = images.length - 1;
+      }
+    } else {
+      bgIndex++;
+      if(bgIndex >= images.length){
+        bgIndex = 0;
+      }
+    }
+    console.log(bgIndex);
+    this.setState({
+      background:bgIndex
+    })
+  }
   buyScene(){
     this.setState({
       openL: false,
@@ -280,7 +303,8 @@ class App extends Component {
     })
   }
   render (){
-    if(screen.wdith < 675){
+    if(this.state.smallDevice === false 
+      && screen.width < 675){
       this.setState({
         smallDevice : true
       })
@@ -289,10 +313,13 @@ class App extends Component {
       (<FlatButton onClick={()=>this.oK()}>
           {this.state.openM ? "Let's Play!" : "OK!"}
         </FlatButton>)
-              ]
+              ];
+    const BG = {
+        "backgroundImage": `url(${images[this.state.background]})`
+    }
     return (
       <MuiThemeProvider>
-        <div className="BGcontainer">
+        <div className="BGcontainer" style={BG}>
             <Dialog open={this.state.openM} 
                 actions={OK}
                 autoScrollBodyContent={true}
@@ -321,6 +348,23 @@ class App extends Component {
                   <p className="menuBtn">Load</p>
                   <i className="material-icons md-32 colorIco" style={{"color" : "rgb(0, 0, 0)"}}>
                     vertical_align_top
+                  </i>
+              </RaisedButton>
+          </div>
+          <div className="menuBtnBox2">
+              <RaisedButton className="menuBtn raised" onClick={e=>this.bgClick("LEFT")}
+                  style={{"minWidth":"2rem"}}>
+                  <i className="material-icons md-32 colorIco" style={{"color" : "rgb(0, 0, 0)"}}>
+                    chevron_left
+                  </i>
+              </RaisedButton>
+              <RaisedButton className="menuBtn raised">
+                Background
+              </RaisedButton>
+              <RaisedButton className="menuBtn raised" onClick={e=>this.bgClick("RIGHT")}
+                  style={{"minWidth":"2rem"}}>
+                  <i className="material-icons md-32 colorIco" style={{"color" : "rgb(0, 0, 0)"}}>
+                    chevron_right
                   </i>
               </RaisedButton>
           </div>

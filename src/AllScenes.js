@@ -18,19 +18,19 @@ import TreasureCheckMarks from './checkmarks/FairyCheckMarks';
 
 // Scene Objects
 let SkyCastle = {name:'Sky Castle', icon: "cloud_circle", isUnlocked: true, scene: SkyCastleBox, 
-                checkmarks: SkyCheckMarks};
+                checkmarks: SkyCheckMarks, colors: []};
 let Fairy = {name:'Fairy', icon: "local_florist", isUnlocked: false, scene: FairyBox, 
-                checkmarks: FairyCheckMarks};
+                checkmarks: FairyCheckMarks, colors: []};
 let Space = {name:'Space', icon: "wb_sunny", isUnlocked: false, scene: FarmBox,
-                checkmarks: SpaceCheckMarks};
+                checkmarks: SpaceCheckMarks, colors: []};
 let Ghost = {name:'Ghost', icon: "all_inclusive", isUnlocked: false, scene: GhostBox, 
-                checkmarks: GhostCheckMarks};
+                checkmarks: GhostCheckMarks, colors: []};
 let Mermaid = {name:'Mermaid', icon: "filter_tilt_shift", isUnlocked: false, scene: MermaidBox, 
-                checkmarks: MermaidCheckMarks};
+                checkmarks: MermaidCheckMarks, colors: []};
 let Rainbow = {name:'Rainbow', icon: "leak_add", isUnlocked: false, scene: RainbowBox, 
-                checkmarks: RainbowCheckMarks};
+                checkmarks: RainbowCheckMarks, colors: []};
 let Treasure = {name:'Treasure', icon: "star_half", isUnlocked: false, scene: TreasureBox, 
-                checkmarks: TreasureCheckMarks};
+                checkmarks: TreasureCheckMarks, colors: []};
 
 const AllScenes = [SkyCastle, Fairy, Space, Ghost, Mermaid, Rainbow, Treasure];
 

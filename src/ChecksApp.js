@@ -38,9 +38,8 @@ class ChecksApp extends Component {
             if (checkmark.complete){
                 this.setState({
                     open: true,
-                    message: `Your current answer is ${this.state.tempanswers[i]}.
-                    Would you like to change this?`,
-                    options: true,
+                    message: checkmark.correct + `${this.state.tempanswers[i]}.`,
+                    options: false,
                     change: i
                 })
             } else {
@@ -136,6 +135,7 @@ class ChecksApp extends Component {
                     OK!
                 </FlatButton>)
             ];
+        // OPTIONS & changeAnswer not currently used, may reuse in future
         const OPTIONS = [
                 (<FlatButton onClick={(e)=>this.changeAnswer(e)}
                     style={{"color" : "rgb(0, 188, 212)"}}>
