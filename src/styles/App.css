@@ -242,7 +242,7 @@
   position: absolute;
   z-index: 3;
   left: -0.3125rem;
-  top: 2.25rem;
+  transform: translate(0, 97%);
 }
 
 .raised {

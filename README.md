@@ -4,7 +4,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 using [React Material-UI](http://www.material-ui.com/#/) 
 
-and [Material Icons](https://material.io/icons/)
+[Material Icons](https://material.io/icons/)
+
+and [Subtle Patterns](https://subtlepatterns.com/#)
 
 Inspired By:
 
@@ -13,3 +15,11 @@ Inspired By:
 
     Casey Kolderup - ZZT Cartography
     http://motd.co/2012/12/zzt-cartography/
+
+    Tangrams
+    
+    Lego
+
+    Bryce 3D
+
+    Strawberry Princess Moshi
