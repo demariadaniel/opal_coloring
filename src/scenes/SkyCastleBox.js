@@ -870,9 +870,21 @@ class DragonLayer extends Component {
 class LayerNine extends Component {
     render(){
         return(
-            <div style={{"color":this.props.color}} className="layer hidden">
-                <i className="material-icons md-250">
-                    cloud_circle
+            <div className="layer">
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"15rem", "left":"32rem", "fontSize":"4rem",
+                            "color":this.props.color, "zIndex":"3", "transform":"rotateZ(90deg)"}}>
+                    label
+                </i>
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"18rem", "left":"32.75rem", "fontSize":"4rem",
+                            "color":this.props.color, "zIndex":"3", "transform":"rotateZ(-60deg)"}}>
+                    done
+                </i>
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"18rem", "left":"31.5rem", "fontSize":"4rem",
+                            "color":this.props.color, "zIndex":"3", "transform":"rotateZ(-60deg)"}}>
+                    done
                 </i>
             </div>
             )
@@ -884,14 +896,12 @@ class Treasure extends Component {
         return(
                 <div>
                     <i className="material-icons md-250"
-                        style={{"left": this.props.treasure+"rem", "top": "12rem", "fontSize": "4rem", "position":"absolute",
-                        "zIndex":"2", "color": this.props.color0}}
+                        style={{"left": this.props.treasure+"rem", "top": "12rem", "fontSize": "4rem", "position":"absolute", "zIndex":"2", "color": this.props.color0}}
                         >
                         border_all
                     </i>
                     <i className="material-icons md-250"
-                        style={{"left": this.props.treasure+"rem", "top": "12rem", "fontSize": "4rem", "position":"absolute",
-                        "zIndex":"3", "color": this.props.color0}}
+                        style={{"left": this.props.treasure+"rem", "top": "12rem", "fontSize": "4rem", "position":"absolute", "zIndex":"3", "color": this.props.color0}}
                         >
                         apps
                     </i>

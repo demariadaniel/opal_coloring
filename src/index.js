@@ -135,19 +135,26 @@ class App extends Component {
   }
   applyColor(color){
     let newColors = this.state.colors;
+    let _scene = this.state.scene;
+    console.log(_scene);
     let newCoins = this.state.coins;
-    if (this.state.colors[this.state.colorIndex].change===false){
-      color.change = true;
+    if (_scene.colors[this.state.colorIndex].change===false){
       newCoins += 3;
     }
+    color.change = true;
     newColors.splice(this.state.colorIndex, 1, color);
+    _scene.colors = newColors;
+    console.log(AllScenes);
+    AllScenes[this.state.sceneIndex] = _scene;
     this.setState({
       colors: newColors,
       openR: false,
-      coins: newCoins
+      coins: newCoins,
+      scene: _scene
     });
   }
   applyScene(scene, index){
+    console.log(scene)
     if (this.state.buying && scene.isUnlocked){
       console.log('error!')
     } else {
