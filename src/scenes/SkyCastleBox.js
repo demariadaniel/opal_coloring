@@ -717,9 +717,15 @@ class DragonLayer extends Component {
                  {/* Dragon Head */} 
                  <i className="material-icons md-250"
                     style={{"left": "16rem", "top": "9.25rem", "fontSize": "3rem", "position":"absolute",
-                    "transform":"rotateZ(80deg)"
+                    "transform":"rotateZ(80deg)", "zIndex":"3"
                     }}>
                     explore
+                </i>
+                <i className="material-icons md-250"
+                    style={{"left": "16.75rem", "top": "9.5rem", "fontSize": "2rem", "position":"absolute",
+                    "zIndex":"3", "color":this.props.color0, "zIndex":"2"
+                    }}>
+                    brightness_1
                 </i>
                 <i className="material-icons md-250"
                     style={{"left": "18rem", "top": "9.5rem", "fontSize": "4rem", "position":"absolute",
@@ -878,11 +884,21 @@ class LayerNine extends Component {
                             "color":this.props.color0, "zIndex":"3", "transform":"rotateY(180deg)"}}>
                     face
                 </i>
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"14.25rem", "left":"32.25rem", "fontSize":"2.5rem",
+                            "color":this.props.color2, "zIndex":"2", "transform":"rotateY(180deg)"}}>
+                    brightness_1
+                </i>
                 {/* Body & Shield */}
                 <i className="material-icons md-250"
                     style={{"position":"absolute", "top":"16rem", "left":"32rem", "fontSize":"3.5rem",
                             "color":this.props.color0, "zIndex":"3", "transform":"rotateZ(90deg)"}}>
                     label
+                </i>
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"16.25rem", "left":"31.75rem", "fontSize":"1.5rem",
+                            "color":this.props.color1, "zIndex":"3", "transform":"rotateZ(-22deg)"}}>
+                    network_wifi
                 </i>
                 <i className="material-icons md-250"
                     style={{"position":"absolute", "top":"16.5rem", "left":"33.3rem", "fontSize":"2.75rem",
