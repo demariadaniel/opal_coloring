@@ -136,7 +136,6 @@ class App extends Component {
   applyColor(color){
     let newColors = this.state.colors;
     let _scene = this.state.scene;
-    console.log(_scene);
     let newCoins = this.state.coins;
     if (_scene.colors[this.state.colorIndex].change===false){
       newCoins += 3;
@@ -144,7 +143,6 @@ class App extends Component {
     color.change = true;
     newColors.splice(this.state.colorIndex, 1, color);
     _scene.colors = newColors;
-    console.log(AllScenes);
     AllScenes[this.state.sceneIndex] = _scene;
     this.setState({
       colors: newColors,

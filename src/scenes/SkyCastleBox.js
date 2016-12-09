@@ -23,7 +23,9 @@ class SkyCastleBox extends Component {
                             color1={this.state.colors[7].color} 
                             color2={this.state.colors[2].color}
                             dragon={this.props.slider.dragon} />
-                <LayerNine color={this.state.colors[8].color} />
+                <LayerNine color0={this.state.colors[8].color} 
+                            color1={this.state.colors[2].color}
+                            color2={this.state.colors[5].color} />
             </div>
         )
     }
@@ -872,18 +874,56 @@ class LayerNine extends Component {
         return(
             <div className="layer">
                 <i className="material-icons md-250"
-                    style={{"position":"absolute", "top":"15rem", "left":"32rem", "fontSize":"4rem",
-                            "color":this.props.color, "zIndex":"3", "transform":"rotateZ(90deg)"}}>
+                    style={{"position":"absolute", "top":"14.25rem", "left":"32.25rem", "fontSize":"2.5rem",
+                            "color":this.props.color0, "zIndex":"3", "transform":"rotateY(180deg)"}}>
+                    face
+                </i>
+                {/* Body & Shield */}
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"16rem", "left":"32rem", "fontSize":"3.5rem",
+                            "color":this.props.color0, "zIndex":"3", "transform":"rotateZ(90deg)"}}>
                     label
                 </i>
                 <i className="material-icons md-250"
-                    style={{"position":"absolute", "top":"18rem", "left":"32.75rem", "fontSize":"4rem",
-                            "color":this.props.color, "zIndex":"3", "transform":"rotateZ(-60deg)"}}>
+                    style={{"position":"absolute", "top":"16.5rem", "left":"33.3rem", "fontSize":"2.75rem",
+                            "color":this.props.color1, "zIndex":"5"}}>
+                    security
+                </i>
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"16.5rem", "left":"33.29rem", "fontSize":"2.75rem",
+                            "color":this.props.color2, "zIndex":"4", "transform":"rotateY(180deg)"}}>
+                    security
+                </i>
+                {/* Helmet */}
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"13.75rem", "left":"32.25rem", "fontSize":"2rem",
+                            "color":this.props.color1, "zIndex":"4", "transform":"rotateZ(-22deg)"}}>
+                    network_wifi
+                </i>
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"14.5rem", "left":"33rem", "fontSize":"2rem",
+                            "color":this.props.color1, "zIndex":"4", "transform":"rotateZ(112deg)"}}>
+                    network_wifi
+                </i>
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"14rem", "left":"33rem", "fontSize":"2rem",
+                            "color":this.props.color2, "zIndex":"3", "transform":"rotateZ(74deg)"}}>
+                    network_wifi
+                </i>
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"13.4rem", "left":"33.5rem", "fontSize":"2rem",
+                            "color":this.props.color2, "zIndex":"3", "transform":"rotateZ(209deg)"}}>
+                    fast_forward
+                </i>
+                {/* Legs */}
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"18rem", "left":"31.25rem", "fontSize":"4rem",
+                            "color":this.props.color0, "zIndex":"3", "transform":"rotateZ(-60deg)"}}>
                     done
                 </i>
                 <i className="material-icons md-250"
-                    style={{"position":"absolute", "top":"18rem", "left":"31.5rem", "fontSize":"4rem",
-                            "color":this.props.color, "zIndex":"3", "transform":"rotateZ(-60deg)"}}>
+                    style={{"position":"absolute", "top":"18rem", "left":"33rem", "fontSize":"4rem",
+                            "color":this.props.color0, "zIndex":"3", "transform":"rotateZ(-87deg)"}}>
                     done
                 </i>
             </div>
