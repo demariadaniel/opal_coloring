@@ -29,21 +29,24 @@ class ChecksApp extends Component {
             this.incomplete();    
         } else if (checkmark.type == "COUNT"){
             if (checkmark.answer=== parseInt(this.state.tempanswers[i])){
-                this.props.answer(i);
+                this.props.answer(i, this.state.tempanswers[i]);
                 this.correct(checkmark);
             } else {
                 this.incorrect(checkmark);
             }
         } else if (checkmark.type == "CREATIVE") {
             if (checkmark.complete){
+                if (this.state.tempanswers[i] != checkmark.answer){
+                    this.props.answer(i, this.state.tempanswers[i]);
+                }
                 this.setState({
                     open: true,
-                    message: checkmark.correct(this.state.tempanswers[i]),
+                    message: checkmark.correct(checkmark.answer),
                     options: false,
                     change: i
                 })
             } else {
-                this.props.answer(i);
+                this.props.answer(i, this.state.tempanswers[i]);
                 this.correct(checkmark, i);
             }
         } else if (checkmark.type == "SLIDER") {
@@ -56,7 +59,7 @@ class ChecksApp extends Component {
                             options: false
                         })
                     } else {
-                        this.props.answer(i)
+                        this.props.answer(i, this.state.tempanswers[i])
                         this.correct(checkmark, i)
                     }
                 } else {

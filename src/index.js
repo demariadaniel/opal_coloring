@@ -121,12 +121,15 @@ class App extends Component {
       });
     }
   }
-  answer(i){
+  answer(i, answer){
     let _scene = this.state.scene;
     let _coins = this.state.coins;
-    _scene.checkmarks.checkmarks[i].complete = true;
-    _scene.checkmarks.complete += 1;
-    _coins += _scene.checkmarks.checkmarks[i].prize;
+    _scene.checkmarks.checkmarks[i].answer = answer;
+    if (_scene.checkmarks.checkmarks[i].complete === false){
+      _scene.checkmarks.complete += 1;
+      _scene.checkmarks.checkmarks[i].complete = true;
+      _coins += _scene.checkmarks.checkmarks[i].prize;
+    }
     this.setState({
       scene: _scene,
       coins: _coins,
@@ -438,7 +441,7 @@ class App extends Component {
                     onSlide={(v,c)=>this.onSlide(v,c)}
                     debug={()=>this.debug()}
                     checkmarks={this.state.scene.checkmarks}
-                    answer={(i)=>this.answer(i)}
+                    answer={(i, answer)=>this.answer(i, answer)}
                     clickComplete={this.state.clickComplete}
                     /> 
                   : null}
