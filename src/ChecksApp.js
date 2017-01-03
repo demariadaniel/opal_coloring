@@ -36,12 +36,12 @@ class ChecksApp extends Component {
             }
         } else if (checkmark.type == "CREATIVE") {
             if (checkmark.complete){
-                if (this.state.tempanswers[i] != checkmark.answer){
+                if (this.state.tempanswers[i] != checkmark.myAnswer){
                     this.props.answer(i, this.state.tempanswers[i]);
                 }
                 this.setState({
                     open: true,
-                    message: checkmark.correct(checkmark.answer),
+                    message: checkmark.correct(checkmark.myAnswer),
                     options: false,
                     change: i
                 })
@@ -67,9 +67,6 @@ class ChecksApp extends Component {
                 }
         }
     } 
-    changeAnswer(){
-        // Display old answer
-    }
     componentWillReceiveProps(nextProps){
         if (nextProps.clickComplete != false){
             this.answer(null, nextProps.clickComplete.checkmark, nextProps.clickComplete.i)

@@ -104,7 +104,7 @@ class FileApp extends Component {
                     close
                 </i>
 
-                <p className="rainbow">Feature coming soon!</p>
+                <p className="rainbow" onClick={()=>this.props.userInfo()}>Feature coming soon!</p>
 
                 <FlatButton style={white} onClick={()=>this.onCancel()}>
                     Cancel

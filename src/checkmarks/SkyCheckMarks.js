@@ -38,8 +38,7 @@ const SkyCheckMarks = {
             prize: 3,
             complete: false,
             correct: function(answer){
-                return(`Introducing the smartest and kindest soul in the entire kingdom, ${answer}. She has studied the many monsters that roam the skies, but will need all her courage to tame this dragon!`)},
-            answer: ""
+                return(`Introducing the smartest and kindest soul in the entire kingdom, ${answer}. She has studied the many monsters that roam the skies, but will need all her courage to tame this dragon!`)}
         },{
             text: "Fix the Crooked Flag",
             type: "SLIDER",

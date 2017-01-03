@@ -124,7 +124,7 @@ class App extends Component {
   answer(i, answer){
     let _scene = this.state.scene;
     let _coins = this.state.coins;
-    _scene.checkmarks.checkmarks[i].answer = answer;
+    _scene.checkmarks.checkmarks[i].myAnswer = answer;
     if (_scene.checkmarks.checkmarks[i].complete === false){
       _scene.checkmarks.complete += 1;
       _scene.checkmarks.checkmarks[i].complete = true;
@@ -312,6 +312,16 @@ class App extends Component {
       slider: _slider
     })
   }
+  userInfo(){
+    console.log(this.state.background);
+    console.log(this.state.sceneIndex);
+    console.log(this.state.colors);
+    console.log(this.state.coins);
+    console.log(this.state.complete);
+    console.log(this.state.scene);
+    console.log(this.state.scenes);
+    console.log(this.state.slider);
+  }
   render (){
     if(this.state.smallDevice === false 
       && screen.width < 675){
@@ -480,6 +490,7 @@ class App extends Component {
                     onCancel={()=>this.onCancel()}
                     errorMessage={this.state.errorMessage}
                     user={this.state.user}
+                    userInfo={()=>this.userInfo()}
                     /> 
                   : null}
             </Drawer>
