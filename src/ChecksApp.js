@@ -38,7 +38,7 @@ class ChecksApp extends Component {
             if (checkmark.complete){
                 this.setState({
                     open: true,
-                    message: checkmark.correct + `${this.state.tempanswers[i]}.`,
+                    message: checkmark.correct(this.state.tempanswers[i]),
                     options: false,
                     change: i
                 })
@@ -73,10 +73,7 @@ class ChecksApp extends Component {
         }
     }
     correct(checkmark, i){
-        let _message = checkmark.correct ? checkmark.correct : `Checkmark complete! Great job.`;
-        if (checkmark.type == "CREATIVE" && checkmark.correct){
-            _message += this.state.tempanswers[i] + "."
-        }
+        let _message = checkmark.correct ? checkmark.correct(this.state.tempanswers[i]) : `Checkmark complete! Great job.`;
         _message += ` You've earned ${checkmark.prize} coins!`;
         this.setState({
             open: true,

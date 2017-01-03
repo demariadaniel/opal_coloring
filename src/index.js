@@ -148,7 +148,8 @@ class App extends Component {
       colors: newColors,
       openR: false,
       coins: newCoins,
-      scene: _scene
+      scene: _scene,
+      scenes: AllScenes
     });
   }
   applyScene(scene, index){
@@ -163,7 +164,8 @@ class App extends Component {
       }
       AllScenes[index] = scene;
       this.setState({
-        scene: AllScenes[index],
+        scene: scene,
+        scenes: AllScenes,
         sceneIndex: index,
         openL: false,
         coins: balance,

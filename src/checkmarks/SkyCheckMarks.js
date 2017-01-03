@@ -22,20 +22,23 @@ const SkyCheckMarks = {
             type: "CREATIVE",
             prize: 3,
             complete: false,
-            correct: 'Welcome to the majestic kingdom of ' 
+            correct: function(answer){
+                return(`Welcome to the majestic kingdom of ${answer}. Shrouded in mystery, many people believe that the castle is only a legend, having never seen it with their own two eyes. `)} 
         },{
             text: "Give the Knight a Name",
             type: "CREATIVE",
             prize: 3,
             complete: false,
-            correct: 'All bow before the legendary hero, '
+            correct: function(answer){
+                return(`All bow before the legendary hero, ${answer}. His enchanted sword has protected the kingdom against countless monsters. But one man may not be enough to defeat this newest threat!`)}
         },
         {
             text: "Give the Princess a Name",
             type: "CREATIVE",
             prize: 3,
             complete: false,
-            correct: 'Introducing the smartest and kindest soul in the entire kingdom, '
+            correct: function(answer){
+                return(`Introducing the smartest and kindest soul in the entire kingdom, ${answer}. She has studied the many monsters that roam the skies, but will need all her courage to tame this dragon!`)}
         },{
             text: "Fix the Crooked Flag",
             type: "SLIDER",
@@ -54,7 +57,7 @@ const SkyCheckMarks = {
             type: "SLIDER",
             kind: 'move',
             value: 'treasure',
-            step: 0.2,
+            step: 0.5,
             max: 3,
             min: 0,
             minAnswer: 1.5,

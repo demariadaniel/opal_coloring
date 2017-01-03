@@ -917,7 +917,7 @@ class LayerNine extends Component {
                     network_wifi
                 </i>
                 <i className="material-icons md-250"
-                    style={{"position":"absolute", "top":"14.5rem", "left":"33rem", "fontSize":"2rem",
+                    style={{"position":"absolute", "top":"14.5rem", "left":"33.1rem", "fontSize":"2rem",
                             "color":this.props.color1, "zIndex":"4", "transform":"rotateZ(112deg)"}}>
                     network_wifi
                 </i>
@@ -942,6 +942,7 @@ class LayerNine extends Component {
                             "color":this.props.color0, "zIndex":"3", "transform":"rotateZ(-87deg)"}}>
                     done
                 </i>
+                {/* alternate stance top 18.25 left 32.25 rotate -65 */}
             </div>
             )
     }
