@@ -8,24 +8,25 @@ class SkyCastleBox extends Component {
     render(){
         return (
             <div className="skyCastleBox">
-                <LayerOne color={this.state.colors[0].color} />
-                <LayerTwo color={this.state.colors[1].color} />
+                <LayerOne   color={this.state.colors[0].color} />
+                <LayerTwo   color={this.state.colors[1].color} />
                 <LayerThree color={this.state.colors[2].color} 
                             treasure={this.props.slider.treasure}
                             checkmarks={this.props.checkmarks.checkmarks}
                             clickChallenge={(value)=>this.props.clickChallenge(value)} />
-                <LayerFour color={this.state.colors[3].color} />
-                <LayerFive color={this.state.colors[4].color} 
+                <LayerFour  color={this.state.colors[3].color} />
+                <LayerFive  color={this.state.colors[4].color} 
                             flag={this.props.slider.flag} />
-                <LayerSix color={this.state.colors[5].color} 
+                <LayerSix   color={this.state.colors[5].color} 
                             treasure={this.props.slider.treasure}/>
                 <DragonLayer color0={this.state.colors[6].color} 
                             color1={this.state.colors[7].color} 
                             color2={this.state.colors[2].color}
                             dragon={this.props.slider.dragon} />
-                <LayerNine color0={this.state.colors[8].color} 
+                <HeroLayer  color0={this.state.colors[8].color} 
                             color1={this.state.colors[2].color}
-                            color2={this.state.colors[5].color} />
+                            color2={this.state.colors[5].color} 
+                            hero={this.props.slider.hero} />
             </div>
         )
     }
@@ -242,13 +243,6 @@ class LayerThree extends Component {
                     "transform":"rotateZ(210deg)"}}
                     >
                     gesture
-                </i>
-                {/* Sword */}
-                {/* In hand: left:30, top:16.25, fontSize:3, rotateZ(180) */}
-                <i className="material-icons md-250"
-                    style={{"position": "absolute", "left": "30rem", "top": "17.75rem", "fontSize": "3rem",
-                    "transform":"rotateZ(120deg) rotateY(-180deg)"}}>
-                    colorize
                 </i>
                 {/* Secret Treasure */}
                 <i className="material-icons md-250"
@@ -875,7 +869,7 @@ class DragonLayer extends Component {
     }
 }
 
-class LayerNine extends Component {
+class HeroLayer extends Component {
     render(){
         return(
             <div className="layer">
@@ -889,7 +883,7 @@ class LayerNine extends Component {
                             "color":this.props.color2, "zIndex":"2", "transform":"rotateY(180deg)"}}>
                     brightness_1
                 </i>
-                {/* Body & Shield */}
+                {/* Body, Arm & Shield */}
                 <i className="material-icons md-250"
                     style={{"position":"absolute", "top":"16rem", "left":"32rem", "fontSize":"3.5rem",
                             "color":this.props.color0, "zIndex":"3", "transform":"rotateZ(90deg)"}}>
@@ -909,6 +903,18 @@ class LayerNine extends Component {
                     style={{"position":"absolute", "top":"16.5rem", "left":"33.29rem", "fontSize":"2.75rem",
                             "color":this.props.color2, "zIndex":"4", "transform":"rotateY(180deg)"}}>
                     security
+                </i>
+                <i className="material-icons md-250"
+                    style={{"position":"absolute", "top":"16.5rem", "left":"31.25rem", "fontSize":"3rem",
+                            "color":this.props.color0, "zIndex":"2", "transform":"rotateZ(155deg)"}}>
+                    done
+                </i>
+                {/* Sword */}
+                {/* In hand: left:30, top:16.25, fontSize:3, rotateZ(180) */}
+                <i className="material-icons md-250"
+                    style={{"position": "absolute", "left": "29.5rem", "top": "17rem", "fontSize": "3rem",
+                    "transform":"rotateZ(155deg) rotateY(-180deg)", 'color': this.props.color1, "zIndex":"3"}}>
+                    colorize
                 </i>
                 {/* Helmet */}
                 <i className="material-icons md-250"
