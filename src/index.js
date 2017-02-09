@@ -313,14 +313,31 @@ class App extends Component {
     })
   }
   userInfo(){
-    console.log(this.state.background);
-    console.log(this.state.sceneIndex);
-    console.log(this.state.colors);
-    console.log(this.state.coins);
-    console.log(this.state.complete);
-    console.log(this.state.scene);
-    console.log(this.state.scenes);
-    console.log(this.state.slider);
+    let saveData = {
+      user: this.state.user,
+      background: this.state.background,
+      sceneIndex: this.state.sceneIndex,
+      colors: this.state.colors,
+      coins: this.state.coins,
+      complete: this.state.complete,
+      scene: this.state.scene,
+      scenes: this.state.scenes,
+      slider: this.state.slider
+    }
+    axios.post('http://localhost:8080/users/save', saveData)
+      .then(res =>{
+        if (res.data.error){
+          this.setState({
+            errorMessage: res.data.errorMessage
+          })
+        } else {
+          this.setState({
+            openM: true,
+            message: `${saveData.user.userName}'s data saved successfully!`
+          })
+          this.onCancel()
+       }
+      })
   }
   render (){
     if(this.state.smallDevice === false 

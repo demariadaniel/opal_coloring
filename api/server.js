@@ -33,9 +33,9 @@ var Palette = require('./models/Palettes');
 
 //ROUTES
 var paletteRoutes = require('./routes/palette_routes');
-//var userRoutes = require('./routes/user_routes');
+var userRoutes = require('./routes/user_routes');
 
 //ENDPOINTS
-//app.use('/users' , userRoutes);
+app.use('/users' , userRoutes);
 app.use('/palettes' , paletteRoutes);
 //app.use('/auth', auth_routes);
