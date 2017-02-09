@@ -29,7 +29,7 @@ db.once('open', () => {
 
 //MODELS
 var Palette = require('./models/Palettes');
-//var User = require('./models/Users');
+var User = require('./models/Users');
 
 //ROUTES
 var paletteRoutes = require('./routes/palette_routes');

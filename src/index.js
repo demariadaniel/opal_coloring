@@ -54,7 +54,7 @@ class App extends Component {
     clickComplete: false,
     complete: 0,
     user: {
-      userName: "",
+      userName: "Soji",
       id: 0
     },
     loggedIn: false,
@@ -322,7 +322,7 @@ class App extends Component {
       complete: this.state.complete,
       scene: this.state.scene,
       scenes: this.state.scenes,
-      slider: this.state.slider
+      slider: [ this.state.slider ]   // Convert to Array for easy Storage
     }
     axios.post('http://localhost:8080/users/save', saveData)
       .then(res =>{

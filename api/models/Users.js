@@ -2,12 +2,34 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
-  title: {
-    type: String,
-    required: true,
-    unique: true
+  user: {
+    userName: {
+      type: String,
+      required: true,
+      unique: false
+    },
+    id: {
+      type: String,
+      required: false,
+      unique: false
+    }
   },
-  palette: [
+  background: Number,
+  sceneIndex: Number,
+  coins: Number,
+  complete: Number,
+  scene: {
+      name: String,
+      icon: String,
+      isUnlocked: Boolean,
+      checkmarks: {
+          complete: Number,
+          checkmarks: Array
+      },
+      colors: Array
+  },
+  scenes: Array,
+  colors: [
     {unique: false,
       color: String,
       name: String,
@@ -49,18 +71,7 @@ const userSchema = new Schema({
       name: String,
       change: Boolean}
   ],
-  user: {
-    userName: {
-      type: String,
-      required: true,
-      unique: false
-    },
-    id: {
-      type: String,
-      required: false,
-      unique: false
-    }
-  },
+  slider: Array,
   created_at: Date,
   updated_at: Date
 });
