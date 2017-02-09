@@ -312,7 +312,7 @@ class App extends Component {
       slider: _slider
     })
   }
-  userInfo(){
+  userSave(){
     let saveData = {
       user: this.state.user,
       background: this.state.background,
@@ -507,7 +507,7 @@ class App extends Component {
                     onCancel={()=>this.onCancel()}
                     errorMessage={this.state.errorMessage}
                     user={this.state.user}
-                    userInfo={()=>this.userInfo()}
+                    userSave={()=>this.userSave()}
                     /> 
                   : null}
             </Drawer>
