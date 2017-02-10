@@ -14,7 +14,7 @@ import HowToPlay from './HowToPlay';
 
 // Scenes
 import {FairyBox, FarmBox, GhostBox, MermaidBox, RainbowBox, 
-    SkyCastleBox, TreasureBox, AllScenes} from './AllScenes';
+    SkyCastleBox, TreasureBox, AllScenes, Scenes} from './AllScenes';
 
 // Material Components
 import Dialog from 'material-ui/Dialog';
@@ -53,10 +53,7 @@ class App extends Component {
     debug: false,
     clickComplete: false,
     complete: 0,
-    user: {
-      userName: "Soji",
-      id: 0
-    },
+    userName: "Soji",
     loggedIn: false,
     smallDevice: false,
     slider: {
@@ -65,13 +62,13 @@ class App extends Component {
       treasure: 0
     },
     message: "",
-    errorMessage: ""
+    error: false
   }
   componentDidMount(){
     this.setState({openM:true, message: <HowToPlay/>})
   }
   onCancel(){
-    this.setState({openL: false, openR: false, buying: false, errorMessage:""})
+    this.setState({openL: false, openR: false, buying: false, message:""})
   }
   oK(){
     this.setState({openM: false, message:""})
@@ -156,7 +153,6 @@ class App extends Component {
     });
   }
   applyScene(scene, index){
-    console.log(scene)
     if (this.state.buying && scene.isUnlocked){
       console.log('error!')
     } else {
@@ -257,13 +253,14 @@ class App extends Component {
     let newPalette = {
       title: title,
       palette: this.state.colors,
-      user: user
+      userName: user
     };
     axios.post('http://localhost:8080/palettes/', newPalette)
       .then(res =>{
         if (res.data.error){
           this.setState({
-            errorMessage: res.data.errorMessage
+            openM: true,
+            message: res.data.message
           })
         } else {
           this.setState({
@@ -279,7 +276,7 @@ class App extends Component {
       .then(res =>{
         if (res.data.error){
           this.setState({
-            errorMessage: res.data.errorMessage
+            message: res.data.message
           })
         } else {
           let _colors = this.state.colors; 
@@ -312,9 +309,10 @@ class App extends Component {
       slider: _slider
     })
   }
-  userSave(){
+  onUserSave(mode, user, password){
     let saveData = {
-      user: this.state.user,
+      userName: user,
+      password: password,
       background: this.state.background,
       sceneIndex: this.state.sceneIndex,
       colors: this.state.colors,
@@ -324,22 +322,58 @@ class App extends Component {
       scenes: this.state.scenes,
       slider: [ this.state.slider ]   // Convert to Array for easy Storage
     }
-    axios.post('http://localhost:8080/users/save', saveData)
+    let newURL = 'http://localhost:8080/users/new/'+ user;
+    let saveURL = 'http://localhost:8080/users/save/'+ user;
+    axios.post(mode === "NEW" ? newURL : saveURL, saveData)
       .then(res =>{
+        console.log("res: ")
+        console.log(res)
         if (res.data.error){
           this.setState({
-            errorMessage: res.data.errorMessage
+            message: res.data.message
           })
         } else {
           this.setState({
             openM: true,
-            message: `${saveData.user.userName}'s data saved successfully!`
+            message: mode === "NEW" ? 
+              `${res.data.userName}'s profile created!` :
+              `${res.data.userName}'s profile saved successfully!`
           })
           this.onCancel()
        }
       })
   }
+  onUserLoad(user, password){
+    axios.get('http://localhost:8080/users/'+user)
+      .then(res =>{
+        if (res.data.error){
+          this.setState({
+            openM: true,
+            error: true,
+            message: res.data.errorMessage
+          })
+        } else {
+          console.log(res.data)
+            this.setState({
+              openM: true,
+              message: `Loaded ${res.data.userName}'s profile!`,
+              userName: res.data.userName,
+              background: res.data.background,
+              colors: res.data.colors,
+              coins: res.data.coins,
+              complete: res.data.complete,
+              scenes: res.data.scenes,
+              scene: res.data.scene,
+              // sceneIndex: res.data.sceneIndex,
+              slider: res.data.slider[0]
+          })
+          // this.applyScene(res.data.scene, res.data.sceneIndex)
+          this.onCancel()
+        }
+      })
+  }
   render (){
+    let Scene = Scenes[this.state.scene.index];
     if(this.state.smallDevice === false 
       && screen.width < 675){
       this.setState({
@@ -354,6 +388,7 @@ class App extends Component {
     const BG = {
         "backgroundImage": `url(${images[this.state.background]})`
     }
+    console.log(this.state.scene)
     return (
       <MuiThemeProvider>
         <div className="BGcontainer" style={BG}>
@@ -446,7 +481,7 @@ class App extends Component {
 
             {/* Canvas */}
             <div className="BG" style={{backgroundColor: this.state.colors[9].color}}>
-              <this.state.scene.scene 
+              <Scene
                 checkmarks={this.state.scene.checkmarks}
                 colors={this.state.colors} 
                 slider={this.state.slider} 
@@ -505,9 +540,10 @@ class App extends Component {
                     onLoadColors={(title)=>this.onLoadColors(title)}
                     onLogin={(userId, password)=>this.onLogin(userId, password)}
                     onCancel={()=>this.onCancel()}
-                    errorMessage={this.state.errorMessage}
-                    user={this.state.user}
-                    userSave={()=>this.userSave()}
+                    message={this.state.message}
+                    userName={this.state.userName}
+                    onUserSave={(mode, user, password)=>this.onUserSave(mode, user, password)}
+                    onUserLoad={(user, password)=>this.onUserLoad(user, password)}
                     /> 
                   : null}
             </Drawer>

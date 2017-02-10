@@ -6,7 +6,7 @@ import axios from 'axios';
 class FileApp extends Component {
     state = {
         palettes: [],
-        user: this.props.user,
+        userName: this.props.userName,
         drawerIs: this.props.drawerIs,
         title: "",
         password: "",
@@ -66,7 +66,15 @@ class FileApp extends Component {
             })
         } else if (type === "ARTIST" && this.state.loggedIn === false){
             this.setState({
-                user: {userName: e.target.value}
+                userName: e.target.value
+            })
+        } else if (type === "USER"){
+            this.setState({
+                userName: e.target.value
+            })
+        } else if (type === "PASSWORD"){
+            this.setState({
+                password: e.target.value
             })
         }
     }
@@ -104,7 +112,26 @@ class FileApp extends Component {
                     close
                 </i>
 
-                <p className="rainbow" onClick={()=>this.props.userInfo()}>Feature coming soon!</p>
+                <input className={"fileInput"}
+                        placeholder={this.state.userName} 
+                        ref={(input) => { this.userInput = input }}
+                        onChange={(e)=>this.onChange(e, "USER")}/>                
+                <input className={"fileInput"}
+                        placeholder="Password" 
+                        ref={(input) => { this.passwordInput = input }}
+                        onChange={(e)=>this.onChange(e, "PASSWORD")}/>  
+                <p className="rainbow" 
+                    onClick={(e)=>this.props.onUserSave("NEW", this.state.userName, this.state.password)}>
+                        Create
+                </p>
+                <p className="rainbow" 
+                    onClick={(e)=>this.props.onUserSave("SAVE", this.state.userName, this.state.password)}>
+                        Save
+                </p>
+                <p className="rainbow" 
+                    onClick={(e)=>this.props.onUserLoad(this.state.userName, this.state.password)}>
+                        Load
+                </p>
 
                 <FlatButton style={white} onClick={()=>this.onCancel()}>
                     Cancel

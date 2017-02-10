@@ -21,21 +21,40 @@ import {white} from './AllColors';
 const defaultColors = [white, white, white, white, white, white, white, white, white, white];
 
 // Scene Objects
-let SkyCastle = {name:'Sky Castle', icon: "cloud_circle", isUnlocked: true, scene: SkyCastleBox, 
+let SkyCastle = {name:'Sky Castle', icon: "cloud_circle", isUnlocked: true, index: 0, 
                 checkmarks: SkyCheckMarks, colors: defaultColors};
-let Fairy = {name:'Fairy', icon: "local_florist", isUnlocked: false, scene: FairyBox, 
+let Fairy = {name:'Fairy', icon: "local_florist", isUnlocked: false, index: 1, 
                 checkmarks: FairyCheckMarks, colors: defaultColors};
-let Space = {name:'Space', icon: "wb_sunny", isUnlocked: false, scene: FarmBox,
+let Space = {name:'Space', icon: "wb_sunny", isUnlocked: false, index: 2,
                 checkmarks: SpaceCheckMarks, colors: defaultColors};
-let Ghost = {name:'Ghost', icon: "all_inclusive", isUnlocked: false, scene: GhostBox, 
+let Ghost = {name:'Ghost', icon: "all_inclusive", isUnlocked: false, index: 3, 
                 checkmarks: GhostCheckMarks, colors: defaultColors};
-let Mermaid = {name:'Mermaid', icon: "filter_tilt_shift", isUnlocked: false, scene: MermaidBox, 
+let Mermaid = {name:'Mermaid', icon: "filter_tilt_shift", isUnlocked: false, index: 4, 
                 checkmarks: MermaidCheckMarks, colors: defaultColors};
-let Rainbow = {name:'Rainbow', icon: "leak_add", isUnlocked: false, scene: RainbowBox, 
+let Rainbow = {name:'Rainbow', icon: "leak_add", isUnlocked: false, index: 5, 
                 checkmarks: RainbowCheckMarks, colors: defaultColors};
-let Treasure = {name:'Treasure', icon: "star_half", isUnlocked: false, scene: TreasureBox, 
+let Treasure = {name:'Treasure', icon: "star_half", isUnlocked: false, index: 6, 
                 checkmarks: TreasureCheckMarks, colors: defaultColors};
 
-const AllScenes = [SkyCastle, Fairy, Space, Ghost, Mermaid, Rainbow, Treasure];
+let AllScenes = [SkyCastle, Fairy, Space, Ghost, Mermaid, Rainbow, Treasure];
 
-export {FairyBox, FarmBox, GhostBox, MermaidBox, RainbowBox, SkyCastleBox, TreasureBox, AllScenes};
+const Scenes = [SkyCastleBox, FairyBox, FarmBox, GhostBox, MermaidBox, RainbowBox, TreasureBox];
+
+// class SceneComponent extends Component {
+//     state = {
+//         index : this.props.index,
+//         checkmarks : this.props.checkmarks,
+//         colors : this.props.colors, 
+//         slider : this.props.slider
+//     }
+//     render(){
+//         let Scene = Scenes[this.props.index];
+//         return(
+//             <Scene
+//                 />
+//         )
+//     }
+// }
+
+
+export {FairyBox, FarmBox, GhostBox, MermaidBox, RainbowBox, SkyCastleBox, TreasureBox, AllScenes, Scenes};

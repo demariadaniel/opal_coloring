@@ -49,17 +49,10 @@ const paletteSchema = new Schema({
       name: String,
       change: Boolean}
   ],
-  user: {
-    userName: {
+  userName: {
       type: String,
       required: true,
       unique: false
-    },
-    id: {
-      type: String,
-      required: false,
-      unique: false
-    }
   },
   created_at: Date,
   updated_at: Date

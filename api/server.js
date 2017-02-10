@@ -4,7 +4,6 @@ const mongoose = require('mongoose');
 const db = mongoose.connection;
 const bodyParser = require('body-parser');
 
-
 app.use(bodyParser());
 app.use(bodyParser.urlencoded({extended:false}));
 
@@ -22,6 +21,8 @@ app.listen(8080, () => {
 
 // MONGOOSE
 mongoose.connect('mongodb://localhost/data/db/');
+mongoose.Promise = global.Promise;
+// assert.equal(query.exec().constructor, global.Promise);
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
 	console.log("Connected to db at /data/db/")
