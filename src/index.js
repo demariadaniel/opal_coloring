@@ -255,7 +255,7 @@ class App extends Component {
       palette: this.state.colors,
       userName: user
     };
-    axios.post('http://localhost:8080/palettes/', newPalette)
+    axios.post('http://localhost:9393/palettes/', newPalette)
       .then(res =>{
         if (res.data.error){
           this.setState({
@@ -272,7 +272,7 @@ class App extends Component {
       })
   }
   onLoadColors(title){
-    axios.get('http://localhost:8080/palettes/'+title)
+    axios.get('http://localhost:9393/palettes/'+title)
       .then(res =>{
         if (res.data.error){
           this.setState({
@@ -322,8 +322,8 @@ class App extends Component {
       scenes: this.state.scenes,
       slider: [ this.state.slider ]   // Convert to Array for easy Storage
     }
-    let newURL = 'http://localhost:8080/users/new/'+ user;
-    let saveURL = 'http://localhost:8080/users/save/'+ user;
+    let newURL = 'http://localhost:9393/users/new/'+ user;
+    let saveURL = 'http://localhost:9393/users/save/'+ user;
     axios.post(mode === "NEW" ? newURL : saveURL, saveData)
       .then(res =>{
         console.log("res: ")
@@ -344,7 +344,7 @@ class App extends Component {
       })
   }
   onUserLoad(user, password){
-    axios.get('http://localhost:8080/users/'+user)
+    axios.get('http://localhost:9393/users/'+user)
       .then(res =>{
         if (res.data.error){
           this.setState({
@@ -367,12 +367,17 @@ class App extends Component {
               // sceneIndex: res.data.sceneIndex,
               slider: res.data.slider[0]
           })
-          // this.applyScene(res.data.scene, res.data.sceneIndex)
           this.onCancel()
         }
       })
   }
   render (){
+    let imagesTest = [];
+    for (let i = 0; i < images.length; i++){
+      imagesTest.push(<img src={images[i]} />)
+    }
+    console.log(imagesTest)
+
     let Scene = Scenes[this.state.scene.index];
     if(this.state.smallDevice === false 
       && screen.width < 675){
