@@ -5,6 +5,8 @@ class GhostBox extends Component {
     render(){
         return (
             <div className="ghostBox">
+                {/* Placeholder scene. Map each color on to an icon. Color 9
+                is the background, so use color 0 instead when i === 9.   */}
                   {this.props.colors.map((color, i)=>{
                     return(
                         <i

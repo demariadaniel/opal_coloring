@@ -356,7 +356,7 @@ class App extends Component {
           console.log(res.data)
             this.setState({
               openM: true,
-              message: `Loaded ${res.data.userName}'s profile!`,
+              message: `Welcome back ${res.data.userName}!`,
               userName: res.data.userName,
               background: res.data.background,
               colors: res.data.colors,
@@ -367,7 +367,8 @@ class App extends Component {
               // sceneIndex: res.data.sceneIndex,
               slider: res.data.slider[0]
           })
-          this.onCancel()
+          // this.onCancel()
+          // Used to close drawer, but ended up erasing this.state.message
         }
       })
   }
@@ -393,7 +394,7 @@ class App extends Component {
     const BG = {
         "backgroundImage": `url(${images[this.state.background]})`
     }
-    console.log(this.state.scene)
+    console.log(this.state)
     return (
       <MuiThemeProvider>
         <div className="BGcontainer" style={BG}>

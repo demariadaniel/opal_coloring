@@ -7,6 +7,8 @@ class HowToPlay extends Component {
         colors: []
     }
     componentDidMount(){
+        // Fill array of random colors on page load.
+        // Makes sure colors[15] & [16] are not white.
         let rndm = 0;
         let __color = [];
         for(let i = 0; i < 17; i++){
@@ -22,6 +24,8 @@ class HowToPlay extends Component {
     }
     render(){
         setTimeout(()=>{
+            // Randomly change one color every 300ms
+            // Indexes 15/16 (inner stars) should not be white
             let rndm = 0;
             let __color = this.state.colors;
             let i = parseInt(Math.random()*16);

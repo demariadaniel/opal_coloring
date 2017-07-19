@@ -1,3 +1,5 @@
+/* can we move these media queries to the bottom of css and remove !important ? */
+
 @media (max-width: 1400px) {
   html{
     font-size: 15px !important
@@ -21,7 +23,7 @@
     font-size: 12px !important
   }
 }
-
+/* changes */
 @media (max-width: 1024px) {
   html{
     font-size: 11px !important
