@@ -37,7 +37,7 @@ class FileApp extends Component {
         }
     }
     loadPalettes(){
-        axios.get('http://localhost:9393/palettes')
+        axios.get('/palettes')
             .then((res, err) =>{
                 if (err){
                     console.log(err);

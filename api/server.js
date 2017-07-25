@@ -6,6 +6,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser());
 app.use(bodyParser.urlencoded({extended:false}));
+app.us(express.static(__dirname + './../build'))
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -14,7 +15,7 @@ app.use((req, res, next) => {
 });
 
 // EXPRESS
-app.listen(9393, () => {
+app.listen(80, () => {
 	console.log('Server Started on http://localhost:9393');
 	console.log('Press CTRL + C to stop server');
 });
@@ -40,3 +41,7 @@ var userRoutes = require('./routes/user_routes');
 app.use('/users' , userRoutes);
 app.use('/palettes' , paletteRoutes);
 //app.use('/auth', auth_routes);
+
+app.get('*', (req, res) => {
+    res.sendFile('index.html',{root: __dirname + './../build'});
+});
