@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 app.use(bodyParser());
 app.use(bodyParser.urlencoded({extended:false}));
-app.us(express.static(__dirname + './../build'))
+app.use(express.static(__dirname + './../build'))
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
