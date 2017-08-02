@@ -7,7 +7,7 @@ router.get('/',(req,res) => {
 	Palette.find({}, (err, paletteArray) => {
 			if(err){
 				console.log(err);
-				res.send({error: true, errorMessage: `Error Loading Palettes. Error Message: ${err}`})
+				res.send({error: true, errorMessage: `Error Loading Palettes. \n\nError Message: ${err}`})
 			}
 			else{
 				console.log(paletteArray)
@@ -21,7 +21,7 @@ router.get('/:title',(req,res) => {
     Palette.findOne({"title":req.params.title}, (err, palette) => {
 			if(err){
 				console.log(err);
-				res.send({error: true, errorMessage: `Error Loading Palette. Error Message: Error Message: ${err}`})
+				res.send({error: true, errorMessage: `Error Loading Palette. \n\nError Message: Error Message: ${err}`})
 			}
 			else{
 				console.log(palette)
@@ -48,7 +48,7 @@ router.post('/',(req,res) => {
 						res.send({error:true, errorMessage:"Title already created"});
 					} else {
 						console.log(err)
-						res.send({error:true, errorMessage:`There was a problem, please try again later! Error Message: ${err}` })
+						res.send({error:true, errorMessage:`There was a problem, please try again later! \n\nError Message: ${err}` })
 					}
 				}
 				else{
@@ -63,7 +63,7 @@ router.post('/',(req,res) => {
 				res.send({error:true, errorMessage:"Palette deleted!" })
 			})
 			.catch(err =>{
-				res.send({error:true, errorMessage:`There was a problem, please try again later! Error Message: ${err}` })
+				res.send({error:true, errorMessage:`There was a problem, please try again later! \n\nError Message: ${err}` })
 			})
 	}
 

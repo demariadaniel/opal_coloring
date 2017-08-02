@@ -53,7 +53,7 @@ class App extends Component {
     debug: false,
     clickComplete: false,
     complete: 0,
-    userName: "Soji",
+    userName: "UserName",
     loggedIn: false,
     smallDevice: false,
     slider: {
