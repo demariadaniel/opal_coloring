@@ -7,7 +7,7 @@ router.get('/',(req,res) => {
 	Palette.find({}, (err, paletteArray) => {
 			if(err){
 				console.log(err);
-				res.send({error: true, errorMessage: "Error Loading Palettes"})
+				res.send({error: true, errorMessage: `Error Loading Palettes. Error Message: ${err}`})
 			}
 			else{
 				console.log(paletteArray)
@@ -21,7 +21,7 @@ router.get('/:title',(req,res) => {
     Palette.findOne({"title":req.params.title}, (err, palette) => {
 			if(err){
 				console.log(err);
-				res.send({error: true, errorMessage: "Error Loading Palette"})
+				res.send({error: true, errorMessage: `Error Loading Palette. Error Message: Error Message: ${err}`})
 			}
 			else{
 				console.log(palette)
@@ -33,26 +33,40 @@ router.get('/:title',(req,res) => {
 
 router.post('/',(req,res) => {
 	console.log(req.body)
-	let __palette = req.body;
-	for (let i = 0; i <10; i++){
-		delete __palette.palette[i]._id
-	}
-	let newPalette = Palette(__palette);
-	console.log(newPalette)
-		newPalette.save((err, savedPalette) => {
-			if(err){
-				if (err.code == 11000){
-					res.send({error:true, errorMessage:"Title already created"});
-				} else {
-					console.log(err)
-					res.send({error:true, errorMessage:"There was a problem, please try again later!" })
+	if (req.body.userName === "*DELETE"){
+		remove()
+	} else {
+		let __palette = req.body;
+		for (let i = 0; i <10; i++){
+			delete __palette.palette[i]._id
+		}
+		let newPalette = Palette(__palette);
+		console.log(newPalette)
+			newPalette.save((err, savedPalette) => {
+				if(err){
+					if (err.code == 11000){
+						res.send({error:true, errorMessage:"Title already created"});
+					} else {
+						console.log(err)
+						res.send({error:true, errorMessage:`There was a problem, please try again later! Error Message: ${err}` })
+					}
 				}
-			}
-			else{
-				console.log(savedPalette)
-				res.json(savedPalette)
-			}
-		})
+				else{
+					console.log(savedPalette)
+					res.json(savedPalette)
+				}
+			})
+	}
+	function remove(){
+		Palette.findOneAndRemove({title: req.body.title})
+			.then(palette => {
+				res.send({error:true, errorMessage:"Palette deleted!" })
+			})
+			.catch(err =>{
+				res.send({error:true, errorMessage:`There was a problem, please try again later! Error Message: ${err}` })
+			})
+	}
+
 });
 
 module.exports = router;
