@@ -279,7 +279,6 @@ class App extends Component {
             openM: true,
             message: `${title} saved to palettes!`
           })
-          this.onCancel()
        }
       })
   }
@@ -351,7 +350,6 @@ class App extends Component {
               `${res.data.userName}'s profile created!` :
               `${res.data.userName}'s profile saved successfully!`
           })
-          this.onCancel()
        }
       })
   }
