@@ -228,6 +228,12 @@ class HowToPlay extends Component {
                 </div>
                 <p>Opal is a kids color-by-numbers app, where surprise pictures are revealed as you play.</p>
                 <br/>
+                {this.props.smallDevice ? 
+                <div>
+                    <p>Sorry, Opal is not ready to work on mobile devices yet!</p>
+                    <p>Try us out on your laptop or tablet. Thanks!</p>
+                </div>
+                    : 
                 <div>
                     <h2>How to Play</h2>
                     <h3 className="rainbow">Colors</h3>
@@ -262,6 +268,7 @@ class HowToPlay extends Component {
                         <p>Share your picture to Facebook</p>
                     <br/>
                 </div>
+                }
             </div>
             )
         }

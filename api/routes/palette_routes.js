@@ -44,6 +44,7 @@ router.post('/',(req,res) => {
 					res.send({error:true, errorMessage:"Title already created"});
 				} else {
 					console.log(err)
+					res.send({error:true, errorMessage:"There was a problem, please try again later!" })
 				}
 			}
 			else{

@@ -65,7 +65,15 @@ class App extends Component {
     error: false
   }
   componentDidMount(){
-    this.setState({openM:true, message: <HowToPlay/>})
+      if(screen.width < 675){
+      this.setState({
+        smallDevice : true,
+        openM: true,
+        message: <HowToPlay smallDevice={true}/>
+      })
+    } else {
+      this.setState({openM:true, message: <HowToPlay smallDevice={false}/>})
+    }
   }
   onCancel(){
     this.setState({openL: false, openR: false, buying: false, message:""})
@@ -260,7 +268,7 @@ class App extends Component {
         if (res.data.error){
           this.setState({
             openM: true,
-            message: res.data.message
+            message: res.data.errorMessage
           })
         } else {
           this.setState({
@@ -276,7 +284,7 @@ class App extends Component {
       .then(res =>{
         if (res.data.error){
           this.setState({
-            message: res.data.message
+            message: res.data.errorMessage
           })
         } else {
           let _colors = this.state.colors; 
@@ -330,7 +338,7 @@ class App extends Component {
         console.log(res)
         if (res.data.error){
           this.setState({
-            message: res.data.message
+            message: res.data.errorMessage
           })
         } else {
           this.setState({
@@ -377,24 +385,20 @@ class App extends Component {
     for (let i = 0; i < images.length; i++){
       imagesTest.push(<img src={images[i]} />)
     }
-    // console.log(imagesTest)
 
     let Scene = Scenes[this.state.scene.index];
-    if(this.state.smallDevice === false 
-      && screen.width < 675){
-      this.setState({
-        smallDevice : true
-      })
-    }
+
     const OK = [
-      (<FlatButton onClick={()=>this.oK()}>
+      (<FlatButton onClick={()=>this.oK()}
+                   disabled={this.state.smallDevice}>
           {this.state.openM ? "Let's Play!" : "OK!"}
         </FlatButton>)
               ];
+
     const BG = {
         "backgroundImage": `url(${images[this.state.background]})`
     }
-    // console.log(this.state)
+
     return (
       <MuiThemeProvider>
         <div className="BGcontainer" style={BG}>
