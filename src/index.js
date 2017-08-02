@@ -377,7 +377,7 @@ class App extends Component {
     for (let i = 0; i < images.length; i++){
       imagesTest.push(<img src={images[i]} />)
     }
-    console.log(imagesTest)
+    // console.log(imagesTest)
 
     let Scene = Scenes[this.state.scene.index];
     if(this.state.smallDevice === false 
@@ -394,7 +394,7 @@ class App extends Component {
     const BG = {
         "backgroundImage": `url(${images[this.state.background]})`
     }
-    console.log(this.state)
+    // console.log(this.state)
     return (
       <MuiThemeProvider>
         <div className="BGcontainer" style={BG}>

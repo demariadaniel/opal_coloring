@@ -42,6 +42,8 @@ router.post('/',(req,res) => {
 			if(err){
 				if (err.code == 11000){
 					res.send({error:true, errorMessage:"Title already created"});
+				} else {
+					console.log(err)
 				}
 			}
 			else{

@@ -16,7 +16,7 @@ app.use((req, res, next) => {
 
 // EXPRESS
 app.listen(process.env.PORT || 80, () => {
-	console.log('Server Started on http://localhost:9393');
+	console.log(`Server Started on Port ${process.env.PORT || 80}`);
 	console.log('Press CTRL + C to stop server');
 });
 
