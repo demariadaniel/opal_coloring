@@ -158,7 +158,7 @@ class FileApp extends Component {
                             style={{color: brightColors[parseInt(Math.random()*10)].color, 
                             display: 'block', margin: '0 auto'}}>
                                 {palette.title}
-                                {palette.user.userName !== "" ? ` by ${palette.user.userName}` : null}
+                                {palette.userName !== "" ? ` by ${palette.userName}` : null}
                         </FlatButton>
                         {palette.palette.map((color, k)=>{
                             return (
