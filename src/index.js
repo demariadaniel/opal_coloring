@@ -258,19 +258,23 @@ class App extends Component {
     })
   }
   onSaveColors(title, user){
+    console.log(user)
     let newPalette = {
       title: title,
       palette: this.state.colors,
       userName: user
     };
+    console.log(newPalette)
     axios.post('/palettes/', newPalette)
       .then(res =>{
         if (res.data.error){
+          console.log(res.data)
           this.setState({
             openM: true,
             message: res.data.errorMessage
           })
         } else {
+          console.log(res.data)
           this.setState({
             openM: true,
             message: `${title} saved to palettes!`

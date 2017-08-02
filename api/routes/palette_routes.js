@@ -38,6 +38,7 @@ router.post('/',(req,res) => {
 		delete __palette.palette[i]._id
 	}
 	let newPalette = Palette(__palette);
+	console.log(newPalette)
 		newPalette.save((err, savedPalette) => {
 			if(err){
 				if (err.code == 11000){
