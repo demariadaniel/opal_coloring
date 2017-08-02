@@ -87,14 +87,11 @@ class FileApp extends Component {
             __message += " title"
         }
         if (this.artistInput.value === "" && !this.state.loggedIn){
-            __message += " and a user name"
+            __message += __message.indexOf('title') == -1 ? '' : " and"
+            __message += " user name"
         }
         if (__message.length < 15){
-            this.props.onSaveColors(this.state.title, this.state.user);
-            // this.setState({
-            //     message: "",
-            //     error: false
-            // })
+            this.props.onSaveColors(this.titleInput.value, this.artistInput.value);
         } else {
             __message += "!";
             this.setState({
