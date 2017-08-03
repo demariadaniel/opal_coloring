@@ -1,5 +1,9 @@
 /* can we move these media queries to the bottom of css and remove !important ? */
 
+body {
+  width: 100vw
+}
+
 @media (max-width: 1400px) {
   html{
     font-size: 15px !important
@@ -23,7 +27,7 @@
     font-size: 12px !important
   }
 }
-/* changes */
+
 @media (max-width: 1024px) {
   html{
     font-size: 11px !important
@@ -32,13 +36,14 @@
 
 @media (max-width: 955px) {
   html{
-    font-size: 10px !important;
+    font-size: 13px !important;
   }
   body{
     overflow: scroll;
-    width: 955px
+    width: 100vw;
   }
 }
+
 
 .App {
   text-align: center;
