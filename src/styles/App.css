@@ -205,7 +205,9 @@ body {
 }
 
 .howToPlay p {
-  font-size: 1.25rem
+  font-size: 1.25rem;
+  padding : 0 5%;
+  line-height: 2.5rem;
 }
 
 .layer {
@@ -296,6 +298,10 @@ body {
   width: 100%;
   overflow: contain;
 }
+
+/* .smallDevice p {
+  padding : 0 5%;
+} */
 
 .stickerBody {
   display: inline-block;

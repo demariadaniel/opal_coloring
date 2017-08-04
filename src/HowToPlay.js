@@ -229,7 +229,7 @@ class HowToPlay extends Component {
                 <p>Opal is a kids color-by-numbers app, where surprise pictures are revealed as you play.</p>
                 <br/>
                 {this.props.smallDevice ? 
-                <div>
+                <div className="smallDevice">
                     <p>Sorry, Opal is not ready to work on mobile devices yet!</p>
                     <p>Try us out on your laptop or tablet. Thanks!</p>
                 </div>
@@ -237,16 +237,15 @@ class HowToPlay extends Component {
                 <div>
                     <h2>How to Play</h2>
                     <h3 className="rainbow">Colors</h3>
-                        <p>  Click one of the color buttons at the top-right of the screen to open the Colors menu.</p>
-                        <p>  Select a color, then press `Choose` and part of the picture will appear.</p>
-                        <p>  Choose all 10 colors to see the whole scene!</p>
+                        <p>Click one of the color buttons at the top-right of the screen to open the Colors menu.
+                           Select a color, then press `Choose` and part of the picture will appear. </p>
+                        <p>Choose all 10 colors to see the whole scene!</p>
                     <br/>
                     <h3 className="rainbow">Checkmarks</h3>
                         <p>  Each scene comes with a set of challenges called 'Checkmarks.'</p>
-                        <p>  There are a few different types of checkmarks, including Spelling, Counting and Creative questions.</p>
-                        <p>  Some checkmarks ask you to change the scene using a slider or by clicking on the picture.</p>
-                        <p>  When you have entered your answer, click the square box next to the challenge to complete that </p>
-                        <p>checkmark!</p>
+                        <p>  There are a few different types of checkmarks, including Spelling, Counting and Creative questions.
+                             Some checkmarks ask you to change the scene using a slider or by clicking on the picture.</p>
+                        <p>  When you have entered your answer, click the square box next to the challenge to complete that checkmark!</p>
                     <br/>
                     <h3 className="rainbow">Coins</h3>
                         <p>  Choosing colors and completing checkmarks will earn you coins!</p>
