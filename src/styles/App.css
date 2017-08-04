@@ -204,6 +204,10 @@ body {
   text-align: center;
 }
 
+.howToPlay p {
+  font-size: 1.25rem
+}
+
 .layer {
   position: absolute;
   top: 0rem;

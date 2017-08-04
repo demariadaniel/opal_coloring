@@ -597,6 +597,8 @@ class App extends Component {
   }
 }
 
+
+
 ReactDOM.render(
     screen.width < 675 ? <HowToPlay smallDevice={true} /> : <App />, 
   document.getElementById('root')
