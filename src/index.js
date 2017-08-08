@@ -10,6 +10,7 @@ import CoinsApp from './CoinsApp';
 import ChecksApp from './ChecksApp';
 import CollectionApp from './CollectionApp';
 import FileApp from './FileApp';
+import Logo from './Logo';
 import HowToPlay from './HowToPlay';
 
 // Scenes
@@ -38,8 +39,9 @@ const images = [image0, image1, image2];
 class App extends Component {
   state = {
     background: 0,
+    openA: false,
+    openB: false,
     openL: false,
-    openM: false,
     openR: false,
     colorIndex: 1,
     sceneIndex: 0,
@@ -68,18 +70,18 @@ class App extends Component {
       if(screen.width < 675){
       this.setState({
         smallDevice : true,
-        openM: true,
-        message: <HowToPlay smallDevice={true}/>
+        openA: true,
+        message: <Logo smallDevice={true}/>
       })
     } else {
-      this.setState({openM:true, message: <HowToPlay smallDevice={false}/>})
+      this.setState({openA:true, message: <Logo smallDevice={false}/>})
     }
   }
   onCancel(){
     this.setState({openL: false, openR: false, buying: false, message:""})
   }
   oK(){
-    this.setState({openM: false, message:""})
+    this.setState({openA: false, message:""})
   }
   onColorClick(e, num){
     if (this.state.openL || this.state.openR){
@@ -105,7 +107,7 @@ class App extends Component {
   onAppClick(e, app, side){
     if (app === "OPAL"){
           this.setState({
-            openM: true,
+            openA: true,
             message: <HowToPlay/>
         })
       } else if (this.state.openL || this.state.openR){
@@ -270,13 +272,13 @@ class App extends Component {
         if (res.data.error){
           console.log(res.data)
           this.setState({
-            openM: true,
+            openA: true,
             message: res.data.errorMessage
           })
         } else {
           console.log(res.data)
           this.setState({
-            openM: true,
+            openA: true,
             message: `${title} saved to palettes!`
           })
        }
@@ -345,7 +347,7 @@ class App extends Component {
           })
         } else {
           this.setState({
-            openM: true,
+            openA: true,
             message: mode === "NEW" ? 
               `${res.data.userName}'s profile created!` :
               `${res.data.userName}'s profile saved successfully!`
@@ -358,14 +360,14 @@ class App extends Component {
       .then(res =>{
         if (res.data.error){
           this.setState({
-            openM: true,
+            openA: true,
             error: true,
             message: res.data.errorMessage
           })
         } else {
           console.log(res.data)
             this.setState({
-              openM: true,
+              openA: true,
               message: `Welcome back ${res.data.userName}!`,
               userName: res.data.userName,
               background: res.data.background,
@@ -382,6 +384,15 @@ class App extends Component {
         }
       })
   }
+  toggleLogo(){
+    this.setState({
+      openB: !this.state.openB,
+      message: this.state.openB ? 
+          <Logo smallDevice={this.state.smallDevice}/>
+          :
+          <HowToPlay smallDevice={this.state.smallDevice}/> 
+    })
+  }
   render (){
     let imagesTest = [];
     for (let i = 0; i < images.length; i++){
@@ -390,21 +401,26 @@ class App extends Component {
 
     let Scene = Scenes[this.state.scene.index];
 
-    const OK = [
+    const OK = [(this.state.openA ? 
+      <FlatButton onClick={()=>this.toggleLogo()}
+                  disabled={this.state.smallDevice}>
+          {this.state.openB ? 'Logo' : 'Instructions'}
+      </FlatButton>
+      : null), 
       (<FlatButton onClick={()=>this.oK()}
                    disabled={this.state.smallDevice}>
-          {this.state.openM ? "Let's Play!" : "OK!"}
+          {this.state.openA ? "Let's Play!" : "OK!"}
         </FlatButton>)
               ];
 
     const BG = {
         "backgroundImage": `url(${images[this.state.background]})`
     }
-
+    console.log(this.state)
     return (
       <MuiThemeProvider>
         <div className="BGcontainer" style={BG}>
-            <Dialog open={this.state.openM} 
+            <Dialog open={this.state.openA} 
                 actions={OK}
                 autoScrollBodyContent={true}
                 onRequestClose={()=>this.oK()}>
