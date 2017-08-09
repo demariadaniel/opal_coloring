@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Logo from './Logo';
 import FlatButton from 'material-ui/FlatButton';
 import {brightColors, everyColor, grey, white} from './AllColors';
 

@@ -385,13 +385,15 @@ class App extends Component {
       })
   }
   toggleLogo(){
-    this.setState({
-      openB: !this.state.openB,
-      message: this.state.openB ? 
-          <Logo smallDevice={this.state.smallDevice}/>
-          :
-          <HowToPlay smallDevice={this.state.smallDevice}/> 
-    })
+    if(!this.state.smallDevice){
+      this.setState({
+        openB: !this.state.openB,
+        message: this.state.openB ? 
+            <Logo smallDevice={this.state.smallDevice}/>
+            :
+            <HowToPlay smallDevice={this.state.smallDevice}/> 
+      })
+    }
   }
   render (){
     let imagesTest = [];
@@ -616,6 +618,6 @@ class App extends Component {
 
 
 ReactDOM.render(
-    screen.width < 675 ? <HowToPlay smallDevice={true} /> : <App />, 
+    screen.width < 675 ? <Logo smallDevice={true} /> : <App />, 
   document.getElementById('root')
 );
