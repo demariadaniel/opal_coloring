@@ -75,19 +75,12 @@ const SkyCheckMarks = {
             value: 'dragon',
             max: 16,
             min: -8,
-            minAnswer: -3,
-            maxAnswer: 1,
+            minAnswer: 12,
+            maxAnswer: 16,
             default: 0,
             prize: 10,
             complete: false,
-            incorrect: 'Make the dragon retreat from the heroes!'
-        },{
-            text: "Help the Heroes defeat the Dragon",
-            type: "CLICK",
-            count: 0,
-            answer: 4,
-            prize: 10,
-            complete: false
+            incorrect: 'Make the dragon breathe fire!'
         }
     ]
 };

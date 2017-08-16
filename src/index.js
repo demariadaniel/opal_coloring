@@ -64,7 +64,8 @@ class App extends Component {
       treasure: 0
     },
     message: "",
-    error: false
+    error: false,
+    page: 0
   }
   componentDidMount(){
       if(screen.width < 675){
@@ -108,7 +109,7 @@ class App extends Component {
     if (app === "OPAL"){
           this.setState({
             openA: true,
-            message: <HowToPlay/>
+            message: <HowToPlay page={this.state.page} />
         })
       } else if (this.state.openL || this.state.openR){
         this.setState({
@@ -259,6 +260,12 @@ class App extends Component {
       debug: true
     })
   }
+  flipPage(num){
+    this.setState({
+      page: this.state.page+num,
+      message: <HowToPlay page={this.state.page+num} />
+    })
+  }
   onSaveColors(title, user){
     console.log(user)
     let newPalette = {
@@ -391,34 +398,57 @@ class App extends Component {
         message: this.state.openB ? 
             <Logo smallDevice={this.state.smallDevice}/>
             :
-            <HowToPlay smallDevice={this.state.smallDevice}/> 
+            <HowToPlay page={this.state.page} smallDevice={this.state.smallDevice}/> 
       })
     }
   }
   render (){
+    // Backgrounds as JSX
     let imagesTest = [];
     for (let i = 0; i < images.length; i++){
       imagesTest.push(<img src={images[i]} />)
     }
-
+    // Shorthand variable for Scene
     let Scene = Scenes[this.state.scene.index];
 
+    // Buttons for Modal 
+    // Returns an array of buttons 
+    // 1st 4 only return if looking at Logo / Instructions
     const OK = [(this.state.openA ? 
       <FlatButton onClick={()=>this.toggleLogo()}
                   disabled={this.state.smallDevice}>
-          {this.state.openB ? 'Logo' : 'Instructions'}
+                  Logo
       </FlatButton>
-      : null), 
+      : null),
+      (this.state.openA && !this.state.openB ? 
+      <FlatButton onClick={()=>this.toggleLogo()}
+                  disabled={this.state.smallDevice}>
+                  Instructions
+      </FlatButton>
+      : null),
+      (this.state.openA && this.state.openB ? 
+      <FlatButton onClick={()=>this.flipPage(-1)}
+                  disabled={this.state.page === 0}>
+                  &#60;&#60;
+      </FlatButton>
+      : null),
+      (this.state.openA && this.state.openB ? 
+      <FlatButton onClick={()=>this.flipPage(1)}
+                  disabled={this.state.page === 4}>
+                  >>
+      </FlatButton>
+      : null),
       (<FlatButton onClick={()=>this.oK()}
                    disabled={this.state.smallDevice}>
           {this.state.openA ? "Let's Play!" : "OK!"}
-        </FlatButton>)
+      </FlatButton>)
               ];
 
     const BG = {
         "backgroundImage": `url(${images[this.state.background]})`
     }
     console.log(this.state)
+    console.log(OK)
     return (
       <MuiThemeProvider>
         <div className="BGcontainer" style={BG}>
