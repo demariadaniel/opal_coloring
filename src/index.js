@@ -274,7 +274,7 @@ class App extends Component {
       userName: user
     };
     console.log(newPalette)
-    axios.post('/palettes/', newPalette)
+    axios.post('http://localhost:8080/palettes/', newPalette)
       .then(res =>{
         if (res.data.error){
           console.log(res.data)
@@ -414,7 +414,7 @@ class App extends Component {
     // Buttons for Modal 
     // Returns an array of buttons 
     // 1st 4 only return if looking at Logo / Instructions
-    const OK = [(this.state.openA ? 
+    const OK = [(this.state.openA && this.state.openB ? 
       <FlatButton onClick={()=>this.toggleLogo()}
                   disabled={this.state.smallDevice}>
                   Logo
