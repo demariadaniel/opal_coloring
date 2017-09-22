@@ -56,7 +56,8 @@ body {
   height: 60%;
   padding: 1.25rem;
   color: white;
-  overflow: scroll
+  overflow: scroll;
+  
 }
 
 .btmBtnBox {
