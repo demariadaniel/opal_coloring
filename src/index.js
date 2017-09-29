@@ -70,6 +70,7 @@ class App extends Component {
     page: 0                   //Current Page in Instructions
   }
   componentDidMount(){
+    // Determine if using Mobile device on page load
       if(screen.width < 675){
       this.setState({
         smallDevice : true,
@@ -85,12 +86,15 @@ class App extends Component {
     }
   }
   onCancel(){
+    //Close current menu
     this.setState({openL: false, openR: false, buying: false, message:""})
   }
   oK(){
+    //Close modal window
     this.setState({openA: false, openC: false, message:""})
   }
   onColorClick(e, num){
+    //Open Color Menu w/ selected color index
     if (this.state.openL || this.state.openR){
         this.setState({
           openR: false,
@@ -112,6 +116,7 @@ class App extends Component {
     }
   }
   onAppClick(e, app, side){
+    //Opens Logo/Instructions or Side Menus
     if (app === "OPAL"){
           this.setState({
             openA: true,
@@ -594,6 +599,7 @@ class App extends Component {
                 {(this.state.drawerIs === 'SCENE') ? 
                   <SceneApp
                     buying={this.state.buying}
+                    debug={this.state.debug}
                     scenes={this.state.scenes} 
                     applyScene={(scene)=>this.applyScene(scene)}
                     onCancel={()=>this.onCancel()}

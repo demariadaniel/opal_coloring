@@ -16,14 +16,16 @@ class SceneApp extends Component {
             this.setState({
                 error: true
             })
-        } else if (this.state.myScene.isUnlocked || this.state.buying) {
+        } else if (this.state.myScene.isUnlocked || this.state.buying || this.props.debug) {
             this.props.applyScene(this.state.myScene, this.state.index);
         }
     }
     disabled(){
-        if (this.state.myScene.isUnlocked && this.state.buying){
-            return true
-        } else if (this.state.myScene.isUnlocked == false && this.state.buying == false){
+        if (this.props.debug){
+            return false
+        } else if (
+            (this.state.myScene.isUnlocked && this.state.buying) ||
+            (this.state.myScene.isUnlocked == false && this.state.buying == false)){
             return true
         } else {
             return false

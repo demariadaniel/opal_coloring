@@ -1,34 +1,50 @@
 import React, { Component } from 'react';
 
 class SkyCastleBox extends Component {
-    state = {
-        colors: this.props.colors,
-        test: false,
-    }
     render(){
-        return (
-            <div className="skyCastleBox">
-                <LayerOne   color={this.state.colors[0].color} />
-                <LayerTwo   color={this.state.colors[1].color} />
-                <LayerThree color={this.state.colors[2].color} 
-                            treasure={this.props.slider.treasure}
-                            checkmarks={this.props.checkmarks.checkmarks}
-                            clickChallenge={(value)=>this.props.clickChallenge(value)} />
-                <LayerFour  color={this.state.colors[3].color} />
-                <LayerFive  color={this.state.colors[4].color} 
-                            flag={this.props.slider.flag} />
-                <LayerSix   color={this.state.colors[5].color} 
-                            treasure={this.props.slider.treasure}/>
-                <DragonLayer color0={this.state.colors[6].color} 
-                            color1={this.state.colors[7].color} 
-                            color2={this.state.colors[2].color}
-                            dragon={this.props.slider.dragon} />
-                <HeroLayer  color0={this.state.colors[8].color} 
-                            color1={this.state.colors[2].color}
-                            color2={this.state.colors[5].color} 
-                            hero={this.props.slider.hero} />
+        if (!this.props.test){
+            return (
+                <div className="skyCastleBox">
+                    <LayerOne   color={this.props.colors[0].color} />
+                    <LayerTwo   color={this.props.colors[1].color} />
+                    <LayerThree color={this.props.colors[2].color} 
+                                treasure={this.props.slider.treasure}
+                                checkmarks={this.props.checkmarks.checkmarks}
+                                clickChallenge={(value)=>this.props.clickChallenge(value)} />
+                    <LayerFour  color={this.props.colors[3].color} />
+                    <LayerFive  color={this.props.colors[4].color} 
+                                flag={this.props.slider.flag} />
+                    <LayerSix   color={this.props.colors[5].color} 
+                                treasure={this.props.slider.treasure}/>
+                    <DragonLayer color0={this.props.colors[6].color} 
+                                color1={this.props.colors[7].color} 
+                                color2={this.props.colors[2].color}
+                                dragon={this.props.slider.dragon} />
+                    <HeroLayer  color0={this.props.colors[8].color} 
+                                color1={this.props.colors[2].color}
+                                color2={this.props.colors[5].color} 
+                                hero={this.props.slider.hero} />
+                </div>
+            )
+        } else {
+            return (
+                <div className="skyCastleBox">
+                {/* Placeholder scene. Map each color on to an icon. Color 9
+                is the background, so use color 0 instead when i === 9.   */}
+                {this.props.colors.map((color, j)=>{
+                    return(
+                        <i
+                            key={j} 
+                            style={this.props.colors[j===9 ? 0 : j]} 
+                            className="material-icons md-250">
+                            cloud_circle
+                        </i>
+                        )
+                    })
+                }
             </div>
-        )
+            )
+        }
     }
 }
 
