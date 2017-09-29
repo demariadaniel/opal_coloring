@@ -39,33 +39,35 @@ const images = [image0, image1, image2];
 class App extends Component {
   state = {
     background: 0,
-    openA: false,
-    openB: false,
-    openL: false,
-    openR: false,
-    colorIndex: 1,
-    sceneIndex: 0,
-    drawerIs: 'COLOR',
+    openA: false,             //Opens/Closes Dialog Modal Window
+    openB: false,             //Toggles Between Logo/Instructions
+    openC: false,             //Show/Hide Instructions
+    openL: false,             //Open Left Menu
+    openR: false,             //Open Right Menu
+    colorIndex: 1,            //Current Color Selected in Colors Array
+    sceneIndex: 0,            //Current Scene Selected in Scenes Array
+    drawerIs: 'COLOR',        //What Menu to Display
     colors: [white, white, white, white, white, white, white, white, white, white],
-    scene: AllScenes[0],
-    scenes: AllScenes,
-    coins: 0,
-    coinFlip: false,
-    buying: false,
-    debug: false,
-    clickComplete: false,
-    complete: 0,
-    userName: "UserName",
-    loggedIn: false,
-    smallDevice: false,
-    slider: {
+                              //Array of Color Objects / Current Palette
+    scene: AllScenes[0],      //Current Scene Displayed
+    scenes: AllScenes,        //Collection of all Scene Objects
+    coins: 0,                 //Total Coins
+    coinFlip: false,          //Coin Animation Toggle
+    buying: false,            //Enable/Disable Buying Feature
+    debug: false,             //Debug Mode Enable/Disable
+    clickComplete: false,     //Used to complete Click Challenges
+    complete: 0,              //Number of Checkmarks Completed
+    userName: "UserName",     //Current User Name
+    loggedIn: false,          //Logged In
+    smallDevice: false,       //True if on Mobile devices smaller than a tablet
+    slider: {                 //Values for Slider challenges
       flag: "14deg",
       dragon: 0,
       treasure: 0
     },
-    message: "",
-    error: false,
-    page: 0
+    message: "",              //Message to display in Modal
+    error: false,             //Problem?
+    page: 0                   //Current Page in Instructions
   }
   componentDidMount(){
       if(screen.width < 675){
@@ -75,14 +77,18 @@ class App extends Component {
         message: <Logo smallDevice={true}/>
       })
     } else {
-      this.setState({openA:true, message: <Logo smallDevice={false}/>})
+      this.setState({
+        openA:true, 
+        openC: true, 
+        message: <Logo smallDevice={false}/>
+      })
     }
   }
   onCancel(){
     this.setState({openL: false, openR: false, buying: false, message:""})
   }
   oK(){
-    this.setState({openA: false, message:""})
+    this.setState({openA: false, openC: false, message:""})
   }
   onColorClick(e, num){
     if (this.state.openL || this.state.openR){
@@ -109,6 +115,7 @@ class App extends Component {
     if (app === "OPAL"){
           this.setState({
             openA: true,
+            openC: true,
             message: <HowToPlay page={this.state.page} />
         })
       } else if (this.state.openL || this.state.openR){
@@ -274,18 +281,20 @@ class App extends Component {
       userName: user
     };
     console.log(newPalette)
-    axios.post('http://localhost:8080/palettes/', newPalette)
+    axios.post('/palettes/', newPalette)
       .then(res =>{
         if (res.data.error){
           console.log(res.data)
           this.setState({
             openA: true,
+            openC: false,
             message: res.data.errorMessage
           })
         } else {
           console.log(res.data)
           this.setState({
             openA: true,
+            openC: false,
             message: `${title} saved to palettes!`
           })
        }
@@ -414,25 +423,25 @@ class App extends Component {
     // Buttons for Modal 
     // Returns an array of buttons 
     // 1st 4 only return if looking at Logo / Instructions
-    const OK = [(this.state.openA && this.state.openB ? 
+    const OK = [(this.state.openB && this.state.openC ? 
       <FlatButton onClick={()=>this.toggleLogo()}
                   disabled={this.state.smallDevice}>
                   Logo
       </FlatButton>
       : null),
-      (this.state.openA && !this.state.openB ? 
+      (!this.state.openB && this.state.openC ? 
       <FlatButton onClick={()=>this.toggleLogo()}
                   disabled={this.state.smallDevice}>
                   Instructions
       </FlatButton>
       : null),
-      (this.state.openA && this.state.openB ? 
+      (this.state.openB && this.state.openC ? 
       <FlatButton onClick={()=>this.flipPage(-1)}
                   disabled={this.state.page === 0}>
                   &#60;&#60;
       </FlatButton>
       : null),
-      (this.state.openA && this.state.openB ? 
+      (this.state.openB && this.state.openC ? 
       <FlatButton onClick={()=>this.flipPage(1)}
                   disabled={this.state.page === 4}>
                   >>
@@ -440,7 +449,7 @@ class App extends Component {
       : null),
       (<FlatButton onClick={()=>this.oK()}
                    disabled={this.state.smallDevice}>
-          {this.state.openA ? "Let's Play!" : "OK!"}
+          {this.state.openC ? "Let's Play!" : "OK!"}
       </FlatButton>)
               ];
 
