@@ -23,7 +23,6 @@ app.listen(process.env.PORT || 80, () => {
 // MONGOOSE
 mongoose.connect('mongodb://localhost/data/db/');
 mongoose.Promise = global.Promise;
-// assert.equal(query.exec().constructor, global.Promise);
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', () => {
 	console.log("Connected to db at /data/db/")
@@ -40,7 +39,6 @@ var userRoutes = require('./routes/user_routes');
 //ENDPOINTS
 app.use('/users' , userRoutes);
 app.use('/palettes' , paletteRoutes);
-//app.use('/auth', auth_routes);
 
 app.get('*', (req, res) => {
     res.sendFile('index.html',{root: __dirname + './../build'});

@@ -7,7 +7,7 @@ class ColorApp extends Component {
     myColor: {color: "#222"},
     colors: stdColors
   }
-  onColorClick(e, color) {
+  onColorClick = (e, color)=> {
     this.setState({myColor: color})
   }
   onLightClick(e, colors) {
