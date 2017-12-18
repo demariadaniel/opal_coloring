@@ -67,7 +67,7 @@ class LayerOne extends Component {
                     className="material-icons design">
                     local_florist
                 </i>
-               {/* <i style={{
+                {/* <i style={{
                     "top": "30rem", "left": "15rem", "font-size": "3rem",
                     "color": this.props.color[1].color
                 }}
@@ -156,31 +156,36 @@ class LayerTwo extends Component {
             </i>*/}
                 <i style={{
                     "top": "27rem", "left": "7.5rem", "font-size": "3rem",
-                    "color": this.props.color[index()].color}}
+                    "color": this.props.color[index()].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
                 <i style={{
                     "top": "27rem", "left": "12.5rem", "font-size": "3rem",
-                    "color": this.props.color[1].color}}
+                    "color": this.props.color[1].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
                 <i style={{
                     "top": "27rem", "left": "17.5rem", "font-size": "3rem",
-                    "color": this.props.color[2].color}}
+                    "color": this.props.color[2].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
                 <i style={{
                     "top": "27rem", "left": "22.5rem", "font-size": "3rem",
-                    "color": this.props.color[index()].color}}
+                    "color": this.props.color[index()].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
                 <i style={{
                     "top": "27rem", "left": "27.5rem", "font-size": "3rem",
-                    "color": this.props.color[0].color}}
+                    "color": this.props.color[0].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
@@ -189,28 +194,38 @@ class LayerTwo extends Component {
                     className="material-icons design">
                     local_florist
                 </i>*/}
-                <i style={{"top": "27rem", "left":"37.5rem", "font-size": "3rem",
-                    "color":this.props.color[2].color}}
+                <i style={{
+                    "top": "27rem", "left": "37.5rem", "font-size": "3rem",
+                    "color": this.props.color[2].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
-                <i style={{"top": "27rem", "left":"42.5rem", "font-size": "3rem",
-                    "color":this.props.color[1].color}}
+                <i style={{
+                    "top": "27rem", "left": "42.5rem", "font-size": "3rem",
+                    "color": this.props.color[1].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
-                <i style={{"top": "27rem", "left":"47.5rem", "font-size": "3rem",
-                    "color":this.props.color[index()].color}}
+                <i style={{
+                    "top": "27rem", "left": "47.5rem", "font-size": "3rem",
+                    "color": this.props.color[index()].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
-                <i style={{"top": "27rem", "left":"52.5rem", "font-size": "3rem",
-                    "color":this.props.color[1].color}}
+                <i style={{
+                    "top": "27rem", "left": "52.5rem", "font-size": "3rem",
+                    "color": this.props.color[1].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
-                <i style={{"top": "27rem", "left":"57.5rem", "font-size": "3rem",
-                    "color":this.props.color[0].color}}
+                <i style={{
+                    "top": "27rem", "left": "57.5rem", "font-size": "3rem",
+                    "color": this.props.color[0].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
@@ -219,13 +234,17 @@ class LayerTwo extends Component {
                     className="material-icons design">
                     local_florist
             </i>*/}
-                <i style={{"top": "27rem", "left":"67.5rem", "font-size": "3rem",
-                    "color":this.props.color[2].color}}
+                <i style={{
+                    "top": "27rem", "left": "67.5rem", "font-size": "3rem",
+                    "color": this.props.color[2].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
-                <i style={{"top": "27rem", "left":"72.5rem", "font-size": "3rem",
-                    "color":this.props.color[index()].color}}
+                <i style={{
+                    "top": "27rem", "left": "72.5rem", "font-size": "3rem",
+                    "color": this.props.color[index()].color
+                }}
                     className="material-icons design">
                     local_florist
                 </i>
