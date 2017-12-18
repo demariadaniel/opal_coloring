@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import FlatButton from 'material-ui/FlatButton';
-import {brightColors, white, grey}  from './AllColors.js'
+import { brightColors, white, grey } from './AllColors.js'
 
 class CoinsApp extends Component {
     state = {
@@ -10,29 +10,29 @@ class CoinsApp extends Component {
         choice: "",
         error: false
     }
-    applyScene(){
+    applyScene() {
         this.props.applyScene(this.state.myScene);
     }
-    choose(){
-        if (this.state.type == "SCENE"){
+    choose() {
+        if (this.state.type == "SCENE") {
             this.props.buyScene()
         }
     }
-    componentDidUpdate(){
-        if (this.state.price > this.state.coins && this.state.error == false){
+    componentDidUpdate() {
+        if (this.state.price > this.state.coins && this.state.error == false) {
             this.setState({
                 error: true
             })
         }
     }
-    price(price, type, choice){
+    price(price, type, choice) {
         this.setState({
             price: price,
             type: type,
             choice: choice
         })
     }
-    onCancel(){
+    onCancel() {
         this.setState({
             price: 0,
             type: "",
@@ -41,38 +41,38 @@ class CoinsApp extends Component {
         })
         this.props.onCancel()
     }
-    render(){
-        return(
+    render() {
+        return (
             <div className="App">
-            <div className="App-header">
-                <i className="material-icons close" onClick={()=>this.props.onCancel()}>
-                    close
+                <div className="App-header">
+                    <i className="material-icons close" onClick={() => this.props.onCancel()}>
+                        close
                 </i>
-                <FlatButton style={white} onClick={()=>this.price(25, "SCENE")}>
-                    Unlock a New Scene
+                    <FlatButton style={white} onClick={() => this.price(25, "SCENE")}>
+                        Unlock a New Scene
                 </FlatButton>
-                <p style={grey}>
-                    Cost: <span className="rainbow">{this.state.price}</span>
-                </p>
-                <p style={grey}>
-                    Total Coins:  
+                    <p style={grey}>
+                        Cost: <span className="rainbow">{this.state.price}</span>
+                    </p>
+                    <p style={grey}>
+                        Total Coins:
                     <span className="rainbow"> {this.props.coins}</span>
-                </p>
+                    </p>
 
-                <FlatButton style={this.state.error ? grey : white} onClick={()=>this.choose()} 
-                    disabled={this.state.error}>
-                    Choose
+                    <FlatButton style={this.state.error ? grey : white} onClick={() => this.choose()}
+                        disabled={this.state.error}>
+                        Choose
                 </FlatButton>
-                <FlatButton style={white} onClick={()=>this.onCancel()}>
-                    Cancel
+                    <FlatButton style={white} onClick={() => this.onCancel()}>
+                        Cancel
                 </FlatButton>
-            </div>
-            <div className="scenePreview" style={{color: grey}}>
-                <i className="material-icons md-250">
-                    camera
+                </div>
+                <div className="scenePreview" style={{ color: grey }}>
+                    <i className="material-icons md-250">
+                        camera
                 </i>
+                </div>
             </div>
-          </div>
         )
     }
 }
