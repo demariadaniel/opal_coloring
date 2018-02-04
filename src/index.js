@@ -210,7 +210,6 @@ class App extends Component {
         bgIndex = 0;
       }
     }
-    console.log(bgIndex);
     this.setState({
       background: bgIndex
     })
@@ -228,7 +227,6 @@ class App extends Component {
     }, 200)
   }
   cheat(e) {
-    console.log(e)
     let coins = this.state.coins + 10;
     this.setState({
       coins: coins
@@ -281,24 +279,20 @@ class App extends Component {
     })
   }
   onSaveColors(title, user) {
-    console.log(user)
     let newPalette = {
       title: title,
       palette: this.state.colors,
       userName: user
     };
-    console.log(newPalette)
     axios.post('/palettes/', newPalette)
       .then(res => {
         if (res.data.error) {
-          console.log(res.data)
           this.setState({
             openA: true,
             openC: false,
             message: res.data.errorMessage
           })
         } else {
-          console.log(res.data)
           this.setState({
             openA: true,
             openC: false,
@@ -362,12 +356,12 @@ class App extends Component {
     let saveURL = '/users/save/' + user;
     axios.post(mode === "NEW" ? newURL : saveURL, saveData)
       .then(res => {
-        console.log("res: ")
-        console.log(res)
         if (res.data.error) {
-          this.setState({
-            message: res.data.errorMessage
-          })
+            this.setState({
+              openA: true,
+              openC: false,
+              message: res.data.errorMessage
+            })
         } else {
           this.setState({
             openA: true,
