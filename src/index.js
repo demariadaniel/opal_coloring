@@ -51,7 +51,7 @@ class App extends Component {
     drawerIs: 'COLOR',        //What Menu to Display
     colors: [white, white, white, white, white, white, white, white, white, white],
     //Array of Color Objects / Current Palette
-    scene: AllScenes[1],      //Current Scene Displayed
+    scene: AllScenes[0],      //Current Scene Displayed
     scenes: AllScenes,        //Collection of all Scene Objects
     coins: 0,                 //Total Coins
     coinFlip: false,          //Coin Animation Toggle
