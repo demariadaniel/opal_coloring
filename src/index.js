@@ -423,7 +423,6 @@ class App extends Component {
     }
     // Shorthand variable for Scene
     let Scene = Scenes[this.state.scene.index];
-
     // Buttons for Modal 
     // Returns an array of buttons 
     // 1st 4 only return if looking at Logo / Instructions
@@ -456,12 +455,9 @@ class App extends Component {
       {this.state.openC ? "Let's Play!" : "OK!"}
     </FlatButton>)
     ];
-
     const BG = {
       "backgroundImage": `url(${images[this.state.background]})`
     }
-    console.log(this.state)
-    console.log(OK)
     return (
       <MuiThemeProvider>
         <div className="BGcontainer" style={BG}>
