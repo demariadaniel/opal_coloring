@@ -22,8 +22,8 @@ router.post('/save/:userName',(req,res) => {
 	console.log('REQ : ' , req.body)
 	let __user = req.body;
     let options = {new: true, runValidators: true};
-		User.findOneAndUpdate({"userName": req.params.userName}, __user, options, () => {
-            if(err){
+		User.findOneAndUpdate({"userName": req.params.userName}, __user, options, (err, user) => {
+      if(err){
 				console.log(err)
 				res.json({error: true, errorMessage: 'There was an error, please try again later'})
 			} else {
