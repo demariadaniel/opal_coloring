@@ -1,49 +1,6 @@
-/* can we move these media queries to the bottom of css and remove !important ? */
-
 body {
   width: 100vw
 }
-
-@media (max-width: 1400px) {
-  html{
-    font-size: 15px !important
-  }
-}
-
-@media (max-width: 1300px) {
-  html{
-    font-size: 14px !important
-  }
-}
-
-@media (max-width: 1200px) {
-  html{
-    font-size: 13px !important
-  }
-}
-
-@media (max-width: 1100px) {
-  html{
-    font-size: 12px !important
-  }
-}
-
-@media (max-width: 1024px) {
-  html{
-    font-size: 11px !important
-  }
-}
-
-@media (max-width: 955px) {
-  html{
-    font-size: 13px !important;
-  }
-  body{
-    overflow: scroll;
-    width: 100vw;
-  }
-}
-
 
 .App {
   text-align: center;
@@ -53,7 +10,7 @@ body {
 
 .App-header {
   background-color: #222;
-  height: 60%;
+  height: 70vh;
   padding: 1.25rem;
   color: white;
   overflow: scroll;
@@ -187,7 +144,7 @@ body {
 
 .colorPreview {
   font-size: large;
-  height: 40%;
+  height: 30vh;
   width: 100%;
   transition: all ease 0.25s
 }
@@ -328,4 +285,44 @@ i.material-icons.design{
   top: 0px;
   left: 0px;
   transition: all ease 0.25s;
+}
+
+@media (max-width: 1400px) {
+  html{
+    font-size: 15px !important
+  }
+}
+
+@media (max-width: 1300px) {
+  html{
+    font-size: 14px !important
+  }
+}
+
+@media (max-width: 1200px) {
+  html{
+    font-size: 13px !important
+  }
+}
+
+@media (max-width: 1100px) {
+  html{
+    font-size: 12px !important
+  }
+}
+
+@media (max-width: 1024px) {
+  html{
+    font-size: 11px !important
+  }
+}
+
+@media (max-width: 955px) {
+  html{
+    font-size: 10px !important;
+  }
+  body{
+    overflow: scroll;
+    width: 100vw;
+  }
 }
