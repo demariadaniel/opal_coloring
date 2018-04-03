@@ -410,16 +410,11 @@ class App extends Component {
     }
   }
   render() {
-    // Backgrounds as JSX
-    let imagesTest = [];
-    for (let i = 0; i < images.length; i++) {
-      imagesTest.push(<img src={images[i]} />)
-    }
     // Shorthand variable for Scene
-    let Scene = Scenes[this.state.scene.index];
+    let Scene = this.state.scenes[this.state.scene.index];
     // Buttons for Modal 
-    // Returns an array of buttons 
-    // 1st 4 only return if looking at Logo / Instructions
+    //  Returns an array of buttons 
+    //  1st 4 only return if looking at Logo / Instructions
     const OK = [(this.state.openB && this.state.openC ?
       <FlatButton onClick={() => this.toggleLogo()}
         disabled={this.state.smallDevice}>
@@ -594,7 +589,7 @@ class App extends Component {
                 onCancel={() => this.onCancel()}
               />
               : null}
-            {(this.state.drawerIs === 'SAVE' ||
+            {(this.state.drawerIs === "SAVE" ||
               this.state.drawerIs === "LOAD" ||
               this.state.drawerIs === "LOGIN") ?
               <FileApp
